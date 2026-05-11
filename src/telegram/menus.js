@@ -42,7 +42,7 @@ export function filtersText() {
     `Min sources: ${strat.min_source_count}`,
     `Fee required: ${strat.require_fee_claim ? 'yes' : 'no'}`,
     '',
-    `Trending: <b>${boolSetting('trending_enabled', true) ? 'on' : 'off'}</b> · Source: <b>${escapeHtml(setting('trending_source', 'jupiter'))}</b>`,
+    `Trending: <b>${boolSetting('trending_enabled', true) ? 'on' : 'off'}</b> · Degen path: <b>${boolSetting('trending_allow_degen', false) ? 'on' : 'off'}</b> · Source: <b>${escapeHtml(setting('trending_source', 'jupiter'))}</b>`,
     `GMGN status: token-info ${escapeHtml(gmgnStatusText('token'))} · trending ${escapeHtml(gmgnStatusText('trending'))}`,
     `Trending interval: ${escapeHtml(setting('trending_interval', '5m'))} · Limit: ${numSetting('trending_limit', 100)}`,
     `Min trend volume: ${fmtUsd(strat.trending_min_volume_usd)} · Min swaps: ${strat.trending_min_swaps}`,
