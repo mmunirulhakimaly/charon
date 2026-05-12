@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ENABLE_LLM, LLM_API_KEY, LLM_BASE_URL, LLM_MODEL, LLM_TIMEOUT_MS } from '../config.js';
 import { now, stripThinking, strictJsonFromText } from '../utils.js';
-import { numSetting } from '../db/settings.js';
+import { activeStrategy, numSetting } from '../db/settings.js';
 import { db } from '../db/connection.js';
 
 export function normalizeDecision(parsed, fallbackReason = '') {
@@ -80,12 +80,16 @@ export async function decideCandidateBatch(rows, triggerCandidateId) {
     };
   }
 
+  const strat = activeStrategy();
   const system = [
     'You are Charon, a Solana meme coin trench analyst.',
     'Return strict JSON only.',
     'You will receive up to 10 recently matched candidates.',
     'Pick at most one candidate to buy through the configured execution mode.',
     'Use verdict BUY only for the single best unusually strong asymmetric opportunity.',
+    'If partial_tp is active, judge whether the candidate is worthy of holding the remaining moonbag after the partial take-profit.',
+    'BUY only candidates with asymmetric upside; candidates that only fit a quick scalp must be WATCH or PASS.',
+    'Do not suggest a take-profit below strategy_context.tp_percent.',
     'Use WATCH if candidates are interesting but none deserves a buy.',
     'Use PASS if the set is weak or unsafe.',
     'Chart data is ATH/range context. Do not penalize or reward a token only because 24h change is huge; new Pump tokens often do that.',
@@ -95,6 +99,18 @@ export async function decideCandidateBatch(rows, triggerCandidateId) {
   const user = {
     task: 'Pick the best dry-run buy candidate from this recent batch, or choose none.',
     recent_lessons: activeLessonsForPrompt(),
+    strategy_context: {
+      strategy_id: strat.id,
+      strategy_name: strat.name,
+      tp_percent: strat.tp_percent,
+      sl_percent: strat.sl_percent,
+      trailing_enabled: strat.trailing_enabled,
+      trailing_percent: strat.trailing_percent,
+      partial_tp: strat.partial_tp,
+      partial_tp_at_percent: strat.partial_tp_at_percent,
+      partial_tp_sell_percent: strat.partial_tp_sell_percent,
+      max_hold_ms: strat.max_hold_ms,
+    },
     output_schema: {
       verdict: 'BUY|WATCH|PASS',
       selected_candidate_id: 'integer candidate_id when verdict is BUY, otherwise null',
