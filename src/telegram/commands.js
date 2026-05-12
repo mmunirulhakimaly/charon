@@ -16,6 +16,8 @@ import {
   mainMenuText,
   walletsText,
   positionsText,
+  positionsSummaryText,
+  positionsSummaryKeyboard,
   candidateButtons,
   positionButtons,
   strategyMenuText,
@@ -159,9 +161,7 @@ export async function sendCandidate(chatId, id) {
 }
 
 export async function sendPositions(chatId) {
-  const rows = allPositions(12);
-  const text = rows.length ? rows.map(formatPosition).join('\n\n') : 'No dry-run positions yet.';
-  await bot.sendMessage(chatId, `📍 <b>Positions</b>\n\n${text}`, { parse_mode: 'HTML', disable_web_page_preview: true });
+  await bot.sendMessage(chatId, positionsSummaryText(), { parse_mode: 'HTML', ...positionsSummaryKeyboard() });
 }
 
 export async function sendPosition(chatId, id, query = null) {

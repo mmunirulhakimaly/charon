@@ -1,10 +1,11 @@
 import { escapeHtml, fmtPct, fmtSol, fmtUsd, short } from '../format.js';
 import { numSetting, boolSetting, setting, activeStrategy, allStrategies } from '../db/settings.js';
-import { openPositionCount, tradingMode, allPositions } from '../db/positions.js';
+import { openPositionCount, tradingMode, allPositions, openPositions } from '../db/positions.js';
 import { savedWallets } from '../enrichment/wallets.js';
 import { gmgnStatusText } from '../enrichment/gmgn.js';
 import { formatPosition } from './format.js';
 import { ENABLE_LLM, LLM_API_KEY } from '../config.js';
+import { db } from '../db/connection.js';
 
 export function menuKeyboard() {
   return {
@@ -196,6 +197,81 @@ export function walletsText() {
   return `👛 <b>Saved Wallets</b>\n\n${body}`;
 }
 
+export function positionsSummaryText() {
+  const open = openPositionCount();
+  const stats = db.prepare(`
+    SELECT COUNT(*) as total,
+           SUM(CASE WHEN pnl_percent > 0 THEN 1 ELSE 0 END) as wins,
+           SUM(pnl_sol) as totalPnlSol
+    FROM dry_run_positions WHERE status = 'closed'
+  `).get();
+  const closed = stats.total || 0;
+  const winRate = closed > 0 ? Math.round(stats.wins / closed * 100) : 0;
+  const pnl = Number(stats.totalPnlSol || 0);
+  const pnlStr = `${pnl >= 0 ? '+' : ''}${pnl.toFixed(3)} SOL`;
+  return [
+    '📍 <b>Positions</b>',
+    `Open: <b>${open}</b> · Closed: <b>${closed}</b>`,
+    closed > 0 ? `Win: <b>${winRate}%</b> · PnL: <b>${pnlStr}</b>` : null,
+  ].filter(Boolean).join('\n');
+}
+
+export function positionsSummaryKeyboard() {
+  const open = openPositionCount();
+  const closed = db.prepare(`SELECT COUNT(*) as c FROM dry_run_positions WHERE status = 'closed'`).get().c;
+  return {
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: `Open (${open})`, callback_data: 'positions:open' },
+          { text: `Closed (${closed})`, callback_data: 'positions:closed' },
+        ],
+        [{ text: 'Back', callback_data: 'menu:main' }],
+      ],
+    },
+  };
+}
+
+export function openPositionsListText() {
+  const rows = openPositions();
+  if (!rows.length) return '📍 <b>Open Positions</b>\n\nNo open positions.';
+  const lines = rows.map(r => `• <b>${escapeHtml(r.symbol || short(r.mint))}</b> #${r.id} · PnL: ${fmtPct(r.pnl_percent ?? 0)}`);
+  return `📍 <b>Open Positions</b>\n\n${lines.join('\n')}`;
+}
+
+export function openPositionsListKeyboard() {
+  const rows = openPositions();
+  const posButtons = rows.map(r => [{ text: `${escapeHtml(r.symbol || short(r.mint))} #${r.id}`, callback_data: `pos:${r.id}` }]);
+  return {
+    reply_markup: {
+      inline_keyboard: [
+        ...posButtons,
+        [{ text: 'Back', callback_data: 'positions:summary' }],
+      ],
+    },
+  };
+}
+
+export function closedPositionsText() {
+  const rows = db.prepare(`SELECT * FROM dry_run_positions WHERE status = 'closed' ORDER BY closed_at_ms DESC LIMIT 10`).all();
+  if (!rows.length) return '📍 <b>Closed Positions</b>\n\nNo closed positions yet.';
+  const lines = rows.map(r => {
+    const pnl = r.pnl_percent != null ? fmtPct(r.pnl_percent) : '—';
+    return `• <b>${escapeHtml(r.symbol || short(r.mint))}</b> #${r.id} · ${pnl} · ${escapeHtml(r.exit_reason || '—')}`;
+  });
+  return `📍 <b>Closed Positions</b> (last 10)\n\n${lines.join('\n')}`;
+}
+
+export function closedPositionsKeyboard() {
+  return {
+    reply_markup: {
+      inline_keyboard: [
+        [{ text: 'Back', callback_data: 'positions:summary' }],
+      ],
+    },
+  };
+}
+
 export function positionsText() {
   const rows = allPositions(12);
   const text = rows.length ? rows.map(formatPosition).join('\n\n') : 'No dry-run positions yet.';
@@ -370,7 +446,7 @@ export function positionButtons(positionId) {
     reply_markup: {
       inline_keyboard: [
         [
-          { text: 'Dry Sell', callback_data: `sell:${positionId}` },
+          { text: 'Sell', callback_data: `sell:${positionId}` },
           { text: 'Refresh', callback_data: `pos:${positionId}` },
         ],
         [
@@ -382,6 +458,7 @@ export function positionButtons(positionId) {
           { text: 'SL -25%', callback_data: `sl:${positionId}:-25` },
         ],
         [{ text: 'Trail On/Off', callback_data: `trail:${positionId}` }],
+        [{ text: 'Back', callback_data: 'positions:open' }],
       ],
     },
   };

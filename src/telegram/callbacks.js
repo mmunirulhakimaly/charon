@@ -12,6 +12,12 @@ import {
   mainMenuText,
   walletsText,
   positionsText,
+  positionsSummaryText,
+  positionsSummaryKeyboard,
+  openPositionsListText,
+  openPositionsListKeyboard,
+  closedPositionsText,
+  closedPositionsKeyboard,
   candidateButtons,
   sendTpSlDefaults,
   strategyMenuText,
@@ -56,7 +62,10 @@ export async function handleCallback(query) {
   if (data === 'menu:filters') return editMenuMessage(query, filtersText(), filtersKeyboard());
   if (data === 'menu:strategy') return editMenuMessage(query, strategyMenuText(), strategyKeyboard());
   if (data === 'menu:wallets') return editMenuMessage(query, walletsText(), navKeyboard());
-  if (data === 'menu:positions') return editMenuMessage(query, positionsText(), navKeyboard());
+  if (data === 'menu:positions') return editMenuMessage(query, positionsSummaryText(), positionsSummaryKeyboard());
+  if (data === 'positions:summary') return editMenuMessage(query, positionsSummaryText(), positionsSummaryKeyboard());
+  if (data === 'positions:open') return editMenuMessage(query, openPositionsListText(), openPositionsListKeyboard());
+  if (data === 'positions:closed') return editMenuMessage(query, closedPositionsText(), closedPositionsKeyboard());
   if (data === 'menu:pnl') {
     const { sendPnl } = await import('./send.js');
     return sendPnl(chatId, query);
