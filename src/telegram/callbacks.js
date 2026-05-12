@@ -44,6 +44,10 @@ export async function handleCallback(query) {
     setSetting('agent_enabled', boolSetting('agent_enabled', true) ? 'false' : 'true');
     return editMenuMessage(query, agentText(), agentKeyboard());
   }
+  if (data === 'toggle:moonbag_llm_review_enabled') {
+    setSetting('moonbag_llm_review_enabled', boolSetting('moonbag_llm_review_enabled', false) ? 'false' : 'true');
+    return editMenuMessage(query, agentText(), agentKeyboard());
+  }
   if (data === 'toggle:trending_enabled' || data === 'toggle:trending_allow_degen') {
     const key = data.replace('toggle:', '');
     setSetting(key, boolSetting(key, key === 'trending_enabled') ? 'false' : 'true');
@@ -248,14 +252,22 @@ async function updateSettingFromButton(query, key, value) {
     'default_sl_percent',
     'default_trailing_enabled',
     'default_trailing_percent',
+    'moonbag_llm_review_enabled',
+    'moonbag_llm_review_interval_ms',
+    'moonbag_llm_close_confidence',
+    'moonbag_llm_tighten_confidence',
   ]);
   if (!valid.has(key) || value == null) return bot.sendMessage(chatId, 'Unknown setting.');
   setSetting(key, value);
-  const text = key.startsWith('default_') || key === 'dry_run_buy_sol' || key === 'trading_mode' || key === 'llm_min_confidence' || key === 'llm_candidate_pick_count' || key === 'llm_candidate_max_age_ms' || key === 'max_open_positions'
-    ? agentText()
-    : filtersText();
-  const extra = key.startsWith('default_') || key === 'dry_run_buy_sol' || key === 'trading_mode' || key === 'llm_min_confidence' || key === 'llm_candidate_pick_count' || key === 'llm_candidate_max_age_ms' || key === 'max_open_positions'
-    ? agentKeyboard()
-    : filtersKeyboard();
+  const agentSetting = key.startsWith('default_')
+    || key === 'dry_run_buy_sol'
+    || key === 'trading_mode'
+    || key === 'llm_min_confidence'
+    || key === 'llm_candidate_pick_count'
+    || key === 'llm_candidate_max_age_ms'
+    || key === 'max_open_positions'
+    || key.startsWith('moonbag_llm_');
+  const text = agentSetting ? agentText() : filtersText();
+  const extra = agentSetting ? agentKeyboard() : filtersKeyboard();
   return editMenuMessage(query, text, extra);
 }

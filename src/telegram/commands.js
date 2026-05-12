@@ -134,6 +134,10 @@ export async function handleMessage(msg) {
       'default_sl_percent',
       'default_trailing_enabled',
       'default_trailing_percent',
+      'moonbag_llm_review_enabled',
+      'moonbag_llm_review_interval_ms',
+      'moonbag_llm_close_confidence',
+      'moonbag_llm_tighten_confidence',
     ]);
     if (!valid.has(key) || value == null) {
       return bot.sendMessage(chatId, `Usage: /setfilter &lt;name&gt; &lt;value&gt;\n\n${filtersText()}`, { parse_mode: 'HTML' });

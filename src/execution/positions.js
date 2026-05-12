@@ -1,5 +1,5 @@
 import { now, json } from '../utils.js';
-import { numSetting, boolSetting, strategyById } from '../db/settings.js';
+import { numSetting, strategyById } from '../db/settings.js';
 import { db } from '../db/connection.js';
 import { firstPositiveNumber, marketCapFromGmgn, tokenPriceFromGmgn } from '../utils.js';
 import { fetchGmgnTokenInfo } from '../enrichment/gmgn.js';
@@ -12,6 +12,7 @@ import { updateCandidateSnapshot } from '../db/candidates.js';
 import { trending } from '../signals/trending.js';
 import { executeLiveSell } from './router.js';
 import { sendPositionExit } from '../telegram/send.js';
+import { reviewMoonbagPosition } from '../pipeline/positionReviewer.js';
 
 export async function freshEntryMarket(mint, candidate) {
   const gmgn = await fetchGmgnTokenInfo(mint, false);
@@ -124,9 +125,7 @@ export async function refreshPosition(position, { autoExit = true, jupiterPnl = 
   }
   const tpHit = pnlPercent >= Number(position.tp_percent);
   const slHit = pnlPercent <= Number(position.sl_percent);
-  const trailingArmed = position.trailing_armed || (position.trailing_enabled && tpHit);
-  const trailDrop = highWaterMcap > 0 ? (Number(mcap) / highWaterMcap - 1) * 100 : 0;
-  const trailingHit = trailingArmed && position.trailing_enabled && trailDrop <= -Math.abs(Number(position.trailing_percent));
+  let trailingArmed = position.trailing_armed || (position.trailing_enabled && tpHit);
   let exitReason = null;
   let closed = false;
 
@@ -136,9 +135,12 @@ export async function refreshPosition(position, { autoExit = true, jupiterPnl = 
     exitReason = 'MAX_HOLD';
   }
 
+  let partialTpDone = Number(position.partial_tp_done || 0) === 1;
+
   // Partial TP check
-  if (!exitReason && strat?.partial_tp && !position.partial_tp_done && pnlPercent >= strat.partial_tp_at_percent) {
+  if (!exitReason && strat?.partial_tp && !partialTpDone && pnlPercent >= strat.partial_tp_at_percent) {
     db.prepare('UPDATE dry_run_positions SET partial_tp_done = 1 WHERE id = ?').run(position.id);
+    partialTpDone = true;
     console.log(`[position] ${position.id} partial TP at ${pnlPercent.toFixed(1)}% (${strat.partial_tp_sell_percent}% sell)`);
     if (position.execution_mode === 'live' && position.token_amount_raw) {
       try {
@@ -160,6 +162,69 @@ export async function refreshPosition(position, { autoExit = true, jupiterPnl = 
       }
     }
   }
+
+
+  // Moonbag LLM review after partial TP and before standard exit checks
+  if (!exitReason && partialTpDone) {
+    const review = await reviewMoonbagPosition({ ...position, partial_tp_done: 1 }, {
+      asset,
+      price,
+      mcap,
+      highWaterMcap,
+      highWaterPrice,
+      pnlPercent,
+      pnlSol,
+      trailingArmed,
+      strategy: strat,
+      jupiterPnl,
+    });
+    if (!review?.skipped) {
+      const tightenThreshold = numSetting('moonbag_llm_tighten_confidence', 75);
+      const closeThreshold = numSetting('moonbag_llm_close_confidence', 90);
+      if (review.verdict === 'TIGHTEN_TRAIL' && review.confidence >= tightenThreshold) {
+        const currentTrailing = Math.abs(Number(position.trailing_percent || 0));
+        const requestedTrailing = Number(review.new_trailing_percent || 0);
+        const nextTrailing = requestedTrailing > 0
+          ? Math.min(requestedTrailing, currentTrailing || requestedTrailing)
+          : currentTrailing;
+        if (nextTrailing > 0 && (!currentTrailing || nextTrailing < currentTrailing || !position.trailing_enabled)) {
+          db.prepare(`
+            UPDATE dry_run_positions
+            SET trailing_enabled = 1, trailing_armed = 1, trailing_percent = ?
+            WHERE id = ?
+          `).run(nextTrailing, position.id);
+          db.prepare(`
+            INSERT INTO tp_sl_rules (position_id, tp_percent, sl_percent, trailing_enabled, trailing_percent, updated_at_ms)
+            VALUES (?, ?, ?, 1, ?, ?)
+            ON CONFLICT(position_id) DO UPDATE SET
+              tp_percent = excluded.tp_percent,
+              sl_percent = excluded.sl_percent,
+              trailing_enabled = excluded.trailing_enabled,
+              trailing_percent = excluded.trailing_percent,
+              updated_at_ms = excluded.updated_at_ms
+          `).run(position.id, position.tp_percent, position.sl_percent, nextTrailing, now());
+          position.trailing_enabled = 1;
+          position.trailing_armed = 1;
+          position.trailing_percent = nextTrailing;
+          trailingArmed = true;
+          console.log(`[position] ${position.id} moonbag review tightened trail to ${nextTrailing}% (${review.confidence}%)`);
+        }
+      } else if (review.verdict === 'CLOSE_MOONBAG') {
+        const guardedCloseThreshold = position.execution_mode === 'live'
+          ? Math.max(closeThreshold, 95)
+          : closeThreshold;
+        if (review.confidence >= guardedCloseThreshold) {
+          exitReason = 'LLM_CLOSE_MOONBAG';
+          console.log(`[position] ${position.id} moonbag review close (${review.confidence}%): ${review.reason}`);
+        } else {
+          console.log(`[position] ${position.id} moonbag close ignored below threshold (${review.confidence}% < ${guardedCloseThreshold}%)`);
+        }
+      }
+    }
+  }
+
+  const trailDrop = highWaterMcap > 0 ? (Number(mcap) / highWaterMcap - 1) * 100 : 0;
+  const trailingHit = trailingArmed && position.trailing_enabled && trailDrop <= -Math.abs(Number(position.trailing_percent));
 
   // Standard exit checks
   if (!exitReason) {

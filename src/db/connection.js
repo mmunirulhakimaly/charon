@@ -112,6 +112,16 @@ export function initDb() {
       trailing_percent REAL NOT NULL,
       updated_at_ms INTEGER NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS position_reviews (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      position_id INTEGER NOT NULL,
+      created_at_ms INTEGER NOT NULL,
+      verdict TEXT NOT NULL,
+      confidence REAL NOT NULL,
+      reason TEXT,
+      risks_json TEXT NOT NULL,
+      raw_json TEXT NOT NULL
+    );
     CREATE TABLE IF NOT EXISTS trade_intents (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       candidate_id INTEGER NOT NULL,
@@ -194,6 +204,7 @@ export function initDb() {
     CREATE INDEX IF NOT EXISTS idx_alerts_status ON price_alerts(status, expires_at_ms);
     CREATE INDEX IF NOT EXISTS idx_candidates_mint ON candidates(mint);
     CREATE INDEX IF NOT EXISTS idx_positions_status ON dry_run_positions(status);
+    CREATE INDEX IF NOT EXISTS idx_position_reviews_position ON position_reviews(position_id, created_at_ms);
     CREATE INDEX IF NOT EXISTS idx_trade_intents_status ON trade_intents(status);
     CREATE INDEX IF NOT EXISTS idx_decision_logs_mint ON decision_logs(selected_mint);
     CREATE INDEX IF NOT EXISTS idx_signal_events_mint ON signal_events(mint);
@@ -240,6 +251,10 @@ export function initDb() {
     trending_min_swaps: process.env.TRENDING_MIN_SWAPS || '0',
     trending_max_rug_ratio: process.env.TRENDING_MAX_RUG_RATIO || '0.3',
     trending_max_bundler_rate: process.env.TRENDING_MAX_BUNDLER_RATE || '0.5',
+    moonbag_llm_review_enabled: process.env.MOONBAG_LLM_REVIEW_ENABLED || 'false',
+    moonbag_llm_review_interval_ms: process.env.MOONBAG_LLM_REVIEW_INTERVAL_MS || String(5 * 60 * 1000),
+    moonbag_llm_close_confidence: process.env.MOONBAG_LLM_CLOSE_CONFIDENCE || '90',
+    moonbag_llm_tighten_confidence: process.env.MOONBAG_LLM_TIGHTEN_CONFIDENCE || '75',
   };
   const insert = db.prepare('INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)');
   for (const [key, value] of Object.entries(defaults)) insert.run(key, value);
