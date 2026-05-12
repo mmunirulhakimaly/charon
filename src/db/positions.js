@@ -31,7 +31,10 @@ export function createDryRunPosition(candidateId, candidate, decision, reason = 
   const sizeSol = strat.position_size_sol ?? numSetting('dry_run_buy_sol', 0.1);
   const entryPrice = Number(candidate.metrics.priceUsd || 0) || null;
   const entryMcap = Number(candidate.metrics.marketCapUsd || candidate.metrics.graduatedMarketCapUsd || 0) || null;
-  const tp = Number(decision.suggested_tp_percent || strat.tp_percent || numSetting('default_tp_percent', 50));
+  const strategyTp = Number(strat.tp_percent ?? numSetting('default_tp_percent', 50));
+  const suggestedTp = Number(decision.suggested_tp_percent);
+  // Strategy TP is the floor to preserve moonbag/runner mode.
+  const tp = Number.isFinite(suggestedTp) && suggestedTp > strategyTp ? suggestedTp : strategyTp;
   const sl = Number(decision.suggested_sl_percent || strat.sl_percent || numSetting('default_sl_percent', -25));
   const trailingEnabled = (strat.trailing_enabled ?? boolSetting('default_trailing_enabled', true)) ? 1 : 0;
   const trailingPercent = strat.trailing_percent ?? numSetting('default_trailing_percent', 20);
@@ -85,7 +88,10 @@ export function createLivePosition(candidateId, candidate, decision, swap, reaso
   const sizeSol = strat.position_size_sol ?? numSetting('dry_run_buy_sol', 0.1);
   const entryPrice = Number(candidate.metrics.priceUsd || 0) || null;
   const entryMcap = Number(candidate.metrics.marketCapUsd || candidate.metrics.graduatedMarketCapUsd || 0) || null;
-  const tp = Number(decision.suggested_tp_percent || strat.tp_percent || numSetting('default_tp_percent', 50));
+  const strategyTp = Number(strat.tp_percent ?? numSetting('default_tp_percent', 50));
+  const suggestedTp = Number(decision.suggested_tp_percent);
+  // Strategy TP is the floor to preserve moonbag/runner mode.
+  const tp = Number.isFinite(suggestedTp) && suggestedTp > strategyTp ? suggestedTp : strategyTp;
   const sl = Number(decision.suggested_sl_percent || strat.sl_percent || numSetting('default_sl_percent', -25));
   const trailingEnabled = (strat.trailing_enabled ?? boolSetting('default_trailing_enabled', true)) ? 1 : 0;
   const trailingPercent = strat.trailing_percent ?? numSetting('default_trailing_percent', 20);
