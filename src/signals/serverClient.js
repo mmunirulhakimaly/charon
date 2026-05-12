@@ -69,6 +69,7 @@ export async function fetchServerSignals() {
 
       // Update trending map
       if (signal.trending) {
+        const computedSwaps = (signal.trending.buys ?? 0) + (signal.trending.sells ?? 0);
         const trendingToken = {
           address: mint,
           name: signal.name,
@@ -78,13 +79,13 @@ export async function fetchServerSignals() {
           liquidity: signal.liquidityUsd,
           holder_count: signal.holders,
           volume: signal.volume5m ?? signal.volume24h ?? 0,
-          // Server sends buys/sells separately; compute swaps so trending_min_swaps works
-          swaps: (signal.trending.buys ?? 0) + (signal.trending.sells ?? 0),
           source: signal.sources?.find(s => s.includes('trending')) || 'server',
           seenAt: now(),
           ...signal.trending,
+          // Ensure swaps is always a number; spread may not include it if server omits it
+          swaps: Number(signal.trending.swaps ?? computedSwaps),
         };
-        trending.set(mint, trendingToken);
+        if (trendingSignalPass(trendingToken)) trending.set(mint, trendingToken);
       }
 
       const key = `signal:${mint}`;
@@ -110,7 +111,7 @@ export async function fetchServerSignals() {
 
       // Strategy gate: token age
       if (strat.token_age_max_ms > 0) {
-        const tokenAge = signal.ageMs || 0;
+        const tokenAge = signal.ageMs ?? Infinity;
         if (tokenAge > strat.token_age_max_ms) { processed++; continue; }
       }
 

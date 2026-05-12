@@ -242,7 +242,7 @@ export function initDb() {
     gmgn_request_delay_ms: process.env.GMGN_REQUEST_DELAY_MS || '2500',
     gmgn_max_retries: process.env.GMGN_MAX_RETRIES || '2',
     trending_enabled: process.env.TRENDING_ENABLED || 'true',
-    trending_source: process.env.TRENDING_SOURCE || 'jupiter',
+    trending_source: process.env.TRENDING_SOURCE || 'gmgn',
     trending_allow_degen: process.env.TRENDING_ALLOW_DEGEN || 'false',
     trending_interval: process.env.TRENDING_INTERVAL || '5m',
     trending_limit: process.env.TRENDING_LIMIT || '100',
