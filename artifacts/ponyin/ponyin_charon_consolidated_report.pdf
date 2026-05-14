@@ -1,0 +1,2820 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 3655 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(PONYIN x CHARON CONSOLIDATED REPORT) Tj
+T* (Generated: 2026-05-14) Tj
+T* () Tj
+T* (EXECUTIVE READOUT) Tj
+T* (- Material panels captured: 21) Tj
+T* (- Space cards parsed: 11) Tj
+T* (- Space insights parsed: 68) Tj
+T* (- Distinct URLs seen: 29) Tj
+T* () Tj
+T* (The public site is a single-page React application with anti-print and anti-selection layers,) Tj
+T* (but its core educational content is embedded directly in client assets and recoverable through) Tj
+T* (crawl artifacts.) Tj
+T* (Charon overlaps strongly with Ponyin on fee quality, holder concentration, market-cap gating,) Tj
+T* (and disciplined execution. The main gaps are revoke/mint authority checks, Dex Paid/Ads/Boost) Tj
+T* (timing, wallet clustering, and explicit security education.) Tj
+T* () Tj
+T* (CRAWL INVENTORY) Tj
+T* (- index.html: 39 lines, 125 words, 1259 chars) Tj
+T* (- index.css: 3 lines, 783 words, 49021 chars) Tj
+T* (- index.js: 168 lines, 29846 words, 459811 chars) Tj
+T* (- homepage_dom_snapshot.txt: 680 lines, 4399 words, 28174 chars) Tj
+T* (- Anti-print layer present: yes) Tj
+T* (- Anti-selection layer present: yes) Tj
+T* (- Dark theme detected: yes) Tj
+T* (- Chatbot surface detected: yes) Tj
+T* () Tj
+T* (SITE ARCHITECTURE) Tj
+T* (- Thin HTML shell with React mount and asset references.) Tj
+T* (- Large CSS bundle with hero, sidebar, panels, proof gallery, scammer list, chatbot, theme) Tj
+T* (toggle.) Tj
+T* (- Large JS bundle containing lesson content, space summaries, and UI data.) Tj
+T* (- Material navigation uses panel switching inside a single-page app.) Tj
+T* () Tj
+T* (CHARON REPO SUMMARY) Tj
+T* (Node.js ESM app with Telegram bot, SQLite state, signal polling, enrichment, LLM screening, and) Tj
+T* (execution router.) Tj
+T* (- Control-plane files: [README.md]\(/C:/Users/munir/.codex/worktrees/c13c/charon/README.md\);) Tj
+T* ([src/config.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/config.js\);) Tj
+T* ([src/app.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/app.js\)) Tj
+T* (- Core logic modules:) Tj
+T* ([src/db/connection.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/db/connection.js\);) Tj
+T* ([src/db/settings.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/db/settings.js\);) Tj
+T* ([src/pipeline/candidateBuilder.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/pipeline/ca-) Tj
+T* (ndidateBuilder.js\);) Tj
+T* ([src/pipeline/orchestrator.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/pipeline/orches-) Tj
+T* (trator.js\);) Tj
+T* ([src/pipeline/llm.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/pipeline/llm.js\);) Tj
+T* ([src/signals/serverClient.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/signals/serverCl-) Tj
+T* (ient.js\);) Tj
+T* ([src/execution/positions.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/execution/positio-) Tj
+T* (ns.js\); [src/liveExecutor.js]\(/C:/Users/munir/.codex/worktrees/c13c/charon/src/liveExecutor.js\)) Tj
+T* () Tj
+T* (CONSOLIDATION MATRIX) Tj
+T* (1. Bundle token / multi-wallet concentration) Tj
+T* (Ponyin: Vol.1 panel 1 and several Space recordings push traders to read hidden supply) Tj
+T* (concentration rather than nave wallet counts.) Tj
+T* (Charon: Mapped to `max_top20_holder_percent`, `trending_max_bundler_rate`, Jupiter holder reads,) Tj
+T* (and saved-wallet exposure in candidate enrichment.) Tj
+T* (Files: src/pipeline/candidateBuilder.js, src/db/connection.js, src/db/settings.js) Tj
+T* (Status: Partial fit) Tj
+T* (Gap: Charon filters concentration and bundler rate, but it does not model identity-clustered) Tj
+T* (wallets or explicit bundle detection beyond upstream metrics.) Tj
+T* () Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 2 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 3665 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(2. Global fees / fake volume detection) Tj
+T* (Ponyin: Vol.1 panel 2 frames global fees as the cleanest lie detector for wash-traded volume.) Tj
+T* (Charon: Strongly represented by fee-claim routing and `min_fee_claim_sol` /) Tj
+T* (`min_gmgn_total_fee_sol` gates.) Tj
+T* (Files: src/pipeline/candidateBuilder.js, src/signals/serverClient.js, src/config.js) Tj
+T* (Status: Strong fit) Tj
+T* (Gap: Charon consumes fee signals and GMGN totals, but does not present the ratio explanation to) Tj
+T* (end users the way Ponyin does.) Tj
+T* () Tj
+T* (3. Revoke / mint authority risk) Tj
+T* (Ponyin: Vol.1 panel 3 warns that revoke alone is not enough and active mint authority is a red) Tj
+T* (flag.) Tj
+T* (Charon: No first-class revoke or mint-authority check exists in the current repo.) Tj
+T* (Files: src/pipeline/candidateBuilder.js) Tj
+T* (Status: Missing) Tj
+T* (Gap: This is a clear candidate for a new enrichment source and hard filter.) Tj
+T* () Tj
+T* (4. Meme vs utility positioning) Tj
+T* (Ponyin: Vol.1 panel 4 explicitly chooses meme-speed learning over slow fundamental utility) Tj
+T* (analysis.) Tj
+T* (Charon: Product identity matches: README calls Charon a Solana trench agent focused on noisy) Tj
+T* (Pump-token flow.) Tj
+T* (Files: README.md, src/app.js) Tj
+T* (Status: Aligned) Tj
+T* (Gap: No issue here; the repo already lives on the meme-trading side of the spectrum.) Tj
+T* () Tj
+T* (5. Dex paid / ads / boosts timing) Tj
+T* (Ponyin: Vol.1 panel 5 says timing of paid visibility matters more than the presence of paid) Tj
+T* (visibility itself.) Tj
+T* (Charon: Closest proxy is trending ingestion and hotness / swap / rug / bundler filters.) Tj
+T* (Files: src/signals/serverClient.js, src/pipeline/candidateBuilder.js, src/db/connection.js) Tj
+T* (Status: Partial fit) Tj
+T* (Gap: No explicit DexScreener ads / paid / boost signal is ingested today.) Tj
+T* () Tj
+T* (6. Three-candle dip confirmation) Tj
+T* (Ponyin: Vol.1 panel 6 teaches staged entry and confirmation before sizing up.) Tj
+T* (Charon: The nearest analogue is `dip_buy` plus stored price alerts and ATH-distance triggers.) Tj
+T* (Files: src/db/connection.js, src/signals/serverClient.js, src/signals/priceMonitor.js) Tj
+T* (Status: Partial fit) Tj
+T* (Gap: No literal candle-pattern confirmation exists; execution waits for price conditions, not) Tj
+T* (candle structure.) Tj
+T* () Tj
+T* (7. Cabal play / who is moving the coin) Tj
+T* (Ponyin: Vol.1 panel 7 and multiple spaces emphasize knowing the operators behind a move.) Tj
+T* (Charon: Routes fee/graduated/trending overlap, tracks saved wallets, and exposes trend quality) Tj
+T* (metrics.) Tj
+T* (Files: src/pipeline/candidateBuilder.js, src/signals/serverClient.js, src/enrichment/wallets.js) Tj
+T* (Status: Partial fit) Tj
+T* (Gap: No explicit cabal graph or actor attribution layer exists.) Tj
+T* () Tj
+T* (8. Holder reading beyond surface counts) Tj
+T* (Ponyin: Vol.1 panel 8 says raw holder percentages are insufficient in a multi-wallet world.) Tj
+T* (Charon: Uses holder counts, top-holder concentration, and saved-wallet overlap during filtering) Tj
+T* (and refresh.) Tj
+T* (Files: src/pipeline/candidateBuilder.js, src/execution/positions.js, src/enrichment/wallets.js) Tj
+T* (Status: Good fit) Tj
+T* (Gap: Still lacks wallet-cluster heuristics.) Tj
+T* () Tj
+T* (9. Market-cap tiers and playbook shifts) Tj
+T* (Ponyin: Vol.1 panel 9 and advanced panels repeatedly separate microcap behavior from larger) Tj
+T* (caps.) Tj
+T* (Charon: Directly implemented through per-strategy `min_mcap_usd`, `max_mcap_usd`, graduated) Tj
+T* (volume gates, and strategy-specific size/TP/SL settings.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 3372 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Files: src/db/connection.js, src/db/settings.js, src/pipeline/candidateBuilder.js) Tj
+T* (Status: Strong fit) Tj
+T* (Gap: Could be made more readable in Telegram UX by surfacing the active cap tier logic.) Tj
+T* () Tj
+T* (10. Money management / partials / moonbag discipline) Tj
+T* (Ponyin: Advanced panels and spaces stress staged exits, compounding discipline, and not dying) Tj
+T* (from one bad decision.) Tj
+T* (Charon: Dry-run/live positions support TP, SL, trailing TP, partial TP, max hold, and moonbag) Tj
+T* (LLM review.) Tj
+T* (Files: src/db/connection.js, src/execution/positions.js, src/pipeline/positionReviewer.js) Tj
+T* (Status: Strong fit) Tj
+T* (Gap: The strategy exists in code, but not all of Ponyin's pedagogical framing is surfaced in) Tj
+T* (docs or bot copy.) Tj
+T* () Tj
+T* (11. Cheap execution / custom infra / RPC edge) Tj
+T* (Ponyin: Advanced panels and spaces talk about bots vs terminals, Rust/JS literacy, private RPC,) Tj
+T* (and faster execution.) Tj
+T* (Charon: Live mode depends on Solana RPC, websocket, Jupiter swap API, and direct signed) Tj
+T* (transaction execution.) Tj
+T* (Files: src/config.js, src/liveExecutor.js, README.md) Tj
+T* (Status: Aligned) Tj
+T* (Gap: Repo uses Jupiter Ultra flow but does not expose infra benchmarking or advanced) Tj
+T* (private-orderflow logic.) Tj
+T* () Tj
+T* (12. Scam / drainer / opsec education) Tj
+T* (Ponyin: Advanced security material plus the Scammer section focus on anti-drain hygiene and) Tj
+T* (identity risk.) Tj
+T* (Charon: Repo validates credentials and isolates trading flows, but it does not implement) Tj
+T* (scammer-list, drainer detection, or wallet-opsec education as product features.) Tj
+T* (Files: src/config.js, src/telegram/menus.js) Tj
+T* (Status: Mostly missing) Tj
+T* (Gap: More of a product-education gap than a trading-logic gap.) Tj
+T* () Tj
+T* (RECOMMENDED REPO FOLLOW-UPS) Tj
+T* (1. Add explicit revoke-authority and mint-authority checks to candidate enrichment and) Tj
+T* (filtering.) Tj
+T* (2. Consider a DEX visibility module for Dex Paid / Ads / Boost timing if that data source is) Tj
+T* (available.) Tj
+T* (3. Add a wallet-clustering heuristic so multi-wallet bundle patterns are not reduced to plain) Tj
+T* (top-holder percentages.) Tj
+T* (4. Expose more of the strategy rationale in Telegram summaries so users see why a candidate) Tj
+T* (passed or failed in Ponyin-style language.) Tj
+T* (5. Security education sections from Ponyin could become bot commands or a static help module,) Tj
+T* (especially for drainer / burner-wallet hygiene.) Tj
+T* () Tj
+T* (OUTBOUND URL INVENTORY) Tj
+T* (-) Tj
+T* (https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=solana&price_change_percenta-) Tj
+T* (ge=24h) Tj
+T* (- https://fonts.googleapis.com) Tj
+T* (- https://fonts.gstatic.com) Tj
+T* (- https://reactjs.org/docs/error-decoder.html?invariant=) Tj
+T* (- https://refundyoursol.com/B2E6CA901EFE9F86) Tj
+T* (- https://t.me/ponyinnn) Tj
+T* (- https://trojan.com/@Keusel) Tj
+T* (- https://trojan.com/@Ponyinnn) Tj
+T* (- https://va.vercel-scripts.com/v1/script.debug.js) Tj
+T* (- https://vercel.com/docs/analytics/quickstart) Tj
+T* (- https://www.tiktok.com/@hussainyn2) Tj
+T* (- https://www.tiktok.com/@mrpepe.idn) Tj
+T* (- https://x.com/elponyin) Tj
+T* (- https://x.com/fabolousgringo) Tj
+T* (- https://x.com/fadeproXBT) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+8 0 obj
+<< /Length 2944 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(- https://x.com/Hopium_papa) Tj
+T* (- https://x.com/i/spaces/1AKEmOnWLDOKL?s=20) Tj
+T* (- https://x.com/i/spaces/1DxLdvEqgraxm?s=20) Tj
+T* (- https://x.com/i/spaces/1DxleEwlVagKL?s=20) Tj
+T* (- https://x.com/i/spaces/1MJgNgydPayGL?s=20) Tj
+T* (- https://x.com/i/spaces/1mxPaLpMVXYKN?s=20) Tj
+T* (- https://x.com/i/spaces/1nxnRYOoNVLxO?s=20) Tj
+T* (- https://x.com/i/spaces/1pJkOybvgOrJj?s=20) Tj
+T* (- https://x.com/i/spaces/1qGvvkmVpvpGB?s=20) Tj
+T* (- https://x.com/i/spaces/1qKDzPEPLPAJV?s=20) Tj
+T* (- https://x.com/i/spaces/1qxoNezjdmjJv?s=20) Tj
+T* (- https://x.com/i/spaces/1yxBeMvqddEJN?s=20) Tj
+T* (- https://x.com/maverickthefirst) Tj
+T* (- https://x.com/zeusyxyz) Tj
+T* () Tj
+T* (SCAMMER LIST) Tj
+T* (- X | @fadeproXBT | | https://x.com/fadeproXBT) Tj
+T* (- X | @Hopium_papa | | https://x.com/Hopium_papa) Tj
+T* (- X | @fabolousgringo | | https://x.com/fabolousgringo) Tj
+T* (- X | @zeusyxyz | | https://x.com/zeusyxyz) Tj
+T* (- X | @maverickthefirst | Cloning scam orang | https://x.com/maverickthefirst) Tj
+T* (- TikTok | @hussainyn2 | | https://www.tiktok.com/@hussainyn2) Tj
+T* (- TikTok | @mrpepe.idn | | https://www.tiktok.com/@mrpepe.idn) Tj
+T* () Tj
+T* (APPENDIX B. MATERIAL PANELS) Tj
+T* () Tj
+T* (1. 1 Bundle Token Monopoli supply tersembunyi) Tj
+T* (1) Tj
+T* (ILMU PERTAMA) Tj
+T* (Bundle Token -) Tj
+T* (Monopoli yang Tak Terlihat) Tj
+T* () Tj
+T* (Dev yang cerdas tidak akan beli semua supply atas namanya sendiri. Mereka punya cara yang jauh) Tj
+T* (lebih rapi - dan kamu perlu tahu cara mengenalinya.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Bundle Token) Tj
+T* (- 1 dari 9) Tj
+T* () Tj
+T* (APA ITU BUNDLE TOKEN?) Tj
+T* () Tj
+T* (Bayangkan pengusaha yang ingin menguasai seluruh pasokan ayam di kota. Kalau borong semua stok) Tj
+T* (sendirian, semua orang langsung tahu - harga naik, media ramai, pemerintah curiga. Solusi) Tj
+T* (pintarnya? Minta 10 orang kepercayaan membeli di tempat berbeda, waktu berbeda, nama berbeda.) Tj
+T* (Dari luar terlihat organik. Padahal satu komando - satu orang di balik layar.) Tj
+T* () Tj
+T* (Inilah bundle token di dunia Solana. Saat token baru diluncurkan, developer sudah menyiapkan) Tj
+T* (puluhan wallet berbeda yang serentak membeli di milidetik pertama. Di block explorer kamu) Tj
+T* (melihat banyak pembeli. Padahal satu tangan yang menggerakkan semuanya.) Tj
+T* () Tj
+T* ("Bundle bukan soal berapa banyak wallet yang beli - tapi berapa banyak wallet yang sebetulnya) Tj
+T* (dikontrol oleh satu orang di balik layar.") Tj
+T* () Tj
+T* (KENAPA INI BERBAHAYA?) Tj
+T* () Tj
+T* ([warn]) Tj
+T* (Developer sudah punya kendali penuh sejak awal) Tj
+T* (Developer yang bundle di awal otomatis memegang mayoritas supply sejak detik pertama. Mereka) Tj
+T* (bisa dump kapanpun - dan saat itu terjadi, chart ambruk dalam hitungan detik. Kamu yang beli) Tj
+T* (belakangan tidak punya waktu bereaksi sama sekali.) Tj
+T* () Tj
+T* (REALITA DI PASAR NEW PAIR) Tj
+T* () Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 8 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+10 0 obj
+<< /Length 2763 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Di pasar new pair, para pemain besar seperti Cupsey, Cented, Log, Decu membeli agresif di detik) Tj
+T* (pertama. Tidak ada yang peduli siapa punya berapa - selama narasi menarik dan momentum ada,) Tj
+T* (semua orang langsung masuk. Inilah PvP sesungguhnya - Player vs Player.) Tj
+T* () Tj
+T* ([idea]) Tj
+T* (Mengapa patokan "holder di bawah 3%" sudah tidak akurat?) Tj
+T* (Di era multi-wallet, satu orang bisa punya 5 hingga 20 wallet berbeda. Meskipun setiap wallet) Tj
+T* (hanya pegang 2%, kalau orangnya sama, total kepemilikannya bisa mencapai 20-40%. Untuk token) Tj
+T* (narasi besar, holder 7-10% per wallet sudah sangat wajar. Ini permainan - dan kamu perlu) Tj
+T* (memahaminya.) Tj
+T* ([mind]) Tj
+T* (Memahami zero-sum tanpa jadi sinis) Tj
+T* (Semua pemain di ruang ini bermain untuk kepentingan sendiri - dari retail terkecil sampai whale) Tj
+T* (terbesar. Pahami ini bukan untuk paranoid, tapi agar kamu tidak naif dalam membaca data dan) Tj
+T* (mengambil keputusan.) Tj
+T* (1 / 9) Tj
+T* (Global Fees ->) Tj
+T* () Tj
+T* (2. 2 Global Fees Detektor transaksi palsu) Tj
+T* (2) Tj
+T* (ILMU KEDUA) Tj
+T* (Global Fees -) Tj
+T* (Detektor Transaksi Palsu) Tj
+T* () Tj
+T* (Ada satu angka kecil yang tersembunyi di setiap transaksi token - dan kalau kamu tahu cara) Tj
+T* (membacanya, kamu bisa langsung tahu apakah volume yang kelihatan "besar" itu nyata atau cuma) Tj
+T* (pura-pura.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Global Fees) Tj
+T* (- 2 dari 9) Tj
+T* () Tj
+T* (APA ITU GLOBAL FEES?) Tj
+T* () Tj
+T* (Setiap token di Solana punya global fees - biaya transaksi kecil yang dikenakan setiap kali ada) Tj
+T* (yang membeli atau menjual melalui pool seperti Raydium atau Orca. Besarnya sekitar 0.25% dari) Tj
+T* (nilai transaksi, dan fee ini masuk ke pool sebagai kompensasi bagi liquidity provider.) Tj
+T* () Tj
+T* (Angka ini kelihatan sepele. Tapi jika kamu tahu cara membacanya, ini adalah alat deteksi volume) Tj
+T* (palsu yang paling akurat saat ini.) Tj
+T* () Tj
+T* (CARA MEMAHAMINYA) Tj
+T* () Tj
+T* (Analoginya seperti struk pajak restoran) Tj
+T* () Tj
+T* (Bayangkan restoran melaporkan penjualan Rp 100 juta hari ini. Tapi struk pajaknya hanya Rp 10) Tj
+T* (ribu. Ini tidak masuk akal - artinya laporannya bohong. Hal yang sama terjadi di crypto: volume) Tj
+T* (tinggi tapi fee sangat kecil = volume palsu \(wash trading\). Tujuannya satu: memancing pembeli) Tj
+T* (awam agar masuk karena mengira token ini ramai.) Tj
+T* () Tj
+T* (TIGA TIPE VOLUME YANG PERLU KAMU KENALI) Tj
+T* () Tj
+T* ([ok]) Tj
+T* () Tj
+T* (Volume Organik) Tj
+T* () Tj
+T* (Fee sebanding dengan volume. Banyak wallet berbeda bertransaksi. Chart naik seiring volume -) Tj
+T* (sehat dan asli.) Tj
+T* () Tj
+T* ([warn]) Tj
+T* () Tj
+T* (Wash Trading) Tj
+T* () Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 10 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+12 0 obj
+<< /Length 2421 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Volume tinggi tapi fee sangat kecil. Wallet yang sama saling jual-beli. Manipulasi - dibuat agar) Tj
+T* (terlihat ramai.) Tj
+T* () Tj
+T* ([alert]) Tj
+T* () Tj
+T* (Bot Pump) Tj
+T* () Tj
+T* (Volume meledak dalam detik tapi fee tidak sebanding. Biasanya di detik pertama launch. Sangat) Tj
+T* (berbahaya.) Tj
+T* () Tj
+T* (CARA MENGECEKNYA) Tj
+T* () Tj
+T* (Buka Trojan -> pilih coin yang kamu inginkan dan fees paid itu adalah global fees, atau gunakan) Tj
+T* (Birdeye dan Solscan. Bandingkan angka Total Fee Collected dengan Total Volume. Kalau volume) Tj
+T* (besar tapi fee sangat kecil, kamu sudah tahu apa artinya.) Tj
+T* () Tj
+T* ([idea]) Tj
+T* (Sinyal sehat yang perlu kamu cari) Tj
+T* (Token dengan fee yang terkumpul secara konsisten seiring waktu adalah tanda volume organik yang) Tj
+T* (nyata. Ini salah satu sinyal terkuat yang ada - jauh lebih jujur dari klaim "volume 10x" di) Tj
+T* (Telegram.) Tj
+T* (<- Bundle Token) Tj
+T* (2 / 9) Tj
+T* (Revoke & Minting ->) Tj
+T* () Tj
+T* (3. 3 Revoke & Minting Jebakan yang kelihatan aman) Tj
+T* (3) Tj
+T* (ILMU KETIGA) Tj
+T* (Revoke & Minting -) Tj
+T* (Jebakan yang Kelihatan Aman) Tj
+T* () Tj
+T* (Dua fitur teknis yang kedengarannya membosankan - tapi bisa jadi perbedaan antara kamu aman atau) Tj
+T* (kamu yang jadi korban rug.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Revoke & Minting) Tj
+T* (- 3 dari 9) Tj
+T* () Tj
+T* (KESALAHPAHAMAN YANG PALING MAHAL) Tj
+T* () Tj
+T* (Revoke authority dan mint authority adalah dua hal yang paling sering disalahgunakan developer) Tj
+T* (nakal untuk memberi kesan aman palsu. Kamu sering melihat klaim seperti ini di Telegram:) Tj
+T* () Tj
+T* ([ok] Revoke sudah dilakukan! 100% aman! Ayo masuk sebelum terlambat!) Tj
+T* () Tj
+T* (Terdengar meyakinkan. Tapi faktanya: Revoke sudah dilakukan Token aman. Ini adalah) Tj
+T* (kesalahpahaman paling mahal yang dialami trader baru.) Tj
+T* () Tj
+T* (PERBEDAAN YANG WAJIB KAMU PAHAMI) Tj
+T* () Tj
+T* ([ok] Revoke Authority - Sudah Dicabut) Tj
+T* () Tj
+T* (Developer tidak bisa lagi membekukan akun pemegang) Tj
+T* () Tj
+T* (Token tidak bisa dikunci atau diblokir secara paksa) Tj
+T* () Tj
+T* (Sering jadi checklist di RugCheck dan tools serupa) Tj
+T* () Tj
+T* ([warn] Tapi: TIDAK mencegah developer dump supply yang sudah mereka pegang) Tj
+T* () Tj
+T* ([alert] Mint Authority - Masih Aktif) Tj
+T* () Tj
+T* (Developer bisa mencetak token baru kapan saja tanpa batas) Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 12 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+14 0 obj
+<< /Length 2618 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* (Supply token bisa membengkak sewaktu-waktu) Tj
+T* () Tj
+T* (Nilai token yang kamu pegang otomatis terdilusi) Tj
+T* () Tj
+T* (Ini red flag besar - hindari kecuali ada alasan yang sangat transparan) Tj
+T* () Tj
+T* (POLA JEBAKAN YANG PALING SERING TERJADI) Tj
+T* () Tj
+T* ([warn]) Tj
+T* (Urutan yang harus kamu hafal) Tj
+T* (1\) Bundle supply di awal -> 2\) Revoke authority agar terlihat legit -> 3\) Tunggu harga naik ->) Tj
+T* (4\) Dump semua supply yang sudah dikuasai sejak awal.) Tj
+T* () Tj
+T* (Revoke hanya menghapus kemampuan admin tertentu - tidak menyentuh token yang sudah ada di wallet) Tj
+T* (mereka. Kamu wajib cek bundle activity secara terpisah, bukan hanya status revoke-nya.) Tj
+T* () Tj
+T* (Tools yang bisa kamu gunakan sekarang) Tj
+T* (Gunakan RugCheck.xyz, Token Sniffer, atau langsung di Solscan. Cari bagian "Token Extensions" ->) Tj
+T* (perhatikan status Mint Authority dan Freeze Authority. Kalau tertulis "Active" - jangan masuk) Tj
+T* (kecuali kamu benar-benar tahu alasannya.) Tj
+T* (<- Global Fees) Tj
+T* (3 / 9) Tj
+T* (Meme vs Utility ->) Tj
+T* () Tj
+T* (4. 4 Meme vs Utility Pilih sesuai style kamu) Tj
+T* (4) Tj
+T* (ILMU KEEMPAT) Tj
+T* (Meme vs Utility -) Tj
+T* (Pilih Sesuai Style Kamu) Tj
+T* () Tj
+T* (Pertanyaan "mana yang lebih baik - meme coin atau utility token?" adalah pertanyaan yang salah.) Tj
+T* (Pertanyaan yang benar adalah: mana yang sesuai dengan cara bermain kamu?) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Meme vs Utility) Tj
+T* (- 4 dari 9) Tj
+T* () Tj
+T* (PERDEBATAN YANG SERING SALAH ARAH) Tj
+T* () Tj
+T* (Ini adalah perdebatan paling umum di komunitas crypto, dan juga yang paling sering membuat) Tj
+T* (pemula salah kaprah. Kubu utility bilang: "Meme coin itu judi, cari yang ada produk nyatanya.") Tj
+T* (Tapi mereka lupa bahwa meme coin sudah mencetak lebih banyak orang kaya dalam 12 bulan terakhir) Tj
+T* (dibanding instrumen investasi manapun.) Tj
+T* () Tj
+T* (Kubu meme bilang: "Utility itu lambat, ngapain." Tapi mereka lupa bahwa tanpa pemahaman, trading) Tj
+T* (meme coin sama saja dengan berjudi tanpa tahu aturan mainnya.) Tj
+T* () Tj
+T* ("Pertanyaan yang benar bukan 'mana yang lebih baik?' - tapi 'mana yang sesuai dengan cara) Tj
+T* (bermainku, dan apakah aku punya skill untuk memainkannya dengan benar?'") Tj
+T* () Tj
+T* (PERBEDAAN KARAKTERISTIK KEDUANYA) Tj
+T* () Tj
+T* (Meme Coin) Tj
+T* () Tj
+T* (->) Tj
+T* (Digerakkan narasi viral dan komunitas, bukan fundamental) Tj
+T* () Tj
+T* (->) Tj
+T* (Tidak perlu produk nyata untuk naik 100x) Tj
+T* () Tj
+T* (->) Tj
+T* (Window profit sangat sempit - bisa hitungan menit) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 14 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+16 0 obj
+<< /Length 2288 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* (->) Tj
+T* (High risk, high reward yang sangat ekstrem) Tj
+T* () Tj
+T* (->) Tj
+T* (Cocok untuk trader aktif yang terus monitor market) Tj
+T* () Tj
+T* (->) Tj
+T* (Wajib cek: siapa deployer-nya, ada cabal di belakang?) Tj
+T* () Tj
+T* (Utility Token) Tj
+T* () Tj
+T* (->) Tj
+T* (Punya produk atau layanan nyata sebagai fondasi nilai) Tj
+T* () Tj
+T* (->) Tj
+T* (Bisa dianalisis dari sisi use-case dan tingkat adopsi) Tj
+T* () Tj
+T* (->) Tj
+T* (Window profit lebih panjang - berminggu sampai berbulan) Tj
+T* () Tj
+T* (->) Tj
+T* (Lebih cocok untuk investasi jangka menengah) Tj
+T* () Tj
+T* (->) Tj
+T* (Cocok untuk investor yang sabar, bukan scalper) Tj
+T* () Tj
+T* (->) Tj
+T* (Wajib cek: produknya benar-benar exist dan dipakai?) Tj
+T* () Tj
+T* () Tj
+T* (Rekomendasi Ponyin untuk pemula) Tj
+T* (Mulailah dari meme coin dulu. Bukan karena lebih aman - justru sebaliknya. Tapi karena) Tj
+T* (kecepatannya yang ekstrem akan memaksamu memahami psikologi trading, manajemen risiko, dan cara) Tj
+T* (baca pasar jauh lebih cepat dibanding buku manapun.) Tj
+T* () Tj
+T* (Kamu akan belajar dengan cara yang paling nyata: uang sungguhan, kesalahan sungguhan, pelajaran) Tj
+T* (permanen. Setelah fondasinya solid, baru ekspansi ke utility play jika itu arahmu.) Tj
+T* (<- Revoke & Minting) Tj
+T* (4 / 9) Tj
+T* (Dex Paid ->) Tj
+T* () Tj
+T* (5. 5 Dex Paid, Ads & Boost Sinyal kepercayaan pasar) Tj
+T* (5) Tj
+T* (ILMU KELIMA) Tj
+T* (Dex Paid, Ads & Boost -) Tj
+T* (Sinyal atau Sekadar Bayar?) Tj
+T* () Tj
+T* (Tiga sinyal yang kelihatannya sama tapi punya makna yang sangat berbeda. Belajar bedakannya bisa) Tj
+T* (menghindarkan kamu dari FOMO yang tidak berdasar.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Dex Paid, Ads & Boost) Tj
+T* (- 5 dari 9) Tj
+T* () Tj
+T* (ALAT MARKETING, BUKAN BUKTI KUALITAS) Tj
+T* () Tj
+T* (Dex Paid, Ads, dan Boost/Trending adalah fitur yang sering disalahartikan sebagai bukti token) Tj
+T* (layak dibeli. Kenyataannya? Ketiganya adalah alat marketing yang bisa dibeli kapan saja oleh) Tj
+T* (siapapun - termasuk oleh developer yang sedang bersiap dump ke kamu.) Tj
+T* () Tj
+T* (Perbedaannya bukan pada apakah mereka dipasang, tapi pada kapan mereka dipasang. Satu detail) Tj
+T* (waktu ini bisa membedakan "sinyal positif" dengan "jebakan FOMO.") Tj
+ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 16 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+18 0 obj
+<< /Length 2418 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* (Dex Paid vs Ads vs Boost) Tj
+T* (Kapan sinyal bagus? Kapan harus hati-hati?) Tj
+T* (Token) Tj
+T* (Launch) Tj
+T* (Dex Paid) Tj
+T* (Di awal launch) Tj
+T* ([ok] Sinyal Bagus) Tj
+T* (Harga Naik) Tj
+T* (Ads + Boost) Tj
+T* (Setelah harga puncak) Tj
+T* ([warn] Exit Liquidity!) Tj
+T* (Kunci: Perhatikan KAPAN iklan dipasang - awal launch = bagus, setelah pump = bahaya!) Tj
+T* () Tj
+T* (ANALOGI YANG MUDAH DIPAHAMI) Tj
+T* () Tj
+T* (Warung mie ayam yang sewa antrian palsu) Tj
+T* () Tj
+T* (Warung sepi menyewa belasan orang untuk berdiri mengantri di depan. Kamu lewat, melihat antrian) Tj
+T* (panjang, pikir "pasti enak nih," lalu masuk dan pesan. Kamu beli dengan harga yang sudah) Tj
+T* (dinaikkan. Keesokan harinya warung tutup, pemiliknya kabur. Kamu adalah exit liquidity-nya.) Tj
+T* () Tj
+T* (TIGA FITUR DAN CARA MEMBACANYA) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Dex Paid) Tj
+T* () Tj
+T* (Biaya listing resmi ke DexScreener. Positif jika dipasang di awal launch - menunjukkan dev) Tj
+T* (serius. Meragukan jika muncul setelah pump besar.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Ads \(Iklan\)) Tj
+T* () Tj
+T* (Banner berbayar di DexScreener. Positif jika token masih kecil. Berbahaya jika muncul setelah) Tj
+T* (harga di puncak - artinya mereka butuh pembeli baru untuk cuci gudang.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Boost / Trending) Tj
+T* () Tj
+T* (Mendorong token ke halaman Trending. Bisa dibeli kapan saja oleh siapapun termasuk scammer.) Tj
+T* (Jangan beli hanya karena trending.) Tj
+T* () Tj
+T* (KAPAN BAHAYA, KAPAN AMAN?) Tj
+T* () Tj
+T* ([warn]) Tj
+T* (Pola berbahaya yang harus kamu hafal) Tj
+T* (Boost + Ads muncul mendadak setelah token sudah pump besar = sinyal distribusi. Developer dan) Tj
+T* (whale yang sudah untung besar menggunakan visibility untuk menarik pembeli baru masuk di harga) Tj
+T* (puncak. Begitu pembeli baru cukup banyak, mereka dump semuanya. Harga jatuh. Pembeli baru) Tj
+T* (nyangkut.) Tj
+T* ([ok]) Tj
+T* (Kapan Dex Paid jadi sinyal positif?) Tj
+T* (Ketika muncul di awal launch - sebelum token punya volume besar - bersamaan dengan narasi) Tj
+T* (genuine dan komunitas organik yang aktif. Ini menunjukkan developer berkomitmen jangka panjang.) Tj
+T* (Kombinasi ini jarang ada, tapi kalau muncul, itu yang kamu cari.) Tj
+T* (<- Meme vs Utility) Tj
+T* (5 / 9) Tj
+T* (3 Konfirmasi ->) Tj
+T* () Tj
+T* (6. 6 3 Konfirmasi Candle Cara nyari dip yang valid) Tj
+ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 18 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+20 0 obj
+<< /Length 2588 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(6) Tj
+T* (ILMU KELIMA \(LANJUTAN\)) Tj
+T* (3 Konfirmasi Candle -) Tj
+T* (Cara Nyari Dip yang Valid) Tj
+T* () Tj
+T* (Dari mana kamu tahu bahwa "dip ini kesempatan beli" bukan "dip ini sinyal jual"? Jawabannya ada) Tj
+T* (di 3 konfirmasi candle.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> 3 Konfirmasi Candle) Tj
+T* (- 6 dari 9) Tj
+T* () Tj
+T* (PENYAKIT FOMO YANG UMUM TERJADI) Tj
+T* () Tj
+T* (Salah satu kesalahan paling umum trader baru adalah refleks FOMO saat melihat chart turun tajam:) Tj
+T* ("Harganya lagi murah banget, kalau gue masuk sekarang pasti profit!") Tj
+T* () Tj
+T* (Padahal pertanyaan yang benar adalah: dari mana kamu tahu ini dip yang akan balik naik, bukan) Tj
+T* (awal dari kejatuhan menuju nol? Satu candle merah panjang belum berarti apa-apa. Kamu butuh) Tj
+T* (konfirmasi.) Tj
+T* () Tj
+T* (Analoginya seperti cek ombak sebelum berenang) Tj
+T* () Tj
+T* (Kamu tidak langsung terjun saat melihat ombak surut. Celupkan kaki dulu, rasakan tarikan) Tj
+T* (arusnya. Baru kalau aman, masuk. Metode 3 Konfirmasi Candle bekerja persis sama - masuk) Tj
+T* (bertahap, bukan sekaligus.) Tj
+T* () Tj
+T* (Metode 3 Konfirmasi Candle) Tj
+T* (Cara beli di harga "murah" tanpa rungkad total) Tj
+T* (Puncak) Tj
+T* (1. Dip Pertama) Tj
+T* (JANGAN MASUK!) Tj
+T* (2. Bounce) Tj
+T* (Beli 10% saja \(Mark\)) Tj
+T* (3. Konfirmasi) Tj
+T* ([ok] BELI PENUH!) Tj
+T* (Kenapa Harus Gini?) Tj
+T* (Kalau harga terus turun) Tj
+T* (setelah "dip kedua":) Tj
+T* (-> Kamu cuma rugi 10%) Tj
+T* (\(from mark position\)) Tj
+T* (-> Bukan rugi 100%) Tj
+T* (\(kalau langsung all-in\)) Tj
+T* (Sabar = Selamat) Tj
+T* () Tj
+T* (TIGA LANGKAH METODE PONYIN) Tj
+T* () Tj
+T* (1) Tj
+T* (Dip Pertama - Jangan Masuk) Tj
+T* (Chart turun dari puncak. Banyak trader baru masuk karena "harganya sudah diskon." Tahan diri) Tj
+T* (kamu. Data menunjukkan: dip pertama hampir selalu diikuti satu dip lagi di bawahnya sebelum ada) Tj
+T* (pembalikan nyata.) Tj
+T* (2) Tj
+T* (Bounce - Masuk 10% Saja) Tj
+T* (Harga memantul naik dari titik terendah pertama. Masuk di sini - tapi hanya 10% dari total) Tj
+T* (posisi yang direncanakan. Ini bukan main buy, ini "mark position." Kalau ternyata salah dan) Tj
+T* (harga terus turun, kerugianmu hanya 10% dari rencana, bukan seluruhnya.) Tj
+T* (3) Tj
+T* (Dip Kedua \(Konfirmasi\) - Entry Penuh) Tj
+T* (Harga turun lagi ke area yang mirip dip pertama atau sedikit di bawahnya, tapi tidak jauh. Ini) Tj
+T* (tanda area support sedang terbentuk - titik di mana pembeli mulai masuk lebih banyak dari) Tj
+T* (penjual. Di sinilah kamu masuk dengan sisa posisi.) Tj
+T* () Tj
+ET
+endstream
+endobj
+21 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 20 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+22 0 obj
+<< /Length 2781 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(MANAJEMEN RISIKO YANG SESUNGGUHNYA) Tj
+T* () Tj
+T* ([alert]) Tj
+T* (Kalau dip kedua bablas jauh ke bawah?) Tj
+T* (Itu sinyal untuk mundur sepenuhnya. Tapi karena kamu hanya menaruh 10% di langkah kedua,) Tj
+T* (kerugianmu sangat kecil - misalnya 0.1 SOL dari rencana 1 SOL. Kamu yang tadinya berpotensi rugi) Tj
+T* (total 1 SOL, jadi hanya rugi kecil yang masih bisa ditanggung.) Tj
+T* () Tj
+T* (Inilah inti manajemen risiko - bukan menghindari kerugian sama sekali, tapi memastikan) Tj
+T* (kerugiannya tidak mematikan. Selama masih bisa bertahan, kamu masih bisa belajar dan mencoba) Tj
+T* (lagi.) Tj
+T* () Tj
+T* (Dampak nyata dari metode ini) Tj
+T* (Dengan tidak masuk sekaligus di candle pertama yang "terlihat murah," kamu mengubah skenario) Tj
+T* (terburuk dari "boncos total" menjadi "boncos yang masih bisa dikendalikan." Secara statistik,) Tj
+T* (metode ini menggeser probabilitas rugi besar dari 90% menjadi sekitar 50/50 - bukan karena kamu) Tj
+T* (lebih pintar membaca chart, tapi karena kamu jauh lebih sabar dalam eksekusi.) Tj
+T* (<- Dex Paid) Tj
+T* (6 / 9) Tj
+T* (Cabal Play ->) Tj
+T* () Tj
+T* (7. 7 Cabal Play Kelompok terorganisir) Tj
+T* (7) Tj
+T* (ILMU KEENAM) Tj
+T* (Cabal Play -) Tj
+T* (Ketika Pasar Bergerak Terkoordinasi) Tj
+T* () Tj
+T* (Cabal adalah kelompok trader yang bergerak bersama secara terencana untuk mendorong harga sebuah) Tj
+T* (token. Memahami cara kerja mereka bisa menyelamatkan kamu dari FOMO dan membuka peluang entry) Tj
+T* (yang lebih baik.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Cabal Play) Tj
+T* (- 7 dari 9) Tj
+T* () Tj
+T* (APA ITU CABAL?) Tj
+T* () Tj
+T* (Cabal adalah kelompok tertutup yang merencanakan peluncuran token secara terkoordinasi. Mereka) Tj
+T* (bukan sekadar "grup trader yang kebetulan beli token yang sama." Mereka sudah merencanakan jauh) Tj
+T* (sebelumnya - token apa yang di-deploy, kapan timing push-nya, dan di level harga berapa mereka) Tj
+T* (mulai exit.) Tj
+T* () Tj
+T* (Dari luar, token cabal terlihat naik secara organik karena narasinya bagus. Komunitasnya ramai,) Tj
+T* (momentumnya kuat, chart-nya meyakinkan. Padahal ada skenario yang sudah disusun jauh sebelum) Tj
+T* (token itu bahkan diluncurkan.) Tj
+T* () Tj
+T* (TIGA TIPE CABAL YANG ADA) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Cabal Kelompok) Tj
+T* () Tj
+T* (Bergerak kolektif dan terkoordinasi. Kapan beli, kapan push, kapan distribusi ke retail - semua) Tj
+T* (sudah ditetapkan. Contoh di ekosistem Solana: Marcel, Lexapro, Cooker, Wynn.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Solo Cabal) Tj
+T* () Tj
+T* (Trader individual dengan modal sangat besar dan "will power" yang kuat. Kontrol penuh di satu) Tj
+T* (tangan. Kalau motivasinya cukup, dia bisa menggerakkan chart sendirian. Contoh paling terkenal:) Tj
+T* (Duvel.) Tj
+T* () Tj
+ET
+endstream
+endobj
+23 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 22 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+24 0 obj
+<< /Length 2930 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* () Tj
+T* (Konflik Cabal) Tj
+T* () Tj
+T* (Dua cabal atau lebih bertabrakan di satu token - satu coba pump, yang lain coba sabotase. Volume) Tj
+T* (bisa meledak luar biasa. Bisa jadi peluang bagi trader yang tahu posisinya.) Tj
+T* () Tj
+T* (CASE STUDY NYATA: $YARANAIKA & DUVEL) Tj
+T* () Tj
+T* () Tj
+T* (Token $yaranaika awalnya naik organik. Lalu ada yang melakukan "vamp" - aksi menyabotase dengan) Tj
+T* (menjual besar-besaran untuk merusak momentum. Posisi Duvel di token itu kena.) Tj
+T* () Tj
+T* (Reaksi Duvel? Tidak mundur. Dia mengeluarkan amunisi dalam jumlah besar dan pump chart sendirian) Tj
+T* (- sampai menembus level yang tidak ada seorang pun yang mengira mungkin. Sendirian. Itulah) Tj
+T* (kekuatan solo cabal yang punya modal besar.) Tj
+T* () Tj
+T* (CARA MEMANFAATKAN DINAMIKA INI) Tj
+T* () Tj
+T* (1) Tj
+T* (Pelajari "range" push mereka - Setiap cabal punya histori pergerakan yang bisa dipelajari. Dari) Tj
+T* (sana kamu bisa memetakan level entry dan exit yang jauh lebih presisi daripada trading tanpa) Tj
+T* (konteks.) Tj
+T* (2) Tj
+T* (Monitor suhu konflik antar cabal - Semakin memanas persaingan di satu token, semakin tinggi) Tj
+T* (potensi volume meledak. Konflik = bensin untuk chart. Pahami dinamika ini dan kamu punya edge) Tj
+T* (yang kebanyakan orang tidak punya.) Tj
+T* (3) Tj
+T* (Track wallet, bukan FOMO ke token - Kalau ada token runner dan kamu sudah ketinggalan, jangan) Tj
+T* (beli di pucuk. Buka tab transaksi, cari wallet yang masuk pertama. Mereka layak di-track untuk) Tj
+T* (peluang berikutnya.) Tj
+T* () Tj
+T* (Tools untuk tracking cabal wallet) Tj
+T* (Helius Orb, Solscan, DexScreener, Bun_Scan, dan Terminal. Catatan penting: hampir semua) Tj
+T* (indikator teknikal konvensional seperti RSI, MACD, Bollinger Bands - tidak berguna di cabal) Tj
+T* (play. Yang berlaku di sini adalah informasi, kecepatan, dan pemahaman tentang siapa yang sedang) Tj
+T* (bermain.) Tj
+T* (<- 3 Konfirmasi) Tj
+T* (7 / 9) Tj
+T* (Membaca Holder ->) Tj
+T* () Tj
+T* (8. 8 Membaca Holder Siapa yang sebenarnya pegang) Tj
+T* (8) Tj
+T* (ILMU KETUJUH) Tj
+T* (Membaca Holder -) Tj
+T* (Yang Terlihat dan Yang Sebenarnya) Tj
+T* () Tj
+T* (Pertanyaan "berapa persen holder yang bagus?" tidak punya jawaban yang berlaku universal. Setiap) Tj
+T* (fase, setiap jenis play, punya konteks dan interpretasi yang sama sekali berbeda.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Membaca Holder) Tj
+T* (- 8 dari 9) Tj
+T* () Tj
+T* (KESALAHAN YANG SANGAT UMUM TERJADI) Tj
+T* () Tj
+T* (Data holder - siapa yang memegang berapa persen token - adalah data yang paling sering dilihat) Tj
+T* (namun paling jarang dipahami dengan benar. Banyak yang berpikir: "kalau tidak ada satu holder) Tj
+T* (pun yang pegang lebih dari 5%, berarti distribusinya sehat dan aman.") Tj
+T* () Tj
+T* (Ini pandangan yang sangat naif di era multi-wallet. Dan di sinilah banyak trader kehilangan uang) Tj
+T* (mereka.) Tj
+T* () Tj
+ET
+endstream
+endobj
+25 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 24 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+26 0 obj
+<< /Length 2713 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* () Tj
+T* (Satu Orang, Banyak Identitas) Tj
+T* () Tj
+T* (Trader yang terlihat "hanya punya 1 wallet dengan 2% supply" bisa saja mengendalikan 10 wallet) Tj
+T* (berbeda - total kepemilikannya: 20%. Dan kamu tidak bisa melihatnya di block explorer manapun.) Tj
+T* () Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* ([biz] 2%) Tj
+T* (= 20% total) Tj
+T* () Tj
+T* (REALITA DI PASAR NEW PAIR) Tj
+T* () Tj
+T* (Di pasar new pair, kondisinya berjalan sangat cepat dan chaotic. Para pemain besar seperti) Tj
+T* (Cupsey, Cented, Log, Decu membeli dalam jumlah besar secara agresif. Tidak ada yang peduli siapa) Tj
+T* (punya berapa - selama narasi menarik dan momentum ada, semua orang langsung masuk. Inilah PvP) Tj
+T* (sesungguhnya.) Tj
+T* () Tj
+T* ([idea]) Tj
+T* (Mengapa aturan "holder di bawah 3%" sudah tidak relevan?) Tj
+T* (Untuk token dengan narasi besar - apalagi ada efek viral atau endorsement orang terkenal -) Tj
+T* (holder dengan 7-10% per wallet sudah sangat wajar dan bukan red flag. Kamu tidak tahu wallet itu) Tj
+T* (milik siapa. Multi-wallet adalah strategi standar di kalangan trader serius. Zero-sum mentality) Tj
+T* (berlaku untuk semua orang.) Tj
+T* ([mind]) Tj
+T* (Memahami zero-sum tanpa jadi paranoid) Tj
+T* (Semua orang di pasar ini bermain untuk kepentingan diri sendiri. Dari trader retail terkecil) Tj
+T* (sampai whale terbesar. Bahkan yang paling "transparan" pun pada akhirnya akan protect posisi) Tj
+T* (mereka duluan. Pahami ini agar kamu tidak naif saat membaca data holder.) Tj
+T* (<- Cabal Play) Tj
+T* (8 / 9) Tj
+T* (Market Cap ->) Tj
+T* () Tj
+T* (9. 9 Market Cap Tier Micro -> CEX, beda strategi) Tj
+T* (9) Tj
+T* (ILMU KEDELAPAN) Tj
+T* (Market Cap Tier -) Tj
+T* (Beda Level, Beda Lawan, Beda Strategi) Tj
+T* () Tj
+T* (Setiap tier market cap punya ekosistem pemain, level risiko, dan cara baca yang berbeda total.) Tj
+T* (Strategi yang menghasilkan profit di micro cap bisa jadi bencana total kalau diterapkan di CEX) Tj
+T* (play.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Market Cap Tier) Tj
+T* (- 9 dari 9) Tj
+T* () Tj
+T* (MEMAHAMI TINGKATAN PASAR) Tj
+T* () Tj
+T* (Market Cap = Harga token Total supply beredar. Angka ini mengukur "seberapa besar" sebuah token) Tj
+T* (dinilai oleh pasar saat ini. Setiap rentang market cap punya ekosistemnya sendiri - pemain) Tj
+T* (berbeda, risiko berbeda, strategi yang sepenuhnya berbeda.) Tj
+T* () Tj
+T* (Kesalahan paling umum dari pemula adalah memakai strategi yang sama di semua level market cap.) Tj
+T* (Apa yang bekerja di new pair bisa jadi bencana di mid cap. Kamu perlu tahu medan yang sedang) Tj
+ET
+endstream
+endobj
+27 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 26 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+28 0 obj
+<< /Length 1221 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(kamu masuki sebelum eksekusi.) Tj
+T* () Tj
+T* (Dari New Pair ke CEX - Beda Level, Beda Lawan) Tj
+T* () Tj
+T* (New Pair) Tj
+T* (Pure Chaos) Tj
+T* (Pemain:) Tj
+T* (Bot sniper) Tj
+T* (Cabal) Tj
+T* (Whale awal) Tj
+T* (Strategi:) Tj
+T* (Narasi) Tj
+T* (entry cepat) Tj
+T* (exit lebih cepat) Tj
+T* (Risiko) Tj
+T* (TERTINGGI) Tj
+T* () Tj
+T* (Micro Cap) Tj
+T* ($100k - $5M) Tj
+T* (Pemain:) Tj
+T* (Scalper) Tj
+T* (Bot & raider) Tj
+T* (Komunitas kecil) Tj
+T* (Strategi:) Tj
+T* (Baca chart) Tj
+T* (cari reversal) Tj
+T* (scalp entry) Tj
+T* (Mulai bisa) Tj
+T* (analisis TA) Tj
+T* () Tj
+T* (Mid Cap) Tj
+T* ($5M - $50M) Tj
+T* (Pemain:) Tj
+T* (Dolphin) Tj
+T* (Whale awal) Tj
+T* (Media mulai masuk) Tj
+T* (Strategi:) Tj
+T* (Main size besar) Tj
+T* (perlu entry pas) Tj
+T* (belum buy & forget) Tj
+T* (Bensin pump:) Tj
+T* (Media) Tj
+T* () Tj
+T* (High Cap) Tj
+T* ($50M - $200M) Tj
+T* (Pemain:) Tj
+T* (Whale besar) Tj
+T* (CNN, NewTalk) Tj
+T* (Brand & media) Tj
+T* (Strategi:) Tj
+T* (DCA tipis) Tj
+T* (media goreng =) Tj
+T* (sinyal KELUAR) Tj
+T* (Ini puncak) Tj
+T* (hype-nya) Tj
+T* () Tj
+T* (CEX) Tj
+T* (Listing besar) Tj
+T* (Lawan:) Tj
+T* (Wintermute) Tj
+T* (Hedge Fund) Tj
+T* (Market Maker) Tj
+T* (Strategi:) Tj
+ET
+endstream
+endobj
+29 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 28 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+30 0 obj
+<< /Length 2772 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Hati-hati) Tj
+T* (posisi kecil) Tj
+T* (OTC bukan retail) Tj
+T* (Lawan beda) Tj
+T* (level) Tj
+T* () Tj
+T* (PANDUAN PER LEVEL MARKET CAP) Tj
+T* () Tj
+T* () Tj
+T* (New Pair - Pure Chaos) Tj
+T* (Dunia yang baru lahir dan belum ada aturannya. Narasi dan momentum adalah segalanya. Bot sniper,) Tj
+T* (cabal, dan whale beradu dalam hitungan menit. Window sangat sempit - tapi kalau timing tepat,) Tj
+T* (reward bisa luar biasa.) Tj
+T* () Tj
+T* (Micro Cap \($100k - $5M\)) Tj
+T* (Di tier ini analisis teknikal mulai punya arti. Kamu bisa baca candle, cek holder distribution,) Tj
+T* (lihat volume vs fee. Komunitas mulai terbentuk. Sangat cocok untuk scalp dan cari reversal yang) Tj
+T* (terstruktur.) Tj
+T* () Tj
+T* (Mid Cap \($5M - $50M\)) Tj
+T* (Pemain serius mulai masuk. Pendorong harga sudah masuk ke media lebih mainstream. Bisa bermain) Tj
+T* (dengan size lebih besar, tapi entry harus lebih presisi. Belum waktunya "beli lalu tidur.") Tj
+T* () Tj
+T* (High Cap \($50M - $200M\)) Tj
+T* (Pergerakan chart dikontrol whale besar dan narasi media. Begitu outlet mainstream ramai) Tj
+T* (membicarakannya - itu justru sinyal untuk mulai perlahan keluar. Puncak hype biasanya adalah) Tj
+T* (puncak harga juga.) Tj
+T* () Tj
+T* (CEX Listing) Tj
+T* (Retail masuk masif, volume meledak - tapi lawanmu bukan lagi sesama retail. Kamu berhadapan) Tj
+T* (langsung dengan market maker profesional seperti Wintermute dan hedge fund tier atas. Di sini) Tj
+T* (yang relevan adalah strategi institusional.) Tj
+T* (<- Membaca Holder) Tj
+T* (9 / 9) Tj
+T* (Penutup ->) Tj
+T* () Tj
+T* (10. [close] Penutup Dari Ponyin) Tj
+T* ([close]) Tj
+T* (PENUTUP) Tj
+T* (Dari Ponyin,) Tj
+T* (dengan Tulus.) Tj
+T* () Tj
+T* (Semua yang ada di sini hanyalah fondasi dasar. Masih banyak ilmu lain yang menunggu untuk) Tj
+T* (dijelajahi - tapi fondasi yang kuat dan kokoh selalu lebih baik dari teknik yang canggih tapi) Tj
+T* (berdiri di atas tanah yang rapuh.) Tj
+T* () Tj
+T* (Vol. 1) Tj
+T* (> Penutup) Tj
+T* (- [close] dari 9) Tj
+T* ("Kejahatan lahir bukan karena mereka terstruktur. Kejahatan lahir karena banyak orang baik yang) Tj
+T* (diam dan mendiamkan.") Tj
+T* () Tj
+T* (Sampai saat ini, prinsip ini yang terus gue pakai setiap hari. Makanya gue senang banget share) Tj
+T* (ilmu yang memang seharusnya gratis dan bisa diakses semua orang.) Tj
+T* () Tj
+T* (Terlebih kalau ilmu ini bermanfaat dan bisa digunakan sama orang lain untuk mengambil keputusan) Tj
+T* (yang lebih baik. Guru melahirkan matahari, dan matahari melahirkan para guru.) Tj
+T* () Tj
+T* (Salam hangat - dari dalam dan luar jaringan,) Tj
+T* (@ELPonyin) Tj
+T* () Tj
+T* (Kalau materi ini membantu kamu...) Tj
+T* (Jangan lupa bantu orang lain juga. Share ke teman yang masih belajar, atau setidaknya follow) Tj
+ET
+endstream
+endobj
+31 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 30 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+32 0 obj
+<< /Length 2601 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(@elponyin di X untuk update materi selanjutnya. Ilmu yang disimpan sendirian tidak akan pernah) Tj
+T* (berkembang - dan tidak akan pernah membantu siapapun selain dirimu sendiri.) Tj
+T* (Lanjut ke Vol 2 - Advance) Tj
+T* (X Follow @elponyin) Tj
+T* (Mulai Trading di Trojan) Tj
+T* (<- Market Cap Tier) Tj
+T* (9 / 9) Tj
+T* (Mulai dari awal ->) Tj
+T* () Tj
+T* (11. A1 Cara Snipe Early Mapping + tools sniper) Tj
+T* (A1) Tj
+T* (ADVANCE - SNIPE) Tj
+T* (Cara Snipe) Tj
+T* (Early Project) Tj
+T* () Tj
+T* (Trading itu seperti perang. Persenjataan lengkap membantu, teknologi canggih membantu - tapi) Tj
+T* (satu hal yang tidak tergantikan adalah informasi. Siapa yang tahu lebih dulu, dia yang menang.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Snipe Early Project) Tj
+T* (- A1 dari A8) Tj
+T* () Tj
+T* (Apa itu Snipe? Snipe artinya membeli koin di detik-detik pertama peluncurannya - sebelum orang) Tj
+T* (lain sempat sadar bahwa koin itu ada. Ibaratnya, kamu sudah duduk di baris paling depan bioskop) Tj
+T* (sebelum pintunya dibuka untuk umum.) Tj
+T* () Tj
+T* (Untuk melakukan ini, kamu butuh tiga hal: informasi \(tahu koin apa yang akan diluncurkan dan) Tj
+T* (kapan\), alat \(bot sniper atau kode khusus\), dan kecepatan \(selisih milidetik bisa berarti) Tj
+T* (selisih jutaan dolar\). Tanpa ketiganya, kamu cuma "menembak dalam gelap.") Tj
+T* () Tj
+T* () Tj
+T* (Langkah pertama: Mapping \(Pemetaan\)) Tj
+T* (Sebelum bisa snipe, kamu harus sudah tahu: akun mana yang akan membuat koin, koin itu akan) Tj
+T* (diluncurkan oleh siapa, dan di pool \(tempat jual-beli\) mana launch-nya. Tanpa tiga informasi) Tj
+T* (ini, peluang berhasilmu sangat kecil.) Tj
+T* (Tahapan Snipe Early Project) Tj
+T* () Tj
+T* (1. MAPPING) Tj
+T* (Siapa deploy? Di mana?) Tj
+T* () Tj
+T* (2. EQUIPMENT) Tj
+T* (Siapkan bot sniper) Tj
+T* () Tj
+T* (3. SNIPE) Tj
+T* (Eksekusi di momen launch) Tj
+T* () Tj
+T* (4. PROFIT) Tj
+T* (Exit sebelum orang sadar) Tj
+T* (Case Study: Naseem - $trump Launch) Tj
+T* (Masuk sebelum) Tj
+T* (0.05 detik) Tj
+T* (sebelum liquidity add) Tj
+T* (Gas fee dipakai) Tj
+T* ($100k USD) Tj
+T* (untuk kecepatan) Tj
+T* (Modal masuk) Tj
+T* ($1 Juta) Tj
+T* (-> profit $302 Juta) Tj
+T* () Tj
+T* (Contoh nyata: Naseem berhasil membeli koin $trump hanya 0.05 detik sebelum likuiditas \(uang\)) Tj
+T* (ditambahkan ke pool. Dia menghabiskan sekitar $100.000 USD hanya untuk biaya gas \(biaya) Tj
+T* (transaksi\) demi kecepatan. Modalnya $1 juta - hasilnya? Profit $302 juta. Ini bukan) Tj
+T* (keberuntungan, tapi kombinasi informasi yang akurat, alat yang tepat, dan eksekusi yang presisi.) Tj
+ET
+endstream
+endobj
+33 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 32 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+34 0 obj
+<< /Length 2880 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* (TOOLS UNTUK SNIPE \(DARI YANG PALING CANGGIH\):) Tj
+T* () Tj
+T* (1) Tj
+T* (Mintech - Bot sniper paling kuat. Cocok untuk peluncuran besar di mana kamu sudah punya semua) Tj
+T* (info: nama koin, dompet Developer, dan waktu penambahan likuiditas. Harga mahal, tapi hasilnya) Tj
+T* (setimpal.) Tj
+T* (2) Tj
+T* (Flux - Alternatif premium dengan fitur otomasi canggih untuk snipe dan trading sehari-hari.) Tj
+T* (3) Tj
+T* (Maestro - Gratis dan cukup handal untuk snipe standar. Cocok untuk pemula yang mau mulai) Tj
+T* (belajar.) Tj
+T* (4) Tj
+T* (Trojan - Gratis, bisa snipe sekaligus trading harian. Tampilan antarmukanya nyaman dipakai.) Tj
+T* (5) Tj
+T* (Custom Helius Code - Untuk yang serius. Kamu menulis kode sendiri untuk bertransaksi langsung ke) Tj
+T* (blockchain tanpa perantara \(platform fee = $0\). Biaya pengembangan: $5 sampai $100k tergantung) Tj
+T* (kerumitan.) Tj
+T* () Tj
+T* (Kapan pakai snipe manual vs bot?) Tj
+T* (Snipe manual \(tanpa bot\) bisa dilakukan kalau kamu selalu standby depan layar. Tapi untuk) Tj
+T* (peluncuran besar yang sudah diketahui waktunya - gunakan Mintech atau kode khusus. Di level itu,) Tj
+T* (selisih milidetik = selisih jutaan dolar.) Tj
+T* (A1 / A8) Tj
+T* (Cara Dapat $1000 dari $100 ->) Tj
+T* () Tj
+T* (12. A2 First 1K dari $100 Dua jalur nyata) Tj
+T* (A2) Tj
+T* (ADVANCE - STRATEGY) Tj
+T* (Cara Dapat) Tj
+T* ($1000 dari $100) Tj
+T* () Tj
+T* (Tidak ada jalan pintas yang benar-benar "pintas" - tapi ada dua jalur nyata yang sudah terbukti.) Tj
+T* (Pilih sesuai kemampuan dan posisi kamu saat ini.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> First 1K) Tj
+T* (- A2 dari A8) Tj
+T* (Dua Jalur: $100 -> $1000) Tj
+T* (Jalur Koneksi) Tj
+T* ("Mulut Manis") Tj
+T* (-> Bangun relasi ke grup cabal) Tj
+T* (-> Minta diajak masuk bareng) Tj
+T* (-> Beli sesuai instruksi \(dompet resmi\)) Tj
+T* (-> Punya dompet pribadi di belakang) Tj
+T* (-> Hormati chart saat menjual) Tj
+T* (Reputasi bagus -> lebih banyak kesempatan) Tj
+T* (Jalur Deployer) Tj
+T* ("Si Pembuat") Tj
+T* (-> Buat koin sendiri \(deploy\)) Tj
+T* (-> Kamu yang kontrol semuanya) Tj
+T* (-> Tentukan waktu dan strategi) Tj
+T* (-> Butuh kemampuan lebih tinggi) Tj
+T* (-> Tutorial akan dibagikan) Tj
+T* (Potensi lebih besar, risiko lebih tinggi) Tj
+T* () Tj
+T* (Jalur Koneksi \("Mulut Manis"\) - Kamu membangun hubungan baik dengan cabal atau Developer yang) Tj
+T* (sering meluncurkan koin. Minta supaya diajak masuk bareng di proyek mereka. Biasanya mereka akan) Tj
+T* (memintamu membeli sejumlah SOL - ini untuk dompet "resmi" kamu yang mereka ketahui.) Tj
+T* () Tj
+T* (Tapi kamu juga punya dompet lain yang mereka tidak tahu. Ini bukan kecurangan - di dunia crypto,) Tj
+T* (semua orang bermain untuk dirinya sendiri. Yang penting: saat menjual, jaga supaya grafik harga) Tj
+T* (tetap sehat \(jangan jual mendadak di saat harga sedang jatuh\).) Tj
+ET
+endstream
+endobj
+35 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 34 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+36 0 obj
+<< /Length 2632 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* ([ok]) Tj
+T* (Cara menjual yang baik \(menjaga chart\)) Tj
+T* (Jangan jual di saat harga sedang merah \(turun\). Jangan jual di saat harga sedang naik cepat.) Tj
+T* (Gunakan metode <strong>trailing stop</strong> - ikuti harga naik dan otomatis jual saat harga) Tj
+T* (mulai turun dari puncak. Dengan cara ini, grafik harga tetap terlihat sehat dan reputasimu) Tj
+T* (terjaga.) Tj
+T* () Tj
+T* (Jalur Deployer \("Si Pembuat"\) - Kamu membuat koin sendiri. Semua keputusan ada di tanganmu:) Tj
+T* (waktu peluncuran, pembagian suplai, strategi promosi. Jalur ini potensinya lebih besar, tapi) Tj
+T* (butuh kemampuan dan pengetahuan yang lebih dalam.) Tj
+T* () Tj
+T* (Tutorial lengkap cara membuat dan meluncurkan koin akan dibagikan di materi berikutnya. Yang) Tj
+T* (terpenting dipahami saat ini: reputasi adalah aset jangka panjang. Sekali kamu dikenal bisa) Tj
+T* (dipercaya di komunitas, pintu-pintu kesempatan berikutnya terbuka jauh lebih mudah.) Tj
+T* () Tj
+T* ([idea]) Tj
+T* (Prinsip penting) Tj
+T* (Jangan berhenti berusaha hanya karena sudah dapat sedikit untung. Bangun reputasi, perluas) Tj
+T* (jaringan, dan terus tingkatkan kemampuan - kombinasi ketiganya yang membuat seorang trader) Tj
+T* (bertahan di jangka panjang.) Tj
+T* (<- Snipe Early Project) Tj
+T* (A2 / A8) Tj
+T* (Wallet Ping ->) Tj
+T* () Tj
+T* (13. A3 Wallet Ping 10 mata lebih baik) Tj
+T* (A3) Tj
+T* (ADVANCE - TRACKING) Tj
+T* (Cara Bikin) Tj
+T* (Mata Kamu Jadi Banyak) Tj
+T* () Tj
+T* (10 mata lebih baik dari 2 mata. Tapi bukan berarti kamu harus pantau 10 layar sekaligus - kamu) Tj
+T* (cukup set wallet ping yang tepat, dan biarkan sistem yang bekerja.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Wallet Ping) Tj
+T* (- A3 dari A8) Tj
+T* (Wallet Ping - Cara Kerja "10 Mata") Tj
+T* () Tj
+T* (Top Trader) Tj
+T* (\(wallet dipantau\)) Tj
+T* () Tj
+T* (PING!) Tj
+T* (Wallet beli $TOKEN) Tj
+T* () Tj
+T* (PING!) Tj
+T* (Wallet swap SOL->X) Tj
+T* () Tj
+T* (PING!) Tj
+T* (Wallet tambah LP) Tj
+T* () Tj
+T* (KAMU) Tj
+T* ("Mata tambahan" aktif) Tj
+T* ([warn] Ping = Notifikasi saja) Tj
+T* (Bukan sinyal langsung entry!) Tj
+T* () Tj
+T* (Apa itu Wallet Ping? Wallet ping adalah sistem notifikasi yang mengirim peringatan \(alert\)) Tj
+T* (setiap kali dompet yang kamu pantau melakukan transaksi. Setiap kali dompet tersebut membeli,) Tj
+T* (menjual, atau menambah likuiditas - kamu langsung dapat pemberitahuan.) Tj
+T* () Tj
+T* (Penting: Ini bukan sinyal untuk langsung membeli. Ini hanya memberi tahu bahwa "ada sesuatu yang) Tj
+T* (perlu kamu perhatikan di sini." Kamu tetap harus menganalisis sendiri sebelum bertindak.) Tj
+T* () Tj
+ET
+endstream
+endobj
+37 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 36 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+38 0 obj
+<< /Length 2815 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+([warn]) Tj
+T* (Kesalahan paling umum) Tj
+T* (Banyak pemula langsung FOMO \(takut ketinggalan\) dan membeli setiap kali dapat ping. Jangan) Tj
+T* (lakukan ini! Wallet ping hanya memberi tahu bahwa ada aktivitas menarik. Keputusan beli tetap) Tj
+T* (harus berdasarkan analisis kamu sendiri.) Tj
+T* () Tj
+T* (Cara menemukan dompet bagus yang layak dipantau:) Tj
+T* () Tj
+T* (1) Tj
+T* (Jangan FOMO saat ketinggalan - Kalau kamu ketinggalan koin yang sedang naik, jangan langsung) Tj
+T* (beli di harga tertinggi. Justru ini kesempatan terbaik untuk mencari dompet-dompet bagus yang) Tj
+T* (masuk lebih awal.) Tj
+T* (2) Tj
+T* (Buka DexScreener atau Terminal - Scroll ke bawah di koin yang sedang naik. Cari dompet-dompet) Tj
+T* (yang masuk sangat awal, sebelum harga naik drastis.) Tj
+T* (3) Tj
+T* (Cek fitur "Top Trader" - Di setiap koin ada daftar 20 trader terbaik. Biasanya sekitar 5 di) Tj
+T* (antaranya adalah pemain yang konsisten bagus dan layak dipantau jangka panjang.) Tj
+T* (4) Tj
+T* (Lacak dari satu dompet ke dompet lain - Di blockchain, satu dompet bagus sering berinteraksi) Tj
+T* (dengan dompet bagus lainnya. Ikuti rantainya - dari 1 dompet bisa menemukan 10 dompet) Tj
+T* (berkualitas.) Tj
+T* () Tj
+T* (Manfaat nyata dari wallet ping) Tj
+T* (Dengan sistem wallet ping yang tepat, risiko kamu terkena penipuan \(rug pull\) turun dari 90%) Tj
+T* (menjadi sekitar 60% - dan bisa turun lagi ke 50% seiring kamu semakin mengenal pola) Tj
+T* (dompet-dompet yang kamu pantau. Ini bukan fitur tambahan, ini adalah peningkatan fundamental) Tj
+T* (cara bermainmu.) Tj
+T* (<- First 1K dari $100) Tj
+T* (A3 / A8) Tj
+T* (Modal yang Tepat ->) Tj
+T* () Tj
+T* (14. A4 Money Management Compounding + greedy) Tj
+T* (A4) Tj
+T* (ADVANCE - MONEY MGMT) Tj
+T* (Berapa Modal) Tj
+T* (yang Tepat untuk Trade?) Tj
+T* () Tj
+T* (Tidak ada angka yang berlaku untuk semua orang. Tapi ada kerangka yang terbukti bekerja - dan) Tj
+T* (yang lebih penting, ada mental yang harus benar dulu sebelum angka apapun bisa bekerja.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Money Management) Tj
+T* (- A4 dari A8) Tj
+T* () Tj
+T* (Berapa modal yang tepat untuk trading? Jawabannya bergantung pada posisimu: apakah kamu trading) Tj
+T* (dengan uang yang memang "bebas" \(uang dingin\), atau ada tekanan hutang di belakangnya? Trading) Tj
+T* (sambil dikejar hutang adalah kombinasi yang paling berbahaya - tekanan psikologis akan membuat) Tj
+T* (semua keputusanmu menjadi emosional dan tidak rasional.) Tj
+T* () Tj
+T* (Strategi Compounding: 0.5 SOL -> 5 SOL) Tj
+T* (0.5) Tj
+T* (SOL awal) Tj
+T* (Modal awal) Tj
+T* (->) Tj
+T* (Strategi 35% TP) Tj
+T* (Ambil 35% untung ->) Tj
+T* (pindah ke dompet baru) Tj
+T* (Efek: bunga berbunga) Tj
+T* (->) Tj
+T* (Ada peluang bagus) Tj
+T* (Masuk 70-80%) Tj
+T* (dari total simpanan) Tj
+ET
+endstream
+endobj
+39 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 38 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+40 0 obj
+<< /Length 3153 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Target: 50% untung) Tj
+T* (->) Tj
+T* (5 SOL) Tj
+T* (Target tercapai) Tj
+T* (Mulai lebih nyaman) Tj
+T* (Dari sini: main lebih serius) Tj
+T* (Fitur Auto Take Profit - Senjata Melawan Keserakahan) Tj
+T* (Set target untung -> sistem otomatis jual -> kamu tidak bisa "tahan dikit lagi") Tj
+T* (Setelah target kena: JANGAN beli lagi koin yang sama. Cari peluang baru.) Tj
+T* () Tj
+T* (Strategi 35% Take Profit \(Ambil Untung\): Setiap kali kamu untung dari sebuah trade, ambil 35%) Tj
+T* (dari keuntungan itu dan pindahkan ke dompet baru yang terpisah. Dompet ini adalah "tabungan") Tj
+T* (kamu. Sisanya bisa kamu gunakan untuk trade lanjutan.) Tj
+T* () Tj
+T* (Kenapa pindah ke dompet baru? Karena dengan memisahkan secara fisik, kamu tidak tergoda untuk) Tj
+T* (langsung memasukkan semua keuntungan ke trade berikutnya. Efek bunga berbunga \(compounding\)) Tj
+T* (hanya bekerja kalau keuntungannya benar-benar diamankan.) Tj
+T* () Tj
+T* (Saat ada peluang bagus: Dari uang yang sudah terkumpul, masuk dengan 70-80% dari total simpanan.) Tj
+T* (Target untung: cukup 50% per trade, bukan 10x. Dengan efek compounding, 50% dari simpanan yang) Tj
+T* (terus tumbuh jauh lebih berarti dari 10x dari modal kecil.) Tj
+T* () Tj
+T* (Fitur Auto Take Profit: Ini senjata terbaik melawan keserakahan. Set targetmu, biarkan sistem) Tj
+T* (yang menjual. Setelah target tercapai, berhenti. Jangan beli lagi koin yang sama. Disiplin ini) Tj
+T* (yang membedakan trader yang bertahan lama.) Tj
+T* () Tj
+T* (Simulasi Compounding \(Bunga Berbunga\)) Tj
+T* () Tj
+T* (Ubah modal awal di bawah ini untuk melihat bagaimana target konsisten 50% dari 80% modal kamu) Tj
+T* (per trade dapat menumbuhkan aset secara eksponensial.) Tj
+T* () Tj
+T* (Modal Awal \(SOL\):) Tj
+T* (Trade Ke- Saldo Awal Ukuran Trade \(80%\) Profit Target \(50%\) Saldo Akhir) Tj
+T* (1 0.50 SOL 0.40 SOL +0.20 SOL 0.70 SOL) Tj
+T* (2 0.70 SOL 0.56 SOL +0.28 SOL 0.98 SOL) Tj
+T* (3 0.98 SOL 0.78 SOL +0.39 SOL 1.37 SOL) Tj
+T* (4 1.37 SOL 1.10 SOL +0.55 SOL 1.92 SOL) Tj
+T* (5 1.92 SOL 1.54 SOL +0.77 SOL 2.69 SOL) Tj
+T* ([alert]) Tj
+T* (Tanda-tanda keserakahan yang harus dihindari) Tj
+T* (Merasa "sayang kalau jual sekarang, harusnya tunggu lebih tinggi" - ini serakah. Membeli lagi) Tj
+T* (koin yang sudah kamu jual - ini serakah. Masuk dengan uang lebih besar dari biasanya karena) Tj
+T* ("yakin banget" - ini serakah. Semua keputusan trading yang didasari emosi \(bukan rencana\) adalah) Tj
+T* (tanda keserakahan sedang menguasaimu.) Tj
+T* (<- Wallet Ping) Tj
+T* (A4 / A8) Tj
+T* (Transaksi Murah & Cepat ->) Tj
+T* () Tj
+T* (15. A5 Transaksi Murah RUST + RPC direct) Tj
+T* (A5) Tj
+T* (ADVANCE - TECH) Tj
+T* (Transaksi Murah,) Tj
+T* (Speed Tetap Kencang) Tj
+T* () Tj
+T* (Platform trading seperti Trojan, Flux, dan Axiom memberikan kenyamanan UI yang luar biasa - tapi) Tj
+T* (ada harga yang dibayar setiap kali kamu trade di sana: platform fee. Ada cara untuk) Tj
+T* (menghilangkannya.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Transaksi Murah) Tj
+T* (- A5 dari A8) Tj
+T* () Tj
+T* (Bagaimana cara mengurangi biaya trading? Platform seperti Trojan, Flux, dan Axiom memang nyaman) Tj
+ET
+endstream
+endobj
+41 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 40 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+42 0 obj
+<< /Length 3472 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(dipakai, tapi setiap kali kamu bertransaksi di sana, ada "biaya layanan" \(platform fee\) yang) Tj
+T* (dipotong. Kalau dihitung sebulan, jumlahnya bisa sangat besar. Ada dua cara untuk mengurangi) Tj
+T* (atau menghilangkan biaya ini.) Tj
+T* () Tj
+T* () Tj
+T* (RUST untuk Trading) Tj
+T* (Apa itu? RUST adalah bahasa pemrograman yang dipakai oleh jaringan Solana. Kalau kamu bisa) Tj
+T* (menulis kode transaksi sendiri dalam RUST, kamu bisa bertransaksi langsung ke blockchain tanpa) Tj
+T* (perantara - artinya biaya platform = Rp 0.) Tj
+T* () Tj
+T* (Butuh apa? Kemampuan coding dasar. Investasi waktu belajar cukup besar, tapi sangat sepadan) Tj
+T* (untuk trader yang serius dan bertransaksi setiap hari.) Tj
+T* () Tj
+T* (RPC Langsung) Tj
+T* (Apa itu? RPC \(Remote Procedure Call\) adalah "gerbang komunikasi" antara kamu dan blockchain) Tj
+T* (Solana. Platform berbayar menggunakan gerbang mereka sendiri dan menambahkan biaya di atasnya.) Tj
+T* (Dengan berlangganan langsung ke penyedia RPC seperti Helius, QuikNode, atau Triton - kamu dapat) Tj
+T* (kecepatan yang sama, tanpa biaya tambahan dari platform.) Tj
+T* () Tj
+T* (Biaya langganan? Jauh lebih murah dibanding total fee platform yang kamu bayar setiap bulan.) Tj
+T* ([idea]) Tj
+T* (Contoh perhitungan nyata) Tj
+T* (Misalkan kamu trading 10 kali sehari, dengan rata-rata 0.5 SOL per transaksi. Biaya platform) Tj
+T* (rata-rata 1% = 0.05 SOL per transaksi = 0.5 SOL per hari. Dalam sebulan: 15 SOL. Setahun: 180) Tj
+T* (SOL. Dengan RPC langsung + RUST, penghematan itu masuk ke kantongmu sendiri.) Tj
+T* ([warn]) Tj
+T* (Kapan mulai belajar ini?) Tj
+T* (Belajar RUST dan menyiapkan RPC sendiri butuh waktu yang cukup besar. Saran: mulai setelah) Tj
+T* (simpananmu stabil di atas 5 SOL dan kamu sudah punya pola trading yang konsisten. Jangan) Tj
+T* (terburu-buru belajar sisi teknis sebelum dasar trading-mu sendiri sudah solid.) Tj
+T* (<- Money Management) Tj
+T* (A5 / A8) Tj
+T* (Rent Refund ->) Tj
+T* () Tj
+T* (16. A6 Rent Refund Tarik kembali uang sewa) Tj
+T* (A6) Tj
+T* (ADVANCE - TOOLS) Tj
+T* (Rent Refund -) Tj
+T* (Tarik Kembali Uang Sewa) Tj
+T* () Tj
+T* (Setiap kali kamu beli koin baru di Solana, ada saldo kecil yang tertahan sebagai uang sewa akun.) Tj
+T* (Bayangkan kalau kamu sudah transaksi ratusan kali - berapa banyak uang kamu yang mengendap?) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Rent Refund) Tj
+T* (- A6 dari A8) Tj
+T* () Tj
+T* (Pernah merasa saldo SOL berkurang diam-diam tiap kali trading? Banyak degen yang belum tahu) Tj
+T* (rahasia ini, apalagi yang baru pindah dari Ethereum. Di Ethereum, dompet kamu bertransaksi) Tj
+T* (langsung dengan smart contract. Tapi di ekosistem Solana, arsitekturnya berbeda.) Tj
+T* () Tj
+T* (Analogi Uang Bank & Emas: Sederhananya begini. Bayangkan kamu punya uang 10 Juta di bank, lalu) Tj
+T* (ingin beli emas 5 Juta. Di Solana, kamu tidak membeli emas itu langsung dari rekening utamamu.) Tj
+T* (Jaringan justru membuatkan rekening baru khusus hanya untuk menaruh emas tersebut.) Tj
+T* () Tj
+T* (Nah, rekening baru ini butuh biaya sewa \(Rent\) yang dipotong otomatis. Saat emasnya habis) Tj
+T* (terjual, rekening kosongnya tetap ada dan biaya sewanya tidak otomatis kembali ke kamu!) Tj
+T* () Tj
+T* () Tj
+T* (Tutup Rekening = Uang) Tj
+T* (Kabar baiknya: setiap kali kamu menutup 1 rekening kosong, kamu akan mendapat refund sekitar) Tj
+T* (0.002 SOL. Coba hitung kalau kamu sudah scalping 50 koin baru bulan ini.) Tj
+T* () Tj
+ET
+endstream
+endobj
+43 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 42 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+44 0 obj
+<< /Length 2410 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Ilustrasi penarikan saldo rent otomatis dari sistem.) Tj
+T* () Tj
+T* (Platform Eksekutor: Ada banyak situs pembakar token penyedia layanan ini, namun Refundyoursol) Tj
+T* (adalah rekomendasi teraman karena fitur talangan gas-nya.) Tj
+T* () Tj
+T* (1) Tj
+T* (Fitur Ditalangin: Amit-amit saldo SOL kamu lagi bener-bener nol untuk biaya gas menutup rekening) Tj
+T* (- smart contract situs ini bisa "nalangin" bayarin gas kamu duluan secara otomatis.) Tj
+T* (2) Tj
+T* (Perhitungan Transparan: Misal kamu tutup 40 akun. 40 x 0.002 SOL = 0.08 SOL. Dari situ tinggal) Tj
+T* (dikurangi otomatis untuk biaya gas talangan. Cukup klik dan beres.) Tj
+T* (3) Tj
+T* (Aman & Teruji: Saya pribadi sudah pakai 6 bulan tanpa masalah. Terkadang juga ada bonus airdrop) Tj
+T* (dari mereka.) Tj
+T* ([warn]) Tj
+T* (Catatan Penting: Hanya Koin Baru) Tj
+T* (Aturan ini eksklusif untuk new pair. Kalau kamu keluar-masuk \(membeli lalu menjual\) koin yang) Tj
+T* (benar-benar sama hingga 10 kali, rekening khusus untuk koin itu hanya dibuat sekali. Jadi,) Tj
+T* (refund yang didapat juga hanya satu kali.) Tj
+T* (KLIK DI SINI: Tarik Refund Sekarang) Tj
+T* (<- Transaksi Murah) Tj
+T* (A6 / A8) Tj
+T* (Instant Scalping ->) Tj
+T* () Tj
+T* (17. A7 Instant Scalping 4 step new pair) Tj
+T* (A7) Tj
+T* (ADVANCE - SCALPING) Tj
+T* (Instant Scalping -) Tj
+T* (Cara Filter New Pair) Tj
+T* () Tj
+T* (Ini rahasia dapur yang sebenernya. 4 langkah sederhana yang bisa menghindarkan kamu dari rug -) Tj
+T* (dan membuka peluang scalp 60-70% di fresh launch.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Instant Scalping) Tj
+T* (- A7 dari A8) Tj
+T* () Tj
+T* (Ini rahasia dapur yang sebenernya. Setiap hari gw seneng banget ngeliat followers ngetag trading) Tj
+T* (journey mereka - dan hampir 70% dari mereka berhasil nghindar dari rug setelah nerapin 4 langkah) Tj
+T* (ini. Bukan keberuntungan, tapi metode.) Tj
+T* () Tj
+T* (Cara kerja instant scalping di new pair fresh launch itu simpel: kamu bukan nentuin kapan masuk,) Tj
+T* (tapi nentuin koin mana yang layak untuk dimasukin. 4 filter ini jadi penjagamu.) Tj
+T* () Tj
+T* (4 Filter Sebelum Scalp New Pair) Tj
+T* () Tj
+T* (Step 1) Tj
+T* (Cek Global) Tj
+T* (Gas Fee) Tj
+T* (->) Tj
+T* () Tj
+T* (Step 2) Tj
+T* (Holder & Funded) Tj
+T* (Wallet Age) Tj
+T* (->) Tj
+T* () Tj
+T* (Step 3) Tj
+T* (Cek Balance) Tj
+T* (Top Holder) Tj
+T* (->) Tj
+T* () Tj
+T* (Step 4) Tj
+T* (Cek Entri) Tj
+ET
+endstream
+endobj
+45 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 44 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+46 0 obj
+<< /Length 3190 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Market Cap) Tj
+T* () Tj
+T* (2 atau lebih flag -> SKIP) Tj
+T* (Koin itu terlalu berisiko.) Tj
+T* (Selalu ada koin baru tiap menit.) Tj
+T* ([ok]) Tj
+T* (Cuma 1 flag -> GAS IT) Tj
+T* (Potensi scalp 60-70%) Tj
+T* (di new pair fresh launch.) Tj
+T* (1) Tj
+T* (Tengok Global Gas Fee) Tj
+T* (Langkah pertama sebelum ngapa-ngapain: cek kondisi jaringan Solana. Kalau gas fee lagi tinggi) Tj
+T* (banget, berarti traffic lagi padat - banyak bot dan trader lain juga ngejar koin yang sama. Di) Tj
+T* (kondisi gini, execution kamu bisa lebih lambat dari orang lain. Pahami kondisi war sebelum masuk) Tj
+T* (medan perang.) Tj
+T* (2) Tj
+T* (Cek Holder - Umur Funded Wallet) Tj
+T* (Langsung ke data holder di DexScreener atau tools tracking kamu. Yang dicari: funded wallet) Tj
+T* (under 1 day. Kalau banyak holder yang dompetnya baru di-fund kurang dari sehari sebelum launch -) Tj
+T* (itu sinyal bahwa dompet-dompet itu sengaja disiapkan untuk manipulasi. Ini red flag yang serius.) Tj
+T* (3) Tj
+T* (Cek Balance Top Holder) Tj
+T* (Setelah cek usia wallet, lihat balance-nya. Kalau top holder di koin itu punya saldo under 0.2) Tj
+T* (SOL - ini artinya mereka bukan player besar yang siap nahan atau dorong harga. Mereka) Tj
+T* (kemungkinan besar cuma fomo atau worse, bagian dari skema yang sengaja bikin distro keliatan) Tj
+T* (sehat.) Tj
+T* (4) Tj
+T* (Cek Entry Market Cap) Tj
+T* (Ini filter terakhir dan sering jadi penentu. Kalau koin itu udah ngepump abis di bawah 3K market) Tj
+T* (cap pas deploy - berarti kamu kemungkinan besar masuk di atas, bukan awal. Pump awal biasanya) Tj
+T* (dari insider. Setelah mereka keluar, kamu yang tanggung. Kalau entri kamu di bawah 3K dan udah) Tj
+T* (ngepump - skip.) Tj
+T* () Tj
+T* (Rumus Simpelnya) Tj
+T* (Dari 4 filter di atas - kalau 2 atau lebih kena, langsung skip tanpa pikir panjang. Tapi kalau) Tj
+T* (cuma 1 yang bermasalah? Selamat, kamu udah punya edge yang cukup buat scalp 60-70% di new pair) Tj
+T* (fresh launch. Konsisten di filter ini = konsisten di profit.) Tj
+T* ([warn]) Tj
+T* (Jangan Ganti Aturan di Tengah Jalan) Tj
+T* (Godaan terbesar waktu scalping new pair adalah FOMO - ngeliat koin satu naik, langsung skip) Tj
+T* (filter dan masuk. Ini yang bikin rug. 4 step ini bukan saran, ini protokol. Kalau kamu lompatin) Tj
+T* (salah satunya, jangan salahkan market - salahkan diri sendiri.) Tj
+T* (<- Rent Refund) Tj
+T* (A7 / A8) Tj
+T* (Day Phase Trade ->) Tj
+T* () Tj
+T* (18. [bonus] Day Phase Trade Short swing 3-7 hari) Tj
+T* ([bonus]) Tj
+T* (ADVANCE - BONUS STRAT) Tj
+T* (Day Phase Trade -) Tj
+T* (Short Swing 3-7 Hari) Tj
+T* () Tj
+T* (Udah lama gak update materi trenching. Oke gw spill satu strat yang lumayan ampuh buat nambahin) Tj
+T* (porto - bukan scalp cepet, bukan hold panjang, tapi di tengah-tengah. Cocok buat yang udah punya) Tj
+T* (capital sehat.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Day Phase Trade) Tj
+T* (- Bonus Strat) Tj
+T* () Tj
+T* (Udah lama gak update materi trenching. Oke gw spill dikit - salah satu strat yang lumayan ampuh) Tj
+T* (buat nambahin porto. Namanya Day Phase Trade. Bukan scalp cepet, bukan hold panjang - dia main) Tj
+T* (di fase tengah: short swing 3-7 harian.) Tj
+ET
+endstream
+endobj
+47 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 46 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+48 0 obj
+<< /Length 3462 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* (Idenya simpel. Setiap koin punya fase hidupnya masing-masing: hype awal -> parabolic -> cooldown) Tj
+T* (-> sideway. Nah, Day Phase Trade main di fase cooldown ke sideway. Di titik ini, sellers udah) Tj
+T* (capek, FOMO udah ilang, tapi meme-nya masih hidup. Ini zona yang paling sering dilewatin trader) Tj
+T* (karena kelihatannya "boring" - justru di sini cuannya.) Tj
+T* () Tj
+T* (Fase Hidup Token - Day Phase Trade main di Fase 3) Tj
+T* (1. Hype Awal) Tj
+T* (2. Parabolic) Tj
+T* (3. Cooldown -> Sideway [bonus]) Tj
+T* (4. Revival / Death) Tj
+T* (ZONA BELI \(weekend\)) Tj
+T* (Dip 50-70% - sideway - meme hidup) Tj
+T* (TP \(weekday\)) Tj
+T* (+40% -> +70%) Tj
+T* () Tj
+T* (Cari token yang lagi trending seminggu atau dua minggu lalu - bukan yang lagi panas hari ini.) Tj
+T* (Target yang kamu mau: harganya udah dip 50-70% dari ATH awal, chart lagi sideway, tapi komunitas) Tj
+T* (masih aktif. Hype turun, meme-nya tetep bagus. Kombinasi ini yang bikin strat ini kerja.) Tj
+T* () Tj
+T* (KRITERIA TOKEN YANG LAYAK MASUK WATCHLIST) Tj
+T* () Tj
+T* (1) Tj
+T* (FDV di atas $1M - Skip micro cap. Di tier ini exit liquidity-mu aman dan chart lebih "jujur") Tj
+T* (dibanding koin-koin recehan.) Tj
+T* (2) Tj
+T* (Dip 50-70% dari ATH - Sweet spot-nya di sini. Dip kurang dari 40% biasanya masih distribution;) Tj
+T* (dip lebih dari 80% biasanya udah mati beneran.) Tj
+T* (3) Tj
+T* (Chart udah sideway minimal 3-5 hari - Artinya sellers udah kehabisan tenaga. Bukan kamu yang) Tj
+T* (nangkap pisau jatuh.) Tj
+T* (4) Tj
+T* (Meme / narrative masih relevan - Cek Twitter/X, grup TG, Discord. Kalau masih ada yang ngomongin) Tj
+T* (\(walaupun pelan\) - itu sinyal bagus. Kalau udah zero engagement = lewat.) Tj
+T* (5) Tj
+T* (Holder count stabil atau naik tipis - Kalau holder turun cepet selama sideway, itu distribution) Tj
+T* (terselubung. Skip.) Tj
+T* () Tj
+T* (Empat fase hidup token \(yang kita main di fase 3\)) Tj
+T* (1. Hype Awal) Tj
+T* (Koin baru launch, pump 5-20x. Volume liar, chart vertikal. Ini zona scalper & sniper.) Tj
+T* (2. Parabolic / Peak) Tj
+T* (ATH dibuat. Influencer mulai masuk, retail FOMO. Fase paling berbahaya buat entry.) Tj
+T* (3. Cooldown -> Sideway) Tj
+T* (Turun 50-70%, volume kalem, sideway 3-7 hari. Ini zona kita. Day Phase Trade main di sini.) Tj
+T* (4. Revival / Death) Tj
+T* (Kalau meme masih hidup, biasanya pump lagi 40-70%. Kalau udah mati total, slow bleed ke zero.) Tj
+T* () Tj
+T* (Eksekusi: Timing & Cara Masuk) Tj
+T* (Jurusnya gampang tapi butuh disiplin. Beli di weekend. Volume weekend lebih tipis = dip lebih) Tj
+T* (dalem + lebih mudah dapet harga bagus tanpa kompetisi sama bot & day trader. Gunakan waktu) Tj
+T* (Sabtu-Minggu buat DCA \(nyicil beli\) - kamu punya ~2 hari penuh buat nyusun posisi, gak perlu) Tj
+T* (all-in sekaligus.) Tj
+T* () Tj
+T* (Target exit & kapan jual) Tj
+T* (Target: cuan 40-70% dari average entry. Jangan serakah nunggu 5x - strat ini bukan untuk itu.) Tj
+T* (Jual di weekday saat volume balik naik \(Selasa-Kamis biasanya paling rame\). Retail masuk lagi,) Tj
+T* (revival pump kepicu - di situ kamu tepe.) Tj
+T* () Tj
+T* (Size Position & Multi Wallet) Tj
+T* (Karena kamu DCA dalam 2 hari, pecah posisi ke beberapa wallet \(minimal 2-3\). Tiap wallet masuk) Tj
+T* (di harga beda-beda. Ini ngebantu 2 hal sekaligus: \(1\) average entry kamu lebih rata, dan \(2\)) Tj
+T* (saat exit, kamu bisa keluar bertahap tanpa bikin chart keliatan dihajar satu orang.) Tj
+ET
+endstream
+endobj
+49 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 48 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+50 0 obj
+<< /Length 2796 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+([bonus]) Tj
+T* ([bonus] Aturan penting yang sering dilupain) Tj
+T* (Strat ini cuma jalan buat yang udah punya capital sehat. Kalau modalmu masih kecil banget, kamu) Tj
+T* (gak akan punya kesabaran buat nahan 3-7 hari - pasti tergoda exit early atau doubling down) Tj
+T* (emosional. Fokus dulu ke Instant Scalping \(A7\) sampe porto naik, baru masuk ke ritme swing kayak) Tj
+T* (gini.) Tj
+T* ([alert]) Tj
+T* (Jebakan yang harus dihindari) Tj
+T* (Jangan DCA ke koin yang holder-nya turun drastis. Itu bukan sideway, itu distribution rapi.) Tj
+T* (Jangan pegang lewat 7 hari walaupun belum profit - kalau nggak bergerak dalam window itu,) Tj
+T* (biasanya koin itu udah masuk fase 4 \(slow death\). Cut, cari yang lain. Jangan campur frame -) Tj
+T* (kalau kamu masuk sebagai swing, jangan tiba-tiba jadi "holder selamanya" pas harga nyangkut.) Tj
+T* () Tj
+T* (Day Phase Trade itu bukan strat sensasional. Ga akan bikin kamu viral. Tapi konsisten dijalanin) Tj
+T* (10-15 kali dalam sebulan, dia bisa jadi tulang punggung porto kamu di sela-sela main scalp &) Tj
+T* (snipe. Sabar, sistematis, selesai.) Tj
+T* () Tj
+T* (<- Instant Scalping) Tj
+T* ([bonus] Bonus) Tj
+T* (Multi Wallet ->) Tj
+T* () Tj
+T* (19. A8 Multi Wallet Keajaiban trading) Tj
+T* (A8) Tj
+T* (ADVANCE - MULTI WALLET) Tj
+T* (Multi Wallet -) Tj
+T* (Keajaiban yang Bukan Keajaiban) Tj
+T* () Tj
+T* (Multi wallet bukan tentang menyembunyikan diri. Ini tentang bermain lebih cerdas di ekosistem) Tj
+T* (yang memang seperti itu adanya.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Multi Wallet) Tj
+T* (- A8 dari A9) Tj
+T* () Tj
+T* (Apa itu Multi Wallet? Multi wallet artinya menggunakan beberapa dompet digital berbeda \(bukan) Tj
+T* (hanya satu\) untuk beroperasi di pasar koin. Setiap dompet adalah "identitas terpisah" di) Tj
+T* (blockchain. Dengan beberapa dompet, kamu bisa:) Tj
+T* () Tj
+T* (1) Tj
+T* (Menyebar kepemilikan - Supaya tidak terlihat seperti satu orang yang menguasai banyak koin) Tj
+T* (2) Tj
+T* (Memancing bot otomatis - Bot melihat distribusi pemegang yang sehat, lalu ikut membeli -> harga) Tj
+T* (otomatis naik) Tj
+T* (3) Tj
+T* (Proteksi keamanan - Kalau satu dompet diretas, uangmu di dompet lain tetap aman) Tj
+T* (4) Tj
+T* (DCA lebih efisien - Bisa membeli di harga berbeda-beda dengan dompet yang berbeda) Tj
+T* (Multi Wallet - Perbandingan Supply Control) Tj
+T* (Tanpa Multi Wallet) Tj
+T* (1 wallet = 3 SOL -> 1 holder besar) Tj
+T* (Terlihat terkonsentrasi di explorer) Tj
+T* (Bot tidak masuk -> volume flat) Tj
+T* ([ok] Dengan Multi Wallet) Tj
+T* (Wallet 1) Tj
+T* (1 SOL) Tj
+T* (Wallet 2) Tj
+T* (1 SOL) Tj
+T* (Wallet 3) Tj
+T* (1 SOL) Tj
+T* (-> Terlihat merata = pasar lebih sehat) Tj
+T* (-> Bot terpancing beli -> volume naik) Tj
+T* (VS) Tj
+T* (Strategi DCA Multi Wallet yang Benar) Tj
+ET
+endstream
+endobj
+51 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 50 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+52 0 obj
+<< /Length 3110 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Wallet 1 beli di MC $10k \(entry awal\)) Tj
+T* (Token dip -> jangan DCA pakai Wallet 1 lagi -> pakai Wallet 2 untuk DCA) Tj
+T* (Dengan begini, loss di Wallet 1 bisa ditutup lebih efisien tanpa double down membabi buta) Tj
+T* () Tj
+T* (Cara kerjanya: Misalkan kamu ingin membeli 3 SOL di sebuah koin kecil. Alih-alih beli 3 SOL dari) Tj
+T* (1 dompet \(yang langsung kelihatan di sistem sebagai pemegang besar\), kamu memecahnya ke 3 dompet) Tj
+T* (berbeda, masing-masing 1 SOL. Di sistem pelacak, kepemilikan terlihat merata - seperti 3 orang) Tj
+T* (berbeda.) Tj
+T* () Tj
+T* (Efeknya: Bot otomatis melihat distribusi pemegang yang sehat dan ikut membeli. Volume) Tj
+T* (perdagangan naik, harga ikut naik. Ini yang disebut "instant profit setelah kamu beli" - padahal) Tj
+T* (kamu yang mengendalikan semua dompet itu.) Tj
+T* () Tj
+T* (Kelebihannya: Potensi keuntungan maksimal dari setiap posisi. Koin yang seharusnya "mati" bisa) Tj
+T* (punya peluang hidup lagi karena bot terpancing masuk. Ditambah perlindungan dari risiko) Tj
+T* (peretasan - kalau satu dompet kena, yang lain tetap aman.) Tj
+T* () Tj
+T* (Kekurangannya: Kamu bisa dicap sebagai "tukang jual murah" - ini risiko reputasi yang nyata.) Tj
+T* (Selain itu, kamu harus pintar menghitung: keuntungan 10% dari dompetmu sendiri bisa jadi nol) Tj
+T* (kalau kamu menjual ke dompetmu sendiri tanpa sadar.) Tj
+T* () Tj
+T* () Tj
+T* (Strategi DCA Multi Wallet yang Benar) Tj
+T* (Kalau Dompet 1 beli di harga Rp 10.000 dan harganya turun - jangan beli lagi pakai Dompet 1.) Tj
+T* (Gunakan Dompet 2 untuk membeli di harga lebih rendah. Kenapa? Karena dengan cara ini, kerugian) Tj
+T* (di Dompet 1 bisa ditutup lebih efisien. Rata-rata harga beli keseluruhanmu turun tanpa terlihat) Tj
+T* (seperti satu orang yang terus menumpuk pembelian.) Tj
+T* ([warn]) Tj
+T* (Cocok untuk simpanan 5 SOL ke atas) Tj
+T* (Strategi ini butuh modal yang cukup untuk dipecah ke 2-3 dompet aktif. Di bawah 5 SOL,) Tj
+T* (pembagiannya terlalu kecil dan kurang efektif. Mulai pelajari dari sekarang - saat simpananmu) Tj
+T* (sudah cukup, tinggal langsung dijalankan.) Tj
+T* (<- Day Phase Trade) Tj
+T* (A8 / A9) Tj
+T* (Unwritten Rules ->) Tj
+T* () Tj
+T* (20. A9 Unwritten Rules Etika survival jangka panjang) Tj
+T* (A9) Tj
+T* (ADVANCE - ETIKA) Tj
+T* (Unwritten Rules -) Tj
+T* (Jangan Makan Orang Sendiri) Tj
+T* () Tj
+T* (Ada aturan tak tertulis yang menentukan siapa yang bertahan sampai akhir cycle. Ini bukan soal) Tj
+T* (banyak-banyakan porto - tapi siapa yang bisa survive.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Unwritten Rules) Tj
+T* (- A9 dari A10) Tj
+T* () Tj
+T* (Ada aturan tidak tertulis yang tidak pernah ditulis di whitepaper manapun - tapi menentukan) Tj
+T* (siapa yang bertahan sampai akhir cycle dan siapa yang hancur di tengah jalan. Ini bukan soal) Tj
+T* (banyak-banyakan porto. Tapi siapa yang bisa survive.) Tj
+T* () Tj
+T* (Rumus Bertahan Hidup) Tj
+T* () Tj
+T* (Akses Early) Tj
+T* (Dapat entry + floor price) Tj
+T* (Peluang bagus) Tj
+T* (->) Tj
+T* () Tj
+T* (JUAL SATU KALI) Tj
+T* (Chart hancur) Tj
+T* (Tidak dapat early lagi) Tj
+ET
+endstream
+endobj
+53 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 52 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+54 0 obj
+<< /Length 2949 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(->) Tj
+T* ([ok]) Tj
+T* (JUAL BERTAHAP) Tj
+T* (Chart tetap sehat) Tj
+T* (Peluang terus datang) Tj
+T* (Studi Kasus: Dilema 15 SOL) Tj
+T* (* Dikasih entry di 5K market cap -> Beli 1.5 SOL) Tj
+T* (* Di 50K market cap: Profit = 15 SOL) Tj
+T* (* One clip = Chart hancur + Reputasi hancur) Tj
+T* (* Split ke wallet baru = Hubungan jangka panjang) Tj
+T* (Pilih dengan bijak ->) Tj
+T* ([idea]) Tj
+T* (1. Kalau Dikasih Early, Hormati Chart) Tj
+T* (Semisalnya ada orang baik di komunitas yang memberikan akses early \(kasih tau kamu sebelum) Tj
+T* (launch\) dan memberikan floor price \(harga batas bawah\). Aturannya sederhana: JANGAN PERNAH JUAL) Tj
+T* (SATU KALI \(one clip\).) Tj
+T* (Cara yang benar:) Tj
+T* (Ketika kamu ingin menjual, buat wallet baru dan kirim supply yang ingin kamu jual ke sana.) Tj
+T* (Dengan cara ini, <strong>chart tetap terlihat naik</strong> dan orang-orang yang kasih kamu) Tj
+T* (akses akan terus respek. Hasilnya? Mereka akan terus kasih kamu akses early di proyek-proyek) Tj
+T* (berikutnya.) Tj
+T* () Tj
+T* (2. Jangan Sekali-kali One Clip) Tj
+T* (Di micro cap market, lawan kamu bukan \(orang asing\). Kamu berdagang dengan orang-orang yang) Tj
+T* (mungkin saja teman seasal negara - yang modalnya terbatas, yang UMR-nya cuma 3.5 SOL.) Tj
+T* (Kalau kamu one clip, kamu bisa menyebabkan panic sell dan merugikan orang-orang kecil. Lebih) Tj
+T* (parahnya: <strong>mereka tidak akan pernah kasih kamu akses early lagi.</strong> Reputasi kamu) Tj
+T* (di komunitas akan hancur.) Tj
+T* () Tj
+T* (3. Pikir Jangka Panjang) Tj
+T* (Kripto bukan tentang banyak-banyakan porto. Ini tentang siapa yang bisa bertahan sampai akhir) Tj
+T* (cycle. Trader yang memikirkan jangka panjang akan:) Tj
+T* (Terus diundang ke proyek-proyek baru) Tj
+T* (Dapat akses early lebih banyak) Tj
+T* (Mendapat kepercayaan dari komunitas) Tj
+T* (Bisa bangun reputasi yang bernilai seumur hidup) Tj
+T* () Tj
+T* (4. Mid Cap & High Cap Beda Cerita) Tj
+T* (Kalau sudah masuk mid cap atau high cap, situasinya beda. Orang asing \(buleh\) biasanya sudah) Tj
+T* (lebih banyak dan uang mereka lebih besar. Di level ini, kamu bisa lebih agresif karena risiko) Tj
+T* (affecting "orang sendiri" sudah lebih kecil.) Tj
+T* (Intinya) Tj
+T* () Tj
+T* (Jadilah trader yang <strong>dihormati</strong>, bukan yang <strong>ditakuti</strong>. Bangun) Tj
+T* (reputasi dengan menjaga etika. Rejeki akan datang sendiri kalau kamu survive dan tetap di jalan) Tj
+T* (yang benar.) Tj
+T* () Tj
+T* (<- Multi Wallet) Tj
+T* (A9 / A10) Tj
+T* (Skema Penipuan ->) Tj
+T* () Tj
+T* (21. A10 Skema Penipuan Pig butchering & drainer) Tj
+T* (A10) Tj
+T* (ADVANCE - SECURITY) Tj
+T* (Skema Penipuan -) Tj
+T* (Pig Butchering & Drainer) Tj
+T* () Tj
+T* (Di dunia kripto, uangmu bisa hilang bukan cuma karena market turun, tapi karena jebakan) Tj
+T* (manipulasi psikologis dan smart contract.) Tj
+T* () Tj
+T* (Vol. 2 Advance) Tj
+T* (> Skema Penipuan) Tj
+T* (- A10 dari A10) Tj
+ET
+endstream
+endobj
+55 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 54 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+56 0 obj
+<< /Length 2743 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* (Ini thread tentang macam-macam scam paling umum di kripto. Fenomena penipuan ini sasarannya) Tj
+T* (justru bukan pemula, tapi orang-orang yang sudah advance dan portofolionya sudah pada besar.) Tj
+T* (Jangan sampai kamu lengah.) Tj
+T* () Tj
+T* (Zona Bahaya Kripto) Tj
+T* () Tj
+T* (Penjagalan Babi) Tj
+T* (Bangun trust palsu) Tj
+T* (Lalu ambil semuanya) Tj
+T* ([warn] Target: Siapapun) Tj
+T* () Tj
+T* (Airdrop Drainer) Tj
+T* (Jebakan token gratis) Tj
+T* (Mencuri saat dijual) Tj
+T* ([warn] Target: Wallet) Tj
+T* () Tj
+T* (Bot VIP Drainer) Tj
+T* (Bot telegram palsu) Tj
+T* (Minta seed phrase) Tj
+T* ([warn] Target: Seed Phrase) Tj
+T* () Tj
+T* (1. Pig Butchering \(Penjagalan Babi\)) Tj
+T* () Tj
+T* (Bayangin kamu ini kayak babi yang dikasih makan, dibikin gendut. Pas udah banyak dagingnya...) Tj
+T* (kamu langsung dipotong buat dipanen.) Tj
+T* () Tj
+T* (Skemanya: Si pelaku akan berusaha approach kamu secara halus. Ngeluh, cerita, curhat, sampai dia) Tj
+T* (dapat atensi dari kamu. Modusnya nanti dia akan minta ajarin gimana cara nge-trade dsb. Diajak) Tj
+T* (teleponan, share screen, dll. Bahkan mereka tidak takut untuk mengirim kamu uang duluan.) Tj
+T* () Tj
+T* (Nanti pas kamu lengah dan percaya, baru mereka beraksi menguras hartamu. Di luar kripto juga) Tj
+T* (ada: job online dibayar ShopeePay cuma suruh like comment YouTube, nanti ujungnya kamu disuruh) Tj
+T* (kirim uang untuk "klaim" uang. Mirip persis.) Tj
+T* () Tj
+T* () Tj
+T* (2. Airdrop Drainer) Tj
+T* () Tj
+T* (Bayangin kamu lagi asik trade, tiba-tiba ada yang mengirim kamu koin dengan nama yang sama) Tj
+T* (dengan koin bagus. Kamu gak pernah beli itu, pure dikirim ke wallet kamu.) Tj
+T* () Tj
+T* (Niatnya kamu mau jual koin gratisan itu, tapi tiba-tiba habis interact dengan smart) Tj
+T* (contract-nya... Wallet kamu ter-drain. Isinya dikuras habis.) Tj
+T* () Tj
+T* (Si pembuat scam menyisipkan "Backdoor" pada smart contract di koin yang dia airdrop. Pas korban) Tj
+T* (interact \(jual token tersebut\), pelaku langsung dapat akses ke wallet korban. Cara hindarinya:) Tj
+T* (Jangan pernah interact sama koin yang kamu merasa tidak garap atau beli.) Tj
+T* () Tj
+T* () Tj
+T* (3. Bot VIP Drainer) Tj
+T* () Tj
+T* (Banyak banget yang udah kena ini. Paling sering muncul dari iklan Telegram.) Tj
+T* () Tj
+T* (Pelaku membuat iklan bot trading VIP palsu, saat kamu klik dan start, bot tersebut meminta akses) Tj
+T* (atau mnemonic phrase-mu. Makanya gw sangat menyarankan: kalau kamu punya uang, beli Telegram) Tj
+T* (Premium.) Tj
+T* () Tj
+T* (Gunanya apa? Untuk menghindari salah pencet / fat finger iklan Telegram yang mengarah ke bot) Tj
+T* (drainer ini.) Tj
+T* () Tj
+T* (<- Unwritten Rules) Tj
+T* (A10 / A10) Tj
+T* (Mulai dari awal) Tj
+ET
+endstream
+endobj
+57 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 56 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+58 0 obj
+<< /Length 5020 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* (APPENDIX C. SPACE RECORDINGS) Tj
+T* () Tj
+T* (1. Rahasia Main Dapur Developer Meme Coin: Dari Teknik Bundle Sampai Multi-Wallet) Tj
+T* (Date: 10 Mei 2026 | Tag: Multi-Wallet Bundle | Link: https://x.com/i/spaces/1qKDzPEPLPAJV?s=20) Tj
+T* (Kupas tuntas strategi multi-wallet buat trader, teknik bundle ala developer, perbedaan kultur CT) Tj
+T* (Indo vs luar, cara lacak smart wallet, plus wanti-wanti soal "trading for living".) Tj
+T* (- Insight 1: Strategi Multi-Wallet untuk Para Trader) Tj
+T* (Kalau porto kamu udah tembus di atas 10 SOL, jangan kekeh cuma pakai satu dompet buat trading.) Tj
+T* (Teknik multi-wallet itu krusial banget, apalagi pas main koin baru \(new pair\) di market cap) Tj
+T* (kecil. Tujuannya supaya kamu bisa borong supply lebih banyak tanpa langsung keciduk orang luar.) Tj
+T* () Tj
+T* (Buat pemula: cukup 23 wallet aja biar gak ribet di gas fee sama slippage. Strategi jitunya: satu) Tj
+T* (wallet buat beli pas harga lagi naik, satu lagi buat nambah pas harga lagi dip. Dengan cara ini,) Tj
+T* (rata-rata harga belimu bisa jauh lebih rendah dibanding cuma pake satu wallet.) Tj
+T* (- Insight 2: Bundle Koin: Teknik 'Pancing' Volume Buat Developer) Tj
+T* (Buat yang lagi belajar jadi developer koin, teknik bundle itu hukumnya wajib. Fungsinya buat) Tj
+T* (mancing volume transaksi dari luar biar koinmu masuk radar tracker kayak DexScreener.) Tj
+T* () Tj
+T* (Developer generasi sekarang biasanya nyiapin modal sekitar 50 SOL buat bundling. Cara mainnya:) Tj
+T* (koin diborong di awal, terus wallet bundle-nya jangan diem harus rajin keluar-masuk transaksi) Tj
+T* (buat ngebentuk chart yang "hidup" dan ngundang orang lain buat ikut beli. Ini taktik yang bikin) Tj
+T* (chart kelihatan stabil sebelum koinnya beneran meledak.) Tj
+T* (- Insight 3: Perbedaan Cara Main Trader Indonesia vs Luar Negeri) Tj
+T* (Kultur komunitas meme coin di CT Indo sama CT Luar itu lumayan beda jauh. Di luar negeri,) Tj
+T* (developer biasanya bundling koin terus langsung "dump brutal" pas udah cuan gede.) Tj
+T* () Tj
+T* (Tapi di Indo, developer-nya lebih sering bundling terus masuk lagi buat buyback pas harga turun) Tj
+T* (jadi chart-nya keliatan lebih "bernyawa". Sayangnya, crab mentality \(saling jatuhin\) masih) Tj
+T* (lumayan berasa di komunitas lokal beda sama CT luar yang lebih fokus belajar strategi kalau ada) Tj
+T* (yang sukses.) Tj
+T* (- Insight 4: Tips Melacak 'Smart Wallet' yang Menguntungkan) Tj
+T* (Banyak yang kepo gimana caranya nemu dompet trader jagoan \(smart wallet\). Jangan cuma lihat di) Tj
+T* (daftar top trader biasanya isinya cuma kiriman supply koin aja, bukan player beneran.) Tj
+T* () Tj
+T* (Tips jitu: cek riwayat transaksi \(TX\) terus scroll ke bawah buat lihat dompet mana yang udah) Tj
+T* (masuk 215 menit sebelum harga koinnya meroket. Ciri khas dompet jagoan: saldo SOL-nya gak harus) Tj
+T* (gede \(di bawah 5 SOL\), tapi ROI-nya konsisten di atas 80%. Kalau kamu nemu dompet yang rajin) Tj
+T* (ganti alamat tiap abis untung gede, kemungkinan besar itu dompet insider alias orang dalam.) Tj
+T* (- Insight 5: Risiko Besar 'Trading for Living' di Dunia Meme Coin) Tj
+T* (Banyak banget yang kebelet resign dari kerjaan demi trading meme coin seharian. Sarannya cuma) Tj
+T* (satu: JANGAN. Dunia meme coin itu high risk, high reward risikonya beneran tinggi.) Tj
+T* () Tj
+T* (Lebih aman kalau kamu tetep punya penghasilan tetap harian buat kebutuhan hidup. Trading itu) Tj
+T* (harus pakai uang dingin \(uang nganggur\), bukan uang panas buat makan besok. Kalau trading pakai) Tj
+T* (uang panas, psikologimu bakal keganggu gampang panik dan akhirnya malah rugi karena keputusan) Tj
+T* (yang salah.) Tj
+T* () Tj
+T* (2. Ponyin x Ave AI ID: Kupas Tuntas Strategi Trenching dan On-Chain) Tj
+T* (Date: 23 April 2026 | Tag: Strategi On-Chain | Link: https://x.com/i/spaces/1MJgNgydPayGL?s=20) Tj
+T* (Bahas tuntas strategi trenching, literasi on-chain, manajemen wallet, hingga psikologi trading) Tj
+T* (bareng Ave AI ID.) Tj
+T* (- Insight 1: Siapa sih Sosok Bro Ponyin dan Asal-usul Namanya?) Tj
+T* (Ponyin ternyata mulai masuk ke dunia crypto dari tahun 2018, awalnya malah main di jaringan TON) Tj
+T* (sebelum akhirnya fokus di Solana. Nama Ponyin sendiri diambil dari kata Pinyin \(bahasa Mandarin) Tj
+T* (yang artinya bunyi\). Filosofinya, dia ingin jadi "suara" yang didengar teman-teman untuk) Tj
+T* (membantu eksplorasi Web3 dengan cara yang lebih simpel dan menyenangkan.) Tj
+T* (- Insight 2: Perjalanan Menjadi Edukator dan Admin Komunitas) Tj
+T* (Awalnya Ponyin nggak niat jadi tokoh publik atau admin. Dia cuma member biasa yang aktif) Tj
+T* (membantu orang-orang yang kena tipu bot drainer atau grup VIP abal-abal di grup Bang Izzy) Tj
+T* (Redington. Karena dedikasinya bantu orang \(gratisan pula!\), dia dilirik jadi admin. Namanya) Tj
+T* (makin naik setelah berhasil nge-push project Opium bareng komunitas Tomcat Lovers sampai) Tj
+T* (menyentuh market cap miliaran, hingga akhirnya ditarik jadi admin di Cupang Venture.) Tj
+ET
+endstream
+endobj
+59 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 58 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+60 0 obj
+<< /Length 5208 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(- Insight 3: Perbedaan Culture Crypto Twitter \(CT\) Indo vs Global) Tj
+T* (Menurut Ponyin, CT luar itu jauh lebih brutal and 'ganas'mereka nggak segan makan temen sendiri) Tj
+T* (demi profit. Sedangkan di Indo, orangnya lebih 'nggak enakan' kalau mau nge-sell duluan, tapi) Tj
+T* (kalau project-nya gagal atau di-rug, komunitas Indo bisa dendam banget sampai nge-bounty) Tj
+T* (developer-nya. Selain itu, trader luar berani main 'size' gede di DEX, sementara orang Indo) Tj
+T* (biasanya main size gede di CEX tapi main kecil di DEX.) Tj
+T* (- Insight 4: Pentingnya Belajar Baca Blockchain \(On-Chain Literacy\)) Tj
+T* (Ponyin gelisah lihat banyak orang cuma modal depo dan ikut-ikutan \(fomo\) tanpa tahu cara baca) Tj
+T* (on-chain. Padahal, baca on-chain itu ilmu dasar paling penting. Dia menekankan pentingnya tahu) Tj
+T* (ke mana duit lari, cara cek balance holder, dan cara membedakan mana real player mana bot.) Tj
+T* (Inilah alasan dia bikin website ponyin.id supaya teman-teman punya panduan dasar buat belajar.) Tj
+T* (- Insight 5: Kenapa Solana Jadi 'Rumah' Favorit buat Trencher?) Tj
+T* (Solana dipilih karena perputaran duitnya sangat cepat dan transaksinya jauh lebih mudah dibaca) Tj
+T* (secara on-chain dibanding Ethereum \(EVM\). Buat pemula yang mau belajar baca data on-chain,) Tj
+T* (Solana adalah tempat paling pas karena alur transaksinya sangat gamblang.) Tj
+T* (- Insight 6: Strategi Manajemen Wallet ala Ponyin) Tj
+T* (Ponyin selalu memisahkan wallet-nya berdasarkan tujuan: ada wallet khusus challenge \(buat) Tj
+T* (melatih disiplin dan konten\), wallet 'jajan' \(hasil profit yang boleh dipakai buat spend\), dan) Tj
+T* (wallet tabungan \(untuk main size besar dan disimpan\). Dia menyarankan jangan pernah pakai lebih) Tj
+T* (dari 5% portofolio buat trenching, dan harus pakai 'duit dingin'.) Tj
+T* (- Insight 7: Indikator Memilih Token: Green Flags vs Red Flags) Tj
+T* (Beberapa 'Green Flag' yang dicari Ponyin antara lain: funding wallet dari Coinbase \(karena) Tj
+T* (KYC-nya susah\), narasi yang kuat \(seperti meta hewan atau meta Elon Musk\), dan rasio Global Gas) Tj
+T* (Fee yang pas. Sebaliknya, 'Red Flag' yang harus dihindari adalah holder yang balancenya seragam) Tj
+T* (\(indikasi bundling/tim\) dan dev yang pernah nge-rug project sebelumnya.) Tj
+T* (- Insight 8: Apa Itu Smart Wallet yang Sesungguhnya?) Tj
+T* (Banyak orang salah kaprah cuma lihat Win Rate. Bagi Ponyin, Smart Wallet itu dilihat dari ROI) Tj
+T* (\(Return on Investment\). Percuma win rate 90% kalau profitnya receh atau cuma main di token micin) Tj
+T* (yang nggak likuid. Dia juga mengelompokkan smart wallet berdasarkan gayanya: ada yang jago cari) Tj
+T* (token tidur \(sleeper\), ada yang jago front-run narasi.) Tj
+T* (- Insight 9: Ego: Pembunuh Nomor Satu di Crypto) Tj
+T* (Pesan terakhir dari Ponyin untuk teman-teman yang mau terjun: turunin ego. Banyak orang yang) Tj
+T* (sudah sukses atau merasa jago akhirnya balik ke titik nol karena egonya tinggi. Crypto itu) Tj
+T* (dinamis, setiap minggu tren bisa berubah, jadi kita harus tetap mau belajar dan fleksibel) Tj
+T* (mengikuti arah pasar.) Tj
+T* () Tj
+T* (3. Tips Jitu Jaga Keamanan Wallet Crypto Biar Gak Kena Drain) Tj
+T* (Date: 18 April 2026 | Tag: Keamanan Anti-Drain | Link: https://x.com/i/spaces/1DxleEwlVagKL?s=20) Tj
+T* (Bahas tuntas dari bahaya doxxing, pentingnya VPN, backdoor dari file, scam airdrop drainer,) Tj
+T* (sampai strategi multi-wallet anti bubble link.) Tj
+T* (- Insight 1: Doxxing vs. Anonim: Plus Minus Tampil atau Sembunyi) Tj
+T* (Memilih untuk menunjukkan wajah \(doxxing\) atau tetap anonim itu ada nilai plus dan minusnya.) Tj
+T* (Kalau orang tahu siapa kamu, memang tingkat kepercayaan publik lebih tinggi, tapi risikonya juga) Tj
+T* (besar. Kalau kamu sering pamer portofolio, kamu bisa jadi incaran orang jahat di dunia nyata.) Tj
+T* () Tj
+T* (Di Indonesia sih jarang ada kasus begal gara-gara pamer portofolio, tapi tetap harus waspada) Tj
+T* (sama drama atau musuh yang mungkin muncul.) Tj
+T* (- Insight 2: Keamanan Internet Dasar & VPN) Tj
+T* (Gunakan VPN setiap kali berinternet untuk menjaga keamanan saat mengakses website dan menutupi) Tj
+T* (alamat IP asli kamu. Rekomendasinya pakai Warp \(1.1.1.1\) yang harganya terjangkau.) Tj
+T* () Tj
+T* (Selain itu, hati-hati sama situs palsu atau spoofing. Contohnya, ada link yang mirip banget sama) Tj
+T* (bank resmi tapi ternyata hurufnya dimodifikasi sedikit \(misal huruf kapital diganti huruf kecil\)) Tj
+T* (buat menipu kamu.) Tj
+T* (- Insight 3: Bahaya Backdoor dari File Kiriman) Tj
+T* (Jangan sembarangan klik file atau foto yang dikirim lewat WhatsApp atau Telegram, apalagi kalau) Tj
+T* (bentuknya file dokumen yang mencurigakan. Hacker bisa menyisipkan backdoor yang fungsinya buat) Tj
+T* (memata-matai atau mirroring HP kamu.) Tj
+T* () Tj
+T* (Jadi, apa pun yang kamu ketik atau buka di HP bisa kelihatan sama mereka secara real-time.) Tj
+T* (- Insight 4: Scam Airdrop & Drainer: Gratisan yang Berbahaya) Tj
+T* (Hati-hati kalau tiba-tiba dapet token gratisan \(airdrop\) yang nilainya lumayan. Kalau kamu) Tj
+T* (mencoba berinteraksi atau menjual token itu, sebenarnya kamu sedang memberikan akses ke drainer) Tj
+ET
+endstream
+endobj
+61 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 60 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+62 0 obj
+<< /Length 4154 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(untuk menyedot habis seluruh isi wallet kamu.) Tj
+T* () Tj
+T* (Selain itu, waspadai link bot yang tidak resmi. Bot drainer biasanya akan langsung meminta) Tj
+T* (private key saat kamu mau melakukan transaksi beli.) Tj
+T* (- Insight 5: Private Key vs. Seed Phrase: Bedanya Penting Banget!) Tj
+T* (Penting banget buat paham perbedaannya:) Tj
+T* (Kalau Private Key satu dompet bocor, ya cuma dompet itu aja yang hilang.) Tj
+T* (Tapi kalau Seed Phrase \(passkey\) akun wallet kamu bocor, semua dompet baru yang kamu buat di) Tj
+T* (bawah akun tersebut bakal ikut kebobolan semua.) Tj
+T* () Tj
+T* (Jadi, simpan Seed Phrase seaman mungkin dan jangan pernah kasih tahu siapa pun.) Tj
+T* (- Insight 6: Hardware Wallet \(Cold Wallet\) untuk Aset Besar) Tj
+T* (Buat kamu yang punya aset dalam jumlah besar, sangat disarankan pakai hardware wallet seperti) Tj
+T* (Ledger, Trezor, atau SafePal.) Tj
+T* () Tj
+T* (Dompet fisik ini lebih aman karena kunci rahasianya disimpan offline dan nggak gampang diakses) Tj
+T* (hacker lewat koneksi internet biasa.) Tj
+T* (- Insight 7: Strategi Multi-Wallet & Hindari Bubble Link) Tj
+T* (Jangan pakai cuma satu wallet buat semuanya. Pisahin wallet khusus untuk:) Tj
+T* (Modal utama) Tj
+T* (Trading aktif) Tj
+T* (Cari airdrop) Tj
+T* () Tj
+T* (Biar makin aman dan nggak ketahuan saling terhubung \(bubble link\), kalau mau isi saldo ke) Tj
+T* (wallet-wallet itu, kirimnya jangan dari sesama dompet digital \(DEX\). Kirim langsung dari bursa) Tj
+T* (pusat \(CEX\) kayak Binance atau Indodax.) Tj
+T* () Tj
+T* (4. Tips Aman dan Cuan Trading Memecoin ala Bang Ponyin) Tj
+T* (Date: 18 April 2026 | Tag: Strategi OpSec | Link: https://x.com/i/spaces/1mxPaLpMVXYKN?s=20) Tj
+T* (Strategi pemula, fleksibilitas panduan, pentingnya target PnL, keamanan OpSec multi-wallet,) Tj
+T* (hingga tips Telegram dan burner wallet.) Tj
+T* (- Insight 1: Strategi Trading untuk Pemula) Tj
+T* (Bang Ponyin memberikan saran krusial bagi para pemula: hindari grup VIP berbayar dan jangan asal) Tj
+T* (melakukan copy trading. Memecoin seringkali bersifat spekulatif seperti skema Ponzi mereka yang) Tj
+T* (masuk lebih awal biasanya yang paling diuntungkan.) Tj
+T* () Tj
+T* (Oleh karena itu, penting untuk memahami prinsip supply and demand serta menemukan gaya trading) Tj
+T* (sendiri daripada sekadar mengikuti arus orang lain.) Tj
+T* (- Insight 2: Fleksibilitas dalam Menggunakan Panduan) Tj
+T* (Saat ditanya soal strategi dip pada pasangan baru \(new pairs\), Bang Ponyin menekankan agar) Tj
+T* (trader tidak terlalu kaku pada tutorial atau manual book.) Tj
+T* () Tj
+T* (Panduan hanyalah dasar; trader harus fleksibel dan menyesuaikan diri dengan kondisi pasar yang) Tj
+T* (bergerak sangat cepat, terutama di jaringan Solana di mana waktu memegang peranan sangat) Tj
+T* (penting.) Tj
+T* (- Insight 3: Pentingnya Target dan Motivasi) Tj
+T* (Sebelum mulai trading, sangat penting untuk menetapkan target PnL \(Profit and Loss\) yang jelas.) Tj
+T* (Memiliki motivasi personal seperti keluarga atau orang tua bisa membantu trader tetap disiplin.) Tj
+T* () Tj
+T* (Tanpa target yang jelas, kamu mudah terjebak dalam sifat serakah \(greedy\) atau overtrade yang) Tj
+T* (bisa berujung pada kerugian besar.) Tj
+T* (- Insight 4: Keamanan Operasional \(OpSec\) dan Multi-Wallet) Tj
+T* (Salah satu poin utama: gunakan banyak wallet \(multi-wallet\) dan jangan simpan semua dana di satu) Tj
+T* (tempat. Kalau satu wallet terkena drainer atau diretas, aset di wallet lain tetap aman.) Tj
+T* () Tj
+T* (Trader juga diingatkan untuk sangat waspada terhadap link phishing dan bot custom yang mungkin) Tj
+T* (menyimpan jebakan seringkali baru aktif menguras saldo saat sudah mencapai angka tertentu.) Tj
+T* (- Insight 5: Tips Telegram dan Burner Wallet) Tj
+T* (Gunakan Telegram Premium untuk menghindari iklan yang seringkali merupakan link penipu.) Tj
+T* () Tj
+T* (Selain itu, selalu gunakan burner wallet \(wallet kosong/sekali pakai\) saat ingin mencoba airdrop) Tj
+T* (atau menghubungkan wallet ke platform baru yang belum terjamin keamanannya. Dan ingat: jangan) Tj
+T* (pernah membagikan private key atau seed phrase kepada siapapun.) Tj
+ET
+endstream
+endobj
+63 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 62 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+64 0 obj
+<< /Length 5395 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+() Tj
+T* (5. Rahasia Trading Memecoin: Nge-Micin Bareng Bang Ponnyin: Strategi, Kabal, dan Cerita di Balik) Tj
+T* (Layar Crypto) Tj
+T* (Date: 12 April 2026 | Tag: Strategi Kabal | Link: https://x.com/i/spaces/1AKEmOnWLDOKL?s=20) Tj
+T* (Membahas strategi dev new pair, fenomena kabal di koin micin, tips tracking wallet ROI tinggi,) Tj
+T* (hingga kelucuan scam nastar dan peluang karir Web3.) Tj
+T* (- Insight 1: Strategi Token New Pair & Manipulasi Developer) Tj
+T* (Di sesi ini, Bang Ponnyin ngejelasin kenapa token yang di-deploy developer baru dengan modal) Tj
+T* (minim seringkali harganya malah ngeroket dibandingin token yang dikelola dev berpengalaman.) Tj
+T* (Ternyata, rahasianya ada di histori dev-nya. Kalau dev sehari nge-deploy ribuan token,) Tj
+T* (kemungkinan besar itu cuma buat ngejar 'farming fee'. Sebaliknya, token yang harganya naik tajam) Tj
+T* (biasanya hasil koordinasi 'kabal' atau kelompok tertentu yang sengaja nge-push harganya lewat) Tj
+T* (strategi terencana.) Tj
+T* (- Insight 2: Fenomena 'Kabal' dalam Crypto Micin) Tj
+T* (Kabal itu sebenernya nggak sesakti yang dikira orang-orang. Mereka itu cuma grup temen-temen) Tj
+T* (\(FNF\) yang bareng-bareng nge-deploy token. Ada kabal yang kaya banget dan siap bakar duit buat) Tj
+T* (naikin harga, ada juga kabal 'farmer' yang cuma pengen ngambil untung dari follower-nya. Kunci) Tj
+T* (main di token kabal adalah tahu kapan harus masuk \(entry\) dan kapan harus keluar \(exit\) biar) Tj
+T* (nggak jadi 'exit liquidity' alias tumbal buat mereka.) Tj
+T* (- Insight 3: Tips Jitu Tracking Wallet Sukses) Tj
+T* (Buat yang mau belajar melacak \(tracking\) wallet trader jagoan, jangan asal ikutan wallet yang) Tj
+T* (winrate-nya tinggi doang. Kadang trader jago sengaja ngecilin winrate mereka biar nggak diikuti) Tj
+T* (orang \(copy trade\). Tipsnya adalah cek ROI \(Return on Investment\)-nya, cari wallet yang beli) Tj
+T* (5-15 menit sebelum harganya naik \(pump\), dan pantau lewat tools kayak Cielo.finance. Penting) Tj
+T* (juga buat misahin wallet berdasarkan jenis permainannya, misal khusus main token meme atau) Tj
+T* (utility.) Tj
+T* (- Insight 4: Cerita Kocak 'Scam Nastar' dan Flexing Influencer) Tj
+T* (Bang Ponnyin juga cerita pengalaman lucunya kena tipu jualan kue nastar pas bulan puasa, yang) Tj
+T* (nunjukin kalau sepinter-pinternya trader, tetep bisa apes di kehidupan nyata. Selain itu, dia) Tj
+T* (ngingetin buat nggak gampang percaya sama influencer yang suka flexing \(pamer kekayaan\) mobil) Tj
+T* (atau tumpukan duit. Banyak dari mereka yang mobilnya cuma sewaan dan duitnya cuma buat konten) Tj
+T* (biar orang mau join kelas atau copy trade mereka.) Tj
+T* (- Insight 5: Peluang Karier Web3: Dari City ke Streamer) Tj
+T* (Buat yang mau cari duit di Web3 selain trading, potensinya masih luas banget. Sekarang lagi tren) Tj
+T* (jadi streamer atau content creator yang live trading atau ngasih edukasi. Pasar Indonesia masih) Tj
+T* (butuh banyak kreator yang jujur dan pake bahasa sederhana. Kuncinya cuma satu: mulai aja dulu!) Tj
+T* (Nggak perlu nunggu pinter banget, karena ilmu itu bisa dipelajari sambil jalan.) Tj
+T* () Tj
+T* (6. Rahasia Trading Memecoin: Strategi Multi-Wallet dan Etika di Dunia Crypto) Tj
+T* (Date: 1 April 2026 | Tag: Multi-Wallet Etika | Link: https://x.com/i/spaces/1nxnRYOoNVLxO?s=20) Tj
+T* (Pembahasan mendalam soal tracking dev fee, strategi multi-wallet, etika calling, cara cari) Tj
+T* (caller berkualitas, dan analisis token Blackout.) Tj
+T* (- Insight 1: Cara Melacak Klaim Fee Developer) Tj
+T* (Ada yang nanya nih gimana caranya liat dev yang udah narik atau klaim fee mereka. Ponyin jelasin) Tj
+T* (kalau di bot Trojan fitur ini belum update, tapi kita bisa ngecek manual lewat profil Pump.fun) Tj
+T* (atau pakai tool kayak Axiom dan Gemgem. Ini penting banget terutama buat project yang punya) Tj
+T* (utilitas biar kita tahu dev-nya beneran kerja atau cuma narik duit doang.) Tj
+T* (- Insight 2: Strategi Multi-Wallet: Jujur-jujuran Soal Rahasia Dapur) Tj
+T* (Ponyin blak-blakan soal penggunaan banyak dompet \(multi-wallet\) saat trading. Padahal banyak) Tj
+T* (influencer lain yang nganggep ini tabu, dia ngerasa lebih baik jujur. Tujuannya bukan buat nipu,) Tj
+T* (tapi buat manajemen likuiditas. Dengan bagi-bagi modal ke banyak wallet, dia bisa nge-sell) Tj
+T* (pelan-pelan tanpa bikin grafik harganya anjlok parah \(dump\) yang bisa bikin panik holder lain.) Tj
+T* (- Insight 3: Etika 'Calling' dan Rasa Kasihan ke Trader Lokal) Tj
+T* (Sisi humanis Ponyin kelihatan di sini. Dia ngaku sering nahan diri buat gak nge-dump token) Tj
+T* (karena tahu audiensnya kebanyakan orang Indonesia yang modalnya kecil \(selevel UMR\). Dia ngerasa) Tj
+T* (gak tega kalau harus makan "duit rakyat" sendiri. Makanya, dia juga sering galak ke developer) Tj
+T* (lokal yang hobi nge-scam atau "rug" di market cap kecil karena itu ngerugiin banget buat) Tj
+T* (komunitas lokal.) Tj
+T* (- Insight 4: Tips Mencari 'Caller' Token yang Berkualitas) Tj
+T* (Saran buat para trader: jangan cuma terpaku sama akun-akun besar yang followernya puluhan ribu.) Tj
+T* (Kenapa? Karena akun gede biasanya udah dipantau bot copy-trade yang bakal masuk duluan sebelum) Tj
+T* (kalian, jadinya kalian cuma jadi "exit liquidity". Ponyin nyaranin cari akun kecil tapi) Tj
+T* (konsisten ngasih "call" token bagus \(sleeper\) yang belum kecium radar banyak orang.) Tj
+ET
+endstream
+endobj
+65 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 64 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+66 0 obj
+<< /Length 4469 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(- Insight 5: Analisis Token 'Blackout' dan Narasi Elon Musk) Tj
+T* (Ada pembahasan seru soal token bernama "Blackout". Mereka bahas soal narasinya yang unik tentang) Tj
+T* (krisis energi. Ada spekulasi juga kalau Elon Musk tweet soal ini, harganya bisa terbang. Tapi) Tj
+T* (Ponyin tetep ngingetin kalau ini kayak casino, jadi harus pinter-pinter baca situasi dan jangan) Tj
+T* (asal "all-in".) Tj
+T* () Tj
+T* (7. Rahasia Cuan Koin Micin Solana: Screening, Psikologi & Hindari Rugpull) Tj
+T* (Date: 26 Maret 2026 | Tag: Screening Psikologi | Link: https://x.com/i/spaces/1DxLdvEqgraxm?s=20) Tj
+T* (Komparasi terminal Trojan vs Axiom, dilema punya banyak copy trader, cara baca Gas Fee kayak) Tj
+T* (detektif, sampai lacak wallet insider.) Tj
+T* (- Insight 1: Trojan vs Axiom: Mana yang Lebih Cuan?) Tj
+T* (Axiom emang ngebut soal eksekusi, tapi Trojan punya senjata rahasia: cashback fee trading hingga) Tj
+T* (45%!) Tj
+T* () Tj
+T* (Tips anti rugi dari Bang Ponyin: Jangan refleks klaim cashback tiap hari karena bakal nyatu sama) Tj
+T* (emosi rugi tradenya. Mending tampung dulu di wallet baru, klaim seminggu atau sebulan sekali) Tj
+T* (rasanya kayak dapet gaji bonus dari angin!) Tj
+T* (- Insight 2: Bedah Fitur Trojan: Market Order, Limit, DCA & Event) Tj
+T* (Market Order = masuk/keluar instan tapi berisiko kena harga aneh kalau ada lonjakan tiba-tiba.) Tj
+T* (Limit Order = lebih aman tapi wajib paham slippage \(toleransi harga bergeser\).) Tj
+T* (DCA = cicil jual perlahan di beberapa level harga.) Tj
+T* (Event = auto-jual kalau developer ketahuan curang.) Tj
+T* () Tj
+T* (Poinnya: fitur-fitur ini buat trader yang mau tetap disiplin tanpa mantengin layar 24 jam!) Tj
+T* (- Insight 3: Dilema Besar: Jadi Idola Copy Trader Itu Melelahkan) Tj
+T* (Punya ratusan orang yang copy trade kamu kedengarannya keren sampai kamu beneran mau jual. Bang) Tj
+T* (Ponyin curhat: begitu dia pelan-pelan take profit, para copy trader panik langsung full sell) Tj
+T* (semuanya serentak akibatnya harga token dibanting habis seketika.) Tj
+T* () Tj
+T* (Ini beban psikologis nyata. Dia nggak mau dianggap dump ke pengikutnya sendiri padahal cuma mau) Tj
+T* (ambil sebagian profit.) Tj
+T* (- Insight 4: Psikologi Trading: Main di Jalurmu Sendiri) Tj
+T* (Jangan dipaksain ngikutin gaya trading siapapun kalau kondisi hidupmu beda. Kalau masih kerja) Tj
+T* (kantoran, JANGAN coba trading di jam kerja konsentrasi belah dua hampir selalu berujung merah.) Tj
+T* () Tj
+T* (Pakai Uang Dingin \(uang yang udah diiklaskan\) supaya mentalmu kalem waktu floating loss dan) Tj
+T* (nggak jadi Paper Hand yang jual panik di harga terendah.) Tj
+T* (- Insight 5: Strategi Utama: Jago Hindari RUG, Bukan Nebak Runner) Tj
+T* (Ini prinsip paling jujur dari Bang Ponyin: trading micin bukan tentang siapa yang paling pinter) Tj
+T* (nebak koin 100x. Tapi tentang siapa yang paling jago mendiskualifikasi koin sampah.) Tj
+T* () Tj
+T* (Kalau kamu bisa coret semua koin yang berpotensi scam, kolam pilihanmu otomatis berisi lebih) Tj
+T* (banyak koin berkualitas. Jangan bakar hopium tinggi sebelum bisa baca tanda bahaya!) Tj
+T* (- Insight 6: Rahasia Deteksi Bot Pakai Global Gas Fee) Tj
+T* (Global Gas Fee itu alat pendeteksi kebohongan on-chain. Rasio warasnya: Market Cap 10.000) Tj
+T* (minimal Gas Fee 0.81 SOL.) Tj
+T* () Tj
+T* (Gas Fee super tipis padahal Market Cap udah gede? Itu tanda merah terang-benderang bahwa isinya) Tj
+T* (cuma tim dev dan sniper yang lagi nge-bundle, siap membanting harga begitu ada retail yang ikut) Tj
+T* (masuk.) Tj
+T* (- Insight 7: Multi-Wallet Pro: Kuasai Supply, Turunkan Average) Tj
+T* (Trader kelas kakap sengaja bagi saldo ke banyak wallet. Tujuannya ganda:) Tj
+T* (DCA Lebih Efektif: Tiap wallet beli di titik berbeda, average entry turun lebih signifikan.) Tj
+T* (Kamuflase Supply: Kuasai supply besar tanpa kelihatan mencurigakan di mata bot pelacak. Satu) Tj
+T* (otak, banyak topeng.) Tj
+T* (- Insight 8: Lacak Wallet Insider: ROI Jauh Lebih Penting dari Win Rate) Tj
+T* (Jangan tergoda lihat Win Rate tinggi mentah-mentah! Wallet yang menang 9 dari 10 tapi sekali) Tj
+T* (kalah langsung ludes itu valuasinya sama dengan nol.) Tj
+T* () Tj
+T* (Yang wajib diburu adalah ROI gila-gilaan. Wallet Win Rate 30% tapi ROI $50.000+ jauh lebih) Tj
+T* (berharga. Gunakan tools forensik kayak Cielo.finance atau Dune buat bedah performa wallet secara) Tj
+T* (mendalam.) Tj
+T* (- Insight 9: Narasi & Timing: Dua Mata Uang Asli di Micin) Tj
+ET
+endstream
+endobj
+67 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 66 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+68 0 obj
+<< /Length 4321 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(Koin micin itu hidup dari Narasi \(Elon Musk, meme hewan, tokoh trending\) dan ketepatan Timing) Tj
+T* (volume perdagangannya.) Tj
+T* () Tj
+T* (Tiap launchpad \(Bags, Pump.fun, Raydium\) punya jam emas aktivitas yang berbeda. Plus, metode rug) Tj
+T* (developer terus berevolusi tiap minggu. Tetap kaku dengan satu metode dan market bakal dengan) Tj
+T* (senang hati ninggalin kamu!) Tj
+T* () Tj
+T* (8. Rahasia Trading & Kisah Hidup Ray Ponyin: Dari Warnet Jadi Pro Trader) Tj
+T* (Date: 11 Maret 2026 | Tag: Portofolio Story | Link: https://x.com/i/spaces/1yxBeMvqddEJN?s=20) Tj
+T* (Ngobrolin trik pisahin wallet, manajemen portofolio super aman ala miliarder, sampai bongkar) Tj
+T* (masa lalu Bang Ray dari jaga rental PS.) Tj
+T* (- Insight 1: Seni Menyiksa Diri Pakai "Challenge Wallet") Tj
+T* (Buat menghindari penyakit gatel mencet Buy \(overtrade\), Bang Ray mewajibkan pemisahan antara) Tj
+T* (Main Wallet dan Challenge Wallet.) Tj
+T* () Tj
+T* (Logikanya: Taruh saldo super tipis di Challenge Wallet. Pas saldo mepet, insting bertahan) Tj
+T* (hidupmu bakal menyala. Kamu otomatis jadi jauh lebih tajam dan kejam saat milih koin karena) Tj
+T* (takut modal recehmu beneran ludes kena rug!) Tj
+T* (- Insight 2: Awas Tool Bodong di TikTok & Wallet Kena Kuras) Tj
+T* (Jangan gampang ngiler lihat tools kripto ajaib yang dipamerin di TikTok! Bang Ray ngingetin) Tj
+T* (kalau bikin alat buat nge-rug itu nggak sembarangan.) Tj
+T* () Tj
+T* (Aturan Besi: Kalau dompetmu pernah asal "Connect" ke web/aplikasi scam, SECEPATNYA pindahin sisa) Tj
+T* (koin ke wallet baru. Scammer itu pintar, mereka sering sabar nunggu saldomu gendut dulu baru) Tj
+T* (disedot sampai kering seketika.) Tj
+T* (- Insight 3: Nostalgia Perjuangan: Dari Operator Warnet ke Blockchain) Tj
+T* (Sukses itu nggak instan. Bang Ray cerita gila-gilaan soal masa lalunya yang merangkak dari bawah) Tj
+T* (banget.) Tj
+T* () Tj
+T* (Dari jaga rental PS waktu SD, nyambi jadi operator warnet pas SMP cuma biar bisa main komputer) Tj
+T* (gratisan. Dia bahkan kenal Bitcoin pas eranya masih dipakai buat beli cash game online! Dari) Tj
+T* (situ insting teknologinya terasah sampai sekarang mahir bermanuver di Solana, Base, hingga TON.) Tj
+T* (- Insight 4: Formasi Portofolio Anti-Miskin \(No Uang Panas!\)) Tj
+T* (Haram hukumnya trading pakai Uang Panas! \(uang kos, uang susu, dll\). Manajemen portofolio asli) Tj
+T* (Bang Ray ini bikin kaget karena super aman.) Tj
+T* () Tj
+T* (Rahasianya: Cuma 1% nyawa buat judi di Memecoin. Sisanya? 70% tidur tenang di Koin Spot \(BTC/SOL) Tj
+T* (dll\), 20% ditaruh di obligasi SBN negara, dan 5% jadi Emas murni. Jangan cuma nafsu cari kaya) Tj
+T* (dadakan tanpa mikir sabuk pengaman!) Tj
+T* (- Insight 5: Gimana Sih Cara Jadi Developer Token yang Sukses?) Tj
+T* (Mau bikin token sendiri? Jangan harap laku kalau akun developermu masih bau kencur.) Tj
+T* () Tj
+T* (Bang Ray bilang, kamu harus ngebangun Reputasi Akun Dev biar pelacak bot dan publik percaya.) Tj
+T* (Selain itu, cari tim yang emang jujur dan pantau terus narasi \(meta\) apa yang lagi hype.) Tj
+T* (Tujuannya simpel: buat tokenmu tembus tahap bonding sampai punya kolam likuiditas permanen!) Tj
+T* (- Insight 6: Berburu RUG, Bukan Terbang ke Bulan) Tj
+T* (Fakta keras: Sejago apapun analisismu, kamu Nggak Bakal Bisa Menebak 100% mana koin yang pasti) Tj
+T* (bakal Runner gila-gilaan.) Tj
+T* () Tj
+T* (Mindsetnya dibalik: Fokus pelajari ciri-ciri koin RUG \(scam\) sampai khatam. Begitu kamu jago) Tj
+T* (ngehindarin koin sampah, secara otomatis rasio koin yang tersisa di tanganmu berpeluang jadi) Tj
+T* (runner. Hoki itu akan datang sendiri kalau kamu selamat dari ranjau!) Tj
+T* () Tj
+T* (9. Bongkar Rahasia Multi-Wallet & Strategi Trading Memecoin) Tj
+T* (Date: 18 Maret 2026 | Tag: Multi-Wallet Strategi | Link:) Tj
+T* (https://x.com/i/spaces/1qGvvkmVpvpGB?s=20) Tj
+T* (Ngobrolin dapur strategi multi-wallet, trik milih koin micin yang bener, dan bahayanya kalau) Tj
+T* (cuma ngintip wallet paus tanpa mikir.) Tj
+T* (- Insight 1: Cara Milih Koin Micin Biar Gak Kena Jebakan Developer) Tj
+T* (Banyak banget developer nakal yang sengaja "farming"alias buang barang pas harga koinnya lagi) Tj
+T* (naik daun.) Tj
+T* () Tj
+T* (Kunci utamanya: Jangan malas ngecek rekam jejak developernya! Pastikan mereka emang beneran niat) Tj
+ET
+endstream
+endobj
+69 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 68 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+70 0 obj
+<< /Length 4449 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(bangun project-nya secara organik, bukan cuma numpang lewat buat ngeruk duit retail.) Tj
+T* (- Insight 2: Rahasia Gelap Multi-Wallet Para Influencer) Tj
+T* (Tahu nggak? Top influencer atau Crypto Twitter \(CT\) rata-rata main pakai banyak wallet. Mereka) Tj
+T* (bakal serok koin pelan-pelan pakai wallet rahasia \(side ID\).) Tj
+T* () Tj
+T* (Nah, sesudah muatannya penuh, baru deh mereka teriak "call" di akun utamanya. Pas harga nge-pump) Tj
+T* (berjamaah, mereka senyum sambil jualan pelan-pelan dari wallet rahasianya.) Tj
+T* (Tips buat kamu: Intip transaksi gede yang anehnya masuk 5 menit SEBELUM si influencer nge-post!) Tj
+T* (- Insight 3: Strategi Nyicil \(DCA\) Jenius Pakai Banyak Wallet) Tj
+T* (Punya banyak dompet crypto itu gak harus buat nipu kok, malah bagus buat atur keuanganmu.) Tj
+T* () Tj
+T* (Kalau modal tembus di atas 5 SOL, mending bagi-bagi peluru. Cobain Dollar Cost Averaging \(DCA\)) Tj
+T* (pakai wallet yang beda-beda. Trik ini terbukti 1020% lebih ngefek buat nurunin modal rata-ratamu) Tj
+T* (ketimbang cuma nge-spam tombol beli di satu dompet.) Tj
+T* (- Insight 4: Awas, Jangan Asal Nge-kor Wallet Whale!) Tj
+T* (Paus \(Whales\) main dengan dana tak berseri. Mereka bisa aja rugi 50 SOL sehari tapi tetep bisa) Tj
+T* (nongkrong asik.) Tj
+T* () Tj
+T* (Kalau kamu cuma ikutan copy-trade tanpa paham nalar mereka, siap-siap aja nyangkut. Ingat,) Tj
+T* (ketahanan mental dan kedalaman kantongmu itu beda jauh sama mereka. Jangan dipaksa!) Tj
+T* (- Insight 5: Cari Karakter Tradingmu Sendiri, Jangan Cuma Nunggu Suapan) Tj
+T* (Mulai sekarang, kurangi kebiasaan mantengin layar cuma nungguin sinyal atau "call" dari orang) Tj
+T* (lain. Bangun gaya tradingmu sendiri!) Tj
+T* () Tj
+T* (Kalau kamu ngerasa nyaman dan cuan konstan di satu trik, kunci lalu asah terus skill itu. Gak) Tj
+T* (usah gampang FOMO gonta-ganti gaya, biar ilmu dan instingmu gak balik ke level satu lagi.) Tj
+T* () Tj
+T* (10. Tips Jitu Trading Crypto & Cara Menemukan Gaya Tradingmu ala Bang Ponyin) Tj
+T* (Date: 18 Maret 2026 | Tag: Trading Style Kabal | Link: https://x.com/i/spaces/1qxoNezjdmjJv?s=20) Tj
+T* (Dari curhat soal gaya trading, ngebahas Kabal Play, sampai pentingnya nyatet performa di Excel.) Tj
+T* (Daging semua!) Tj
+T* (- Insight 1: Nyari Jati Diri \(Trading Style\) di Crypto) Tj
+T* (Saran tulus dari Bang Ponyin: Perbanyak jam terbang, tapi jangan bakar semua tabunganmu. Cukup) Tj
+T* (siapin dana receh khusus sebagai "uang sekolah".) Tj
+T* () Tj
+T* (Satu hal yang wajib: Catat terus untung-rugimu di Excel. Nanti bakal kelihatan tuh, kamu) Tj
+T* (nyangkutnya sering di koin apa, dan cuannya meluber di koin model apa \(misal meme kucing atau) Tj
+T* (politik\). Tekuni aja yang emang bikin kamu cuan santai.) Tj
+T* (- Insight 2: Kenapa Kadang Berani Masuk Koin yang Baunya "RUG"?) Tj
+T* (Selamat datang di dunia "Kabal Play". Di area abu-abu ini, indikator teknikal udah nggak mempan) Tj
+T* (lagi.) Tj
+T* () Tj
+T* (Yang paling dicari cuma satu: Jejak dompet orang-orang sakti. Kalau ada afiliasi grup solid atau) Tj
+T* (*developer* yang dompetnya ke-track sering untung, meskipun koinnya kelihatan ngeri, *data) Tj
+T* (on-chain* itu yang jadi pelampung keselamatanmu.) Tj
+T* (- Insight 3: Fokus Hindari Jebakan, Bukan Cuma Ngejar Terbang) Tj
+T* (Pusing tiap hari nebak koin mana yang bakal terbang ke bulan? Mending geser pola pikirmu. Fokus) Tj
+T* (aja belajar gimana cara mengenali ciri-ciri koin RUG \(penipuan\).) Tj
+T* () Tj
+T* (Logikanya sederhana: Kalau kamu makin jago hindarin koin bodong, sisa koin di pilihanmu otomatis) Tj
+T* (punya probabilitas terbang lebih besar. Sisanya? Biar nasib yang tentukan!) Tj
+T* (- Insight 4: Apa Sih "Kabal" Itu Sebenarnya?) Tj
+T* (Sering dengar kata "Kabal"? Santai, itu cuma sebutan keren buat grup privat atau sirkel yang) Tj
+T* (punya dana patungan super jumbo plus kenalan orang-orang penting.) Tj
+T* () Tj
+T* (Mereka bisa dengan gampang nyuntik dana buat bikin chart meroket. Makanya di dunia koin micin) Tj
+T* (ini, "Tahu siapa bandar di balik koinnya" seringkali jauh lebih berharga daripada semalaman) Tj
+T* (mantengin chart.) Tj
+T* (- Insight 5: Konsistensi Itu Datangnya dari Excel!) Tj
+T* (Rahasia terbesar trader pro? Disiplin nyatet! Lihat kembali di kalendermu, apa yang bikin dompet) Tj
+T* (berdarah dan mana yang bikin hijau.) Tj
+T* () Tj
+T* (Prinsip dasar: "Mending aman daripada nangis belakangan". Pas cuan gede, buang jauh-jauh rasa) Tj
+ET
+endstream
+endobj
+71 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 70 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+72 0 obj
+<< /Length 3931 >>
+stream
+BT
+/F1 9 Tf
+48 744 Td
+11 TL
+(sombongmu. Segera amankan uang modalmu, perlakukan sisanya murni sebagai bonus main.) Tj
+T* () Tj
+T* (11. Rahasia Trading Koin Micin: Strategi, Psikologi, dan Analisis Ala Mas Ponyin) Tj
+T* (Date: 19 Maret 2026 | Tag: Psikologi Analisis | Link: https://x.com/i/spaces/1pJkOybvgOrJj?s=20) Tj
+T* (Bahas santai soal taktik keluar \(exit\) pas bawa duit banyak, tips nyicil 3-dip biar gak rungkad,) Tj
+T* (sampe urusan bot vs orang beneran.) Tj
+T* (- Insight 1: Cara Jualan Biar Harga Gak Hancur \(Size Play\)) Tj
+T* (Lagi bawa duit gede? Cara jual \(exit\) kamu wajib banget disesuaikan sama ketebalan uang) Tj
+T* (\(likuiditas\) si koin. Kolam yang airnya banyak nggak bakal surut cuma gara-gara kamu serok pakai) Tj
+T* (gayung.) Tj
+T* () Tj
+T* (Trik kotornya: Pakai momen rilis "Berita Hype" buat ajang jualanmu. Waktu orang pada fomo mau) Tj
+T* (beli, di situlah kamu pelan-pelan nyicil jualan \(DCA Out\). Ingat, bensin euforia itu cepat) Tj
+T* (banget habis!) Tj
+T* (- Insight 2: Jurus 3-Dip Biar Masuk Koin Lebih Tenang) Tj
+T* (Gini cara nyicil asik pas mau masuk koin yang volumenya meledak:) Tj
+T* (Cipratan 1: Pantau aja, kalem.) Tj
+T* (Cipratan 2: Lempar receh \(misal 0.1 SOL\) sekadar pasang alat pelacak, intip gimana kelakuan gas) Tj
+T* (fee dan gerak-gerik holdernya.) Tj
+T* (Cipratan 3: Begitu grafik beneran konfirmasi naik kuat, baru buang modal gedenya! Anggap aja ini) Tj
+T* (sabuk pengamanmu dari developer yang kabur mendadak.) Tj
+T* (- Insight 3: Ngintil Smart Wallet & Orang Dalam \(Insider\)) Tj
+T* (Jangan terlalu polos ngandelin akun raksasa di Twitter; mereka kebanyakan cuma cari mangsa) Tj
+T* (retail. Mending cari akun-akun dewa yang sepi pengikut tapi kasih info gila.) Tj
+T* () Tj
+T* (Cara melacak: Cobain cek aktivitas 5-10 menit sebelum akun itu cuap-cuap, lacak adakah dompet) Tj
+T* (yang udah "ngetem" duluan. Oh ya awas! Orang dalam yang terlalu pintar kadang sengaja bakar duit) Tj
+T* (beli "koin buangan" biar winrate asli mereka di blockchain kelihatan buruk dan gak diawasin.) Tj
+T* (- Insight 4: Mending Solana Atau Base?) Tj
+T* (Solana itu kayak sirkuit balap liar; bikin koin segampang kedip mata \(Pump.fun\) dan putaran) Tj
+T* (duitnya kencang banget.) Tj
+T* (Base berasa ngejalanin restoran *fine dining*; pergerakannya lambat tapi uang yang ngendap) Tj
+T* (jumlahnya tebel parah.) Tj
+T* (Intinya: Tinggalin rasa fanatik asumu sama satu ekosistem! Kejar aja ke mana uang lagi) Tj
+T* (banyak-banyaknya ngalir.) Tj
+T* (- Insight 5: Jaga Mentalku, Amankan Cuan! \(Psikologi\)) Tj
+T* (Menang banyak di koin micin itu bukan adu pinter baca grafik, tapi murni adu ngendaliin hawa) Tj
+T* (nafsu \(greed\) & gengsi!) Tj
+T* () Tj
+T* (Coba tempel foto target aslimu, misal "Beliin Motor Ortu". Itu jadi rem paling pakem biar) Tj
+T* (ketikan jarimu nggak liar beli koin fomo. Sukses di sini itu artinya kamu masih bisa napas 10) Tj
+T* (tahun lagi, bukan sekadar hoki menang undian hari ini doang.) Tj
+T* (- Insight 6: Deteksi "Global Fee" & Bot Manipulasi) Tj
+T* (Global Fee itu bosnya matriks. Kalau biaya fee-nya loncat, artinya koin itu beneran laku keras) Tj
+T* (atau emang ada "perang bot" yang brutal di dalamnya.) Tj
+T* (Nah, kita harus cukup pintar bedain mana Volume Orang Asli dan mana "Volume Robot" buatan Dev,) Tj
+T* (fungsinya biar nggak ketipu beli koin yang sebenernya cuma diputar-putar sama pihak internal.) Tj
+T* (- Insight 7: Tahu Kapan Pake Bot, Kapan Pake Terminal) Tj
+T* (Ngeksekusi via Bot Telegram \(Trojan/BullX/dsb\) itu sumpah lebih hemat ongkos gas fee-nya. Tapi) Tj
+T* (kalau pakai Terminal Web \(macem Dex dll\), matamu bakal lebih puas pantau pergerakan super cepat.) Tj
+T* () Tj
+T* (Buat yang pro: Belajarlah dasar ngoding \(kayak Rust atau JS\) terus colok langsung ke jalur) Tj
+T* (satelit sendiri \(RPC Helios\). Bikin Bundler rahasiamu biar transaksinya tembus kilat tanpa perlu) Tj
+T* (singgah antri di platform orang lain.) Tj
+ET
+endstream
+endobj
+73 0 obj
+<< /Type /Page /Parent 74 0 R /MediaBox [0 0 612 792] /Contents 72 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+74 0 obj
+<< /Type /Pages /Count 36 /Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R 43 0 R 45 0 R 47 0 R 49 0 R 51 0 R 53 0 R 55 0 R 57 0 R 59 0 R 61 0 R 63 0 R 65 0 R 67 0 R 69 0 R 71 0 R 73 0 R] >>
+endobj
+75 0 obj
+<< /Type /Catalog /Pages 74 0 R >>
+endobj
+xref
+0 76
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000003786 00000 n 
+0000003913 00000 n 
+0000007630 00000 n 
+0000007757 00000 n 
+0000011181 00000 n 
+0000011308 00000 n 
+0000014304 00000 n 
+0000014431 00000 n 
+0000017247 00000 n 
+0000017376 00000 n 
+0000019850 00000 n 
+0000019979 00000 n 
+0000022650 00000 n 
+0000022779 00000 n 
+0000025120 00000 n 
+0000025249 00000 n 
+0000027720 00000 n 
+0000027849 00000 n 
+0000030490 00000 n 
+0000030619 00000 n 
+0000033453 00000 n 
+0000033582 00000 n 
+0000036565 00000 n 
+0000036694 00000 n 
+0000039460 00000 n 
+0000039589 00000 n 
+0000040863 00000 n 
+0000040992 00000 n 
+0000043817 00000 n 
+0000043946 00000 n 
+0000046600 00000 n 
+0000046729 00000 n 
+0000049662 00000 n 
+0000049791 00000 n 
+0000052476 00000 n 
+0000052605 00000 n 
+0000055473 00000 n 
+0000055602 00000 n 
+0000058808 00000 n 
+0000058937 00000 n 
+0000062462 00000 n 
+0000062591 00000 n 
+0000065054 00000 n 
+0000065183 00000 n 
+0000068426 00000 n 
+0000068555 00000 n 
+0000072070 00000 n 
+0000072199 00000 n 
+0000075048 00000 n 
+0000075177 00000 n 
+0000078340 00000 n 
+0000078469 00000 n 
+0000081471 00000 n 
+0000081600 00000 n 
+0000084396 00000 n 
+0000084525 00000 n 
+0000089598 00000 n 
+0000089727 00000 n 
+0000094988 00000 n 
+0000095117 00000 n 
+0000099324 00000 n 
+0000099453 00000 n 
+0000104901 00000 n 
+0000105030 00000 n 
+0000109552 00000 n 
+0000109681 00000 n 
+0000114055 00000 n 
+0000114184 00000 n 
+0000118686 00000 n 
+0000118815 00000 n 
+0000122799 00000 n 
+0000122928 00000 n 
+0000123229 00000 n 
+trailer
+<< /Size 76 /Root 75 0 R >>
+startxref
+123280
+%%EOF
