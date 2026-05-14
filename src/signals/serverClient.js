@@ -6,10 +6,8 @@ import { storeSignalEvent, trendingSignalPass, trending } from './trending.js';
 import { graduated } from './graduated.js';
 
 let candidateHandler = null;
-let degenHandler = null;
 
 export function setCandidateHandler(fn) { candidateHandler = fn; }
-export function setDegenHandler(fn) { degenHandler = fn; }
 
 const seenSignals = new Map();
 
@@ -47,8 +45,6 @@ export async function fetchServerSignals() {
     const strat = activeStrategy();
     let processed = 0;
     let triggered = 0;
-    let dipAlerts = 0;
-
     for (const signal of signals) {
       const mint = signal.mint;
       if (!mint) continue;
@@ -140,40 +136,13 @@ export async function fetchServerSignals() {
         signature = signal.feeClaim.signature;
       }
 
-      // Entry mode logic
-      if (strat.entry_mode === 'wait_for_dip' && strat.max_ath_distance_pct < 0) {
-        // Dip buy strategy: check if already at target
-        const athDist = signal.graduated?.distanceFromAthPercent;
-        if (athDist != null && athDist <= strat.max_ath_distance_pct) {
-          // Already at dip target, trigger immediately
-          await triggerCandidate({ mint, fee, signature, graduatedCoin, trendingToken, route });
-          triggered++;
-        } else {
-          // Store price alert for later
-          const { storePriceAlert } = await import('./priceMonitor.js');
-          const targetPrice = signal.priceUsd ? signal.priceUsd * (1 + strat.max_ath_distance_pct / 100) : null;
-          storePriceAlert({
-            mint,
-            strategyId: strat.id,
-            alertType: 'dip_target',
-            targetPriceUsd: targetPrice,
-            targetAthDistancePercent: strat.max_ath_distance_pct,
-            signal,
-            expiresMs: 24 * 60 * 60 * 1000,
-          });
-          dipAlerts++;
-        }
-      } else {
-        // Immediate entry mode (sniper, smart_money, degen)
-        await triggerCandidate({ mint, fee, signature, graduatedCoin, trendingToken, route });
-        triggered++;
-      }
+      await triggerCandidate({ mint, fee, signature, graduatedCoin, trendingToken, route });
+      triggered++;
 
       processed++;
     }
 
-    const dipPart = dipAlerts > 0 ? `, ${dipAlerts} dip alerts` : '';
-    console.log(`[server] ${processed} signals, ${triggered} triggered${dipPart}, tracking ${trending.size}`);
+    console.log(`[server] ${processed} signals, ${triggered} triggered, tracking ${trending.size}`);
   } catch (err) {
     console.log(`[server] ${err.message}`);
   }

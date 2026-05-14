@@ -37,13 +37,12 @@ export async function requestStrategyNumericInput(query, key) {
   pendingNumericInputs.set(String(chatId), {
     type: 'strategy',
     key,
-    strategyId: strat.id,
     at: now(),
     messageId: query.message?.message_id || null,
   });
   return editMenuMessage(
     query,
-    `Send a number for ${strat.name} ${strategyNumericLabels[key]}.\nExamples: 5, 50000, 100k, 1.5m, -40, off`,
+    `Send a number for ${strategyNumericLabels[key]}.\nExamples: 5, 50000, 100k, 1.5m, -40, off`,
     navKeyboard([[{ text: 'Cancel', callback_data: 'menu:strategy' }]]),
   );
 }
@@ -65,10 +64,6 @@ export async function consumeNumericFilterInput(chatId, text, userMessageId = nu
   if (userMessageId) bot.deleteMessage(chatId, userMessageId).catch(() => {});
   if (pending.type === 'strategy') {
     const strat = activeStrategy();
-    if (strat.id !== pending.strategyId) {
-      await bot.sendMessage(chatId, 'Strategy changed while input was pending. Open Strategy menu and try again.');
-      return true;
-    }
     const newConfig = { ...strat, [pending.key]: value };
     delete newConfig.id;
     delete newConfig.name;

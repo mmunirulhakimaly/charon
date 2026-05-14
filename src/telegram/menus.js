@@ -1,5 +1,5 @@
 import { escapeHtml, fmtPct, fmtSol, fmtUsd, short } from '../format.js';
-import { numSetting, boolSetting, setting, activeStrategy, allStrategies } from '../db/settings.js';
+import { numSetting, boolSetting, setting, activeStrategy, PRIMARY_STRATEGY_NAME } from '../db/settings.js';
 import { openPositionCount, tradingMode, allPositions, openPositions } from '../db/positions.js';
 import { savedWallets } from '../enrichment/wallets.js';
 import { gmgnStatusText } from '../enrichment/gmgn.js';
@@ -29,7 +29,7 @@ export function menuKeyboard() {
 export function filtersText() {
   const strat = activeStrategy();
   return [
-    `⚙️ <b>Charon Filters</b> (${escapeHtml(strat.name)})`,
+    `⚙️ <b>Charon Filters</b> (${escapeHtml(PRIMARY_STRATEGY_NAME)})`,
     `Min claim fee: ${fmtSol(strat.min_fee_claim_sol)} SOL`,
     `Min mcap: ${fmtUsd(strat.min_mcap_usd)}`,
     `Max mcap: ${strat.max_mcap_usd > 0 ? fmtUsd(strat.max_mcap_usd) : 'off'}`,
@@ -38,12 +38,11 @@ export function filtersText() {
     `Min holders: ${strat.min_holders || 'off'}`,
     `Max holder: ${strat.max_top20_holder_percent < 100 ? fmtPct(strat.max_top20_holder_percent) : 'off'}`,
     `Min saved holders: ${strat.min_saved_wallet_holders || 'off'}`,
-    strat.max_ath_distance_pct < 0 ? `Max ATH distance: ${strat.max_ath_distance_pct}%` : null,
     '',
     `Min sources: ${strat.min_source_count}`,
     `Fee required: ${strat.require_fee_claim ? 'yes' : 'no'}`,
     '',
-    `Trending: <b>${boolSetting('trending_enabled', true) ? 'on' : 'off'}</b> · Degen path: <b>${boolSetting('trending_allow_degen', false) ? 'on' : 'off'}</b> · Source: <b>${escapeHtml(setting('trending_source', 'jupiter'))}</b>`,
+    `Trending: <b>${boolSetting('trending_enabled', true) ? 'on' : 'off'}</b> · Source: <b>${escapeHtml(setting('trending_source', 'jupiter'))}</b>`,
     `GMGN status: token-info ${escapeHtml(gmgnStatusText('token'))} · trending ${escapeHtml(gmgnStatusText('trending'))}`,
     `Trending interval: ${escapeHtml(setting('trending_interval', '5m'))} · Limit: ${numSetting('trending_limit', 100)}`,
     `Min trend volume: ${fmtUsd(strat.trending_min_volume_usd)} · Min swaps: ${strat.trending_min_swaps}`,
@@ -118,7 +117,7 @@ export function agentText() {
   const strat = activeStrategy();
   return [
     '🛶 <b>Charon Agent</b>',
-    `Strategy: <b>${escapeHtml(strat.name)}</b>`,
+    `Strategy: <b>${escapeHtml(PRIMARY_STRATEGY_NAME)}</b>`,
     `Agent: <b>${boolSetting('agent_enabled', true) ? 'on' : 'off'}</b>`,
     `Mode: <b>${escapeHtml(tradingMode())}</b>`,
     `LLM: <b>${strat.use_llm && ENABLE_LLM && LLM_API_KEY ? 'configured' : 'disabled'}</b>`,
@@ -280,13 +279,11 @@ export function positionsText() {
 
 export function strategyMenuText() {
   const strat = activeStrategy();
-  const all = allStrategies();
-  const entryIcons = { immediate: '⚡', wait_for_dip: '📉', after_confirmation: '🧠' };
   return [
-    '🎯 <b>Strategy</b>',
+    '🎯 <b>Ponyin + Narrative</b>',
     '',
-    `Active: <b>${escapeHtml(strat.name)}</b>`,
-    `Entry: ${entryIcons[strat.entry_mode] || '?'} ${strat.entry_mode}`,
+    'Single runtime strategy for all new entries.',
+    `Entry: immediate`,
     `Min sources: ${strat.min_source_count}`,
     `Fee required: ${strat.require_fee_claim ? 'yes' : 'no'}`,
     `Size: ${fmtSol(strat.position_size_sol)} SOL`,
@@ -294,22 +291,14 @@ export function strategyMenuText() {
     `Trailing: ${strat.trailing_enabled ? fmtPct(strat.trailing_percent) : 'off'}`,
     `Max positions: ${strat.max_open_positions}`,
     strat.min_holders > 0 ? `Min holders: ${strat.min_holders}` : null,
-    strat.max_ath_distance_pct < 0 ? `Max ATH distance: ${strat.max_ath_distance_pct}%` : null,
     strat.partial_tp ? `Partial TP: ${strat.partial_tp_sell_percent}% at ${fmtPct(strat.partial_tp_at_percent)}` : null,
     strat.max_hold_ms > 0 ? `Max hold: ${Math.round(strat.max_hold_ms / 60000)}m` : null,
     strat.use_llm ? `LLM: yes (min ${strat.llm_min_confidence}%)` : 'LLM: no (rule-based)',
-    '',
-    ...all.map(s => `${s.enabled ? '▶' : '○'} ${s.name}`),
   ].filter(Boolean).join('\n');
 }
 
 export function strategyKeyboard() {
   const strat = activeStrategy();
-  const all = allStrategies();
-  const selector = all.map(s => [{
-    text: `${s.enabled ? '▶ ' : ''}${s.name}`,
-    callback_data: `strategy:select:${s.id}`,
-  }]);
   const config = [
     [
       { text: `TP +${strat.tp_percent}%`, callback_data: 'stratinput:tp_percent' },
@@ -337,7 +326,7 @@ export function strategyKeyboard() {
     ],
     [
       { text: `Partial TP ${strat.partial_tp ? 'on' : 'off'}`, callback_data: 'stratcfg:partial_tp' },
-      { text: `Max Hold ${strat.max_hold_ms > 0 ? Math.round(strat.max_hold_ms/60000)+'m' : 'off'}`, callback_data: 'stratinput:max_hold_ms' },
+      { text: `Max Hold ${strat.max_hold_ms > 0 ? Math.round(strat.max_hold_ms / 60000) + 'm' : 'off'}`, callback_data: 'stratinput:max_hold_ms' },
     ],
     [
       { text: `Claim Fee ${fmtSol(strat.min_fee_claim_sol)} SOL`, callback_data: 'stratinput:min_fee_claim_sol' },
@@ -349,30 +338,25 @@ export function strategyKeyboard() {
     ],
     [
       { text: `Saved ${strat.min_saved_wallet_holders || 'off'}`, callback_data: 'stratinput:min_saved_wallet_holders' },
-      { text: `ATH ${strat.max_ath_distance_pct < 0 ? `${strat.max_ath_distance_pct}%` : 'off'}`, callback_data: 'stratinput:max_ath_distance_pct' },
-    ],
-    [
       { text: `Age ${strat.token_age_max_ms > 0 ? Math.round(strat.token_age_max_ms / 60000) + 'm' : 'off'}`, callback_data: 'stratinput:token_age_max_ms' },
+    ],
+    [
       { text: `Trend Vol ${fmtUsd(strat.trending_min_volume_usd)}`, callback_data: 'stratinput:trending_min_volume_usd' },
-    ],
-    [
       { text: `Trend Swaps ${strat.trending_min_swaps}`, callback_data: 'stratinput:trending_min_swaps' },
+    ],
+    [
       { text: `Max Rug ${fmtPct(strat.trending_max_rug_ratio * 100)}`, callback_data: 'stratinput:trending_max_rug_ratio' },
-    ],
-    [
       { text: `Max Bundler ${fmtPct(strat.trending_max_bundler_rate * 100)}`, callback_data: 'stratinput:trending_max_bundler_rate' },
-      { text: `Partial Sell ${strat.partial_tp_sell_percent}%`, callback_data: 'stratinput:partial_tp_sell_percent' },
     ],
     [
+      { text: `Partial Sell ${strat.partial_tp_sell_percent}%`, callback_data: 'stratinput:partial_tp_sell_percent' },
       { text: `Partial At ${strat.partial_tp_at_percent}%`, callback_data: 'stratinput:partial_tp_at_percent' },
     ],
   ];
   return {
     reply_markup: {
       inline_keyboard: [
-        [{ text: '── Select Strategy ──', callback_data: 'noop' }],
-        ...selector,
-        [{ text: '── Configure ──', callback_data: 'noop' }],
+        [{ text: '── Configure Ponyin + Narrative ──', callback_data: 'noop' }],
         ...config,
         [{ text: 'Back', callback_data: 'menu:main' }],
       ],

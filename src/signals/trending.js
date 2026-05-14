@@ -7,11 +7,6 @@ import { gmgnBackoffActive, setGmgnBackoff, gmgnFetch, normalizedTrendingRows } 
 import { normalizeJupiterTrendingRow } from '../enrichment/jupiter.js';
 
 export const trending = new Map();
-let degenHandler = null;
-
-export function setDegenHandler(fn) {
-  degenHandler = fn;
-}
 
 export function storeSignalEvent(mint, kind, source, payload) {
   db.prepare(`
@@ -101,7 +96,6 @@ export async function fetchGmgnTrending() {
       trending.set(mint, token);
       tracked += 1;
       storeSignalEvent(mint, 'trending', token.source || source, token);
-      if (degenHandler) await degenHandler(mint, token);
     }
     console.log(`[trending:${source}] loaded ${rows.length}, accepted ${tracked}, tracking ${trending.size}`);
   } catch (err) {

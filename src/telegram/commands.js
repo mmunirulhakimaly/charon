@@ -3,7 +3,7 @@ import { TELEGRAM_CHAT_ID } from '../config.js';
 import { now, json } from '../utils.js';
 import { escapeHtml, fmtPct } from '../format.js';
 import { db } from '../db/connection.js';
-import { numSetting, boolSetting, setSetting, activeStrategy, setActiveStrategy, strategyById, updateStrategyConfig } from '../db/settings.js';
+import { numSetting, boolSetting, setSetting, activeStrategy, PRIMARY_STRATEGY_ID, updateStrategyConfig } from '../db/settings.js';
 import { candidateById, latestCandidateByMint, updateCandidateStatus } from '../db/candidates.js';
 import { storeDecision, logDecisionEvent } from '../db/decisions.js';
 import {
@@ -41,27 +41,19 @@ export async function handleMessage(msg) {
   if (text.startsWith('/positions')) return sendPositions(chatId);
   if (text.startsWith('/filters')) return bot.sendMessage(chatId, filtersText(), { parse_mode: 'HTML' });
   if (text.startsWith('/strategy')) {
-    const parts = text.split(/\s+/);
-    const id = parts[1];
-    if (!id) {
-      return bot.sendMessage(chatId, strategyMenuText(), { parse_mode: 'HTML', ...strategyKeyboard() });
-    }
-    const valid = ['sniper', 'dip_buy', 'smart_money', 'degen'];
-    if (!valid.includes(id)) {
-      return bot.sendMessage(chatId, `Unknown strategy. Valid: ${valid.join(', ')}`);
-    }
-    setActiveStrategy(id);
     return bot.sendMessage(chatId, strategyMenuText(), { parse_mode: 'HTML', ...strategyKeyboard() });
   }
   if (text.startsWith('/stratset')) {
     const parts = text.split(/\s+/);
-    const [, id, key, ...rest] = parts;
+    const [, maybeId, maybeKey, ...rest] = parts;
+    const hasExplicitId = maybeId === PRIMARY_STRATEGY_ID;
+    const id = PRIMARY_STRATEGY_ID;
+    const key = hasExplicitId ? maybeKey : maybeId;
     const value = rest.join(' ');
-    if (!id || !key || !value) {
-      return bot.sendMessage(chatId, 'Usage: /stratset <strategy_id> <key> <value>\n\nExample: /stratset sniper tp_percent 75\n\nKeys: tp_percent, sl_percent, position_size_sol, max_open_positions, min_mcap_usd, max_mcap_usd, min_holders, trailing_enabled, trailing_percent, partial_tp, partial_tp_at_percent, partial_tp_sell_percent, max_hold_ms, use_llm, llm_min_confidence, min_source_count, require_fee_claim, min_fee_claim_sol, min_gmgn_total_fee_sol, max_ath_distance_pct');
+    if (!key || !value) {
+      return bot.sendMessage(chatId, 'Usage: /stratset <key> <value>\n\nOptional legacy form: /stratset ponyin_narrative <key> <value>\n\nExample: /stratset tp_percent 75\n\nKeys: tp_percent, sl_percent, position_size_sol, max_open_positions, min_mcap_usd, max_mcap_usd, min_holders, trailing_enabled, trailing_percent, partial_tp, partial_tp_at_percent, partial_tp_sell_percent, max_hold_ms, use_llm, llm_min_confidence, min_source_count, require_fee_claim, min_fee_claim_sol, min_gmgn_total_fee_sol, max_ath_distance_pct');
     }
-    const strat = strategyById(id);
-    if (!strat) return bot.sendMessage(chatId, `Strategy "${id}" not found.`);
+    const strat = activeStrategy();
     const numKeys = new Set(['tp_percent', 'sl_percent', 'position_size_sol', 'max_open_positions', 'min_mcap_usd', 'max_mcap_usd', 'min_holders', 'max_top20_holder_percent', 'trailing_percent', 'partial_tp_at_percent', 'partial_tp_sell_percent', 'max_hold_ms', 'llm_min_confidence', 'min_source_count', 'min_fee_claim_sol', 'min_gmgn_total_fee_sol', 'max_ath_distance_pct', 'token_age_max_ms', 'trending_min_volume_usd', 'trending_min_swaps', 'trending_max_rug_ratio', 'trending_max_bundler_rate', 'min_saved_wallet_holders', 'min_graduated_volume_usd']);
     const boolKeys = new Set(['trailing_enabled', 'partial_tp', 'use_llm', 'require_fee_claim']);
     const newConfig = { ...strat };
@@ -75,7 +67,7 @@ export async function handleMessage(msg) {
       newConfig[key] = value;
     }
     updateStrategyConfig(id, newConfig);
-    return bot.sendMessage(chatId, `Updated ${id}.${key} = ${value}\n\n${strategyMenuText()}`, { parse_mode: 'HTML' });
+    return bot.sendMessage(chatId, `Updated ${PRIMARY_STRATEGY_ID}.${key} = ${value}\n\n${strategyMenuText()}`, { parse_mode: 'HTML' });
   }
   if (text.startsWith('/pnl')) return sendPnl(chatId);
   if (text.startsWith('/learn')) {
@@ -118,7 +110,6 @@ export async function handleMessage(msg) {
       'min_saved_wallet_holders',
       'trending_enabled',
       'trending_source',
-      'trending_allow_degen',
       'trending_interval',
       'trending_limit',
       'trending_order_by',
@@ -243,8 +234,8 @@ export async function toggleTrailing(chatId, id, query = null) {
 export function setupTelegram() {
   bot.setMyCommands([
     { command: 'menu', description: 'Open Charon menu' },
-    { command: 'strategy', description: 'Show/switch strategy' },
-    { command: 'stratset', description: 'Set strategy config (stratset id key value)' },
+    { command: 'strategy', description: 'Show Ponyin+narrative config' },
+    { command: 'stratset', description: 'Set Ponyin+narrative config' },
     { command: 'positions', description: 'Show dry-run positions' },
     { command: 'candidate', description: 'Show candidate by mint' },
     { command: 'filters', description: 'Show filters' },

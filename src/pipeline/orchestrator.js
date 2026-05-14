@@ -1,4 +1,3 @@
-import { now, pruneSeen } from '../utils.js';
 import { numSetting, boolSetting } from '../db/settings.js';
 import { upsertCandidate, updateCandidateStatus, recentEligibleCandidates, candidateById } from '../db/candidates.js';
 import { storeDecision, storeBatchDecision, logDecisionEvent } from '../db/decisions.js';
@@ -11,15 +10,10 @@ import { candidateSummary } from '../telegram/format.js';
 import { createTradeIntent } from '../db/intents.js';
 import { refreshCandidateForExecution } from '../execution/positions.js';
 import { executeLiveBuy } from '../execution/router.js';
-import { graduated } from '../signals/graduated.js';
-import { setDegenHandler } from '../signals/trending.js';
 import { setCandidateHandler } from '../signals/feeClaim.js';
 import { short } from '../format.js';
 import { escapeHtml } from '../format.js';
 
-export const seenSignalCandidates = new Map();
-
-setDegenHandler(maybeProcessDegenCandidate);
 setCandidateHandler(processCandidateFromSignals);
 
 export async function processCandidateFromSignals(signals) {
@@ -51,7 +45,7 @@ export async function processCandidateFromSignals(signals) {
       selected_candidate_id: candidateId,
       selected_mint: candidate.token.mint,
       selected_row: selfRow,
-      reason: `Strategy '${strat.id}' is rule-based (use_llm: false); filters passed.`,
+      reason: `Ponyin+narrative rule filter passed without LLM review.`,
       risks: [],
       suggested_tp_percent: strat.tp_percent ?? numSetting('default_tp_percent', 50),
       suggested_sl_percent: strat.sl_percent ?? numSetting('default_sl_percent', -25),
@@ -208,21 +202,4 @@ export async function handleApprovedBuy(selectedRow, decision, batchId, rows = [
       `Error: ${escapeHtml(err.message)}`,
     ].join('\n'));
   }
-}
-
-export async function maybeProcessDegenCandidate(mint, trendingToken) {
-  if (!boolSetting('trending_allow_degen', false)) return;
-  const graduatedCoin = graduated.get(mint);
-  if (!graduatedCoin) return;
-  pruneSeen(seenSignalCandidates, 10 * 60 * 1000);
-  const bucket = Math.floor(now() / (5 * 60 * 1000));
-  const key = `graduated_trending:${mint}:${bucket}`;
-  if (seenSignalCandidates.has(key)) return;
-  seenSignalCandidates.set(key, now());
-  await processCandidateFromSignals({
-    mint,
-    graduatedCoin,
-    trendingToken,
-    route: 'graduated_trending',
-  });
 }
