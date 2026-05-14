@@ -1,5 +1,8 @@
 import { db } from './connection.js';
 
+export const PRIMARY_STRATEGY_ID = 'ponyin_narrative';
+export const PRIMARY_STRATEGY_NAME = 'Ponyin + Narrative';
+
 export function setting(key, fallback = '') {
   return db.prepare('SELECT value FROM settings WHERE key = ?').get(key)?.value ?? fallback;
 }
@@ -25,9 +28,9 @@ const strategyCache = { id: null, config: null, at: 0 };
 
 export function activeStrategy() {
   if (strategyCache.config && Date.now() - strategyCache.at < 5000) return strategyCache.config;
-  const row = db.prepare('SELECT * FROM strategies WHERE enabled = 1 LIMIT 1').get();
+  const row = db.prepare('SELECT * FROM strategies WHERE id = ? LIMIT 1').get(PRIMARY_STRATEGY_ID);
   if (!row) {
-    const fallback = strategyById('sniper');
+    const fallback = strategyById(PRIMARY_STRATEGY_ID);
     if (fallback) return fallback;
     return defaultStrategy();
   }
@@ -42,22 +45,6 @@ export function strategyById(id) {
   const row = db.prepare('SELECT * FROM strategies WHERE id = ?').get(id);
   if (!row) return null;
   return { id: row.id, name: row.name, ...JSON.parse(row.config_json) };
-}
-
-export function allStrategies() {
-  return db.prepare('SELECT * FROM strategies ORDER BY id').all().map(row => ({
-    id: row.id,
-    name: row.name,
-    enabled: Boolean(row.enabled),
-    ...JSON.parse(row.config_json),
-  }));
-}
-
-export function setActiveStrategy(id) {
-  db.prepare('UPDATE strategies SET enabled = 0').run();
-  db.prepare('UPDATE strategies SET enabled = 1 WHERE id = ?').run(id);
-  strategyCache.config = null;
-  strategyCache.at = 0;
 }
 
 export function updateStrategyConfig(id, config) {
@@ -76,16 +63,16 @@ export function strategySetting(key, fallback) {
 
 function defaultStrategy() {
   return {
-    id: 'sniper', name: 'Sniper',
+    id: PRIMARY_STRATEGY_ID, name: PRIMARY_STRATEGY_NAME,
     entry_mode: 'immediate', min_source_count: 2, require_fee_claim: true,
-    token_age_max_ms: 3600000, min_mcap_usd: 7000, max_mcap_usd: 200000,
-    min_fee_claim_sol: 0.5, min_gmgn_total_fee_sol: 10, min_holders: 0,
-    max_top20_holder_percent: 100, min_saved_wallet_holders: 0, max_ath_distance_pct: 0,
-    min_graduated_volume_usd: 0, trending_min_volume_usd: 0, trending_min_swaps: 0,
-    trending_max_rug_ratio: 0.3, trending_max_bundler_rate: 0.5,
+    token_age_max_ms: 3600000, min_mcap_usd: 7000, max_mcap_usd: 250000,
+    min_fee_claim_sol: 0.5, min_gmgn_total_fee_sol: 10, min_holders: 150,
+    max_top20_holder_percent: 65, min_saved_wallet_holders: 0, max_ath_distance_pct: 0,
+    min_graduated_volume_usd: 0, trending_min_volume_usd: 10000, trending_min_swaps: 80,
+    trending_max_rug_ratio: 0.25, trending_max_bundler_rate: 0.35,
     position_size_sol: 0.1, max_open_positions: 3,
     tp_percent: 50, sl_percent: -25, trailing_enabled: true, trailing_percent: 20,
-    partial_tp: false, partial_tp_at_percent: 0, partial_tp_sell_percent: 0,
+    partial_tp: true, partial_tp_at_percent: 100, partial_tp_sell_percent: 50,
     max_hold_ms: 0, use_llm: true, llm_min_confidence: 50,
   };
 }

@@ -38,6 +38,14 @@ export function createDryRunPosition(candidateId, candidate, decision, reason = 
   const sl = Number(decision.suggested_sl_percent || strat.sl_percent || numSetting('default_sl_percent', -25));
   const trailingEnabled = (strat.trailing_enabled ?? boolSetting('default_trailing_enabled', true)) ? 1 : 0;
   const trailingPercent = strat.trailing_percent ?? numSetting('default_trailing_percent', 20);
+  const strategyConfig = {
+    id: strat.id,
+    name: strat.name,
+    max_hold_ms: Number(strat.max_hold_ms || 0),
+    partial_tp: Boolean(strat.partial_tp),
+    partial_tp_at_percent: Number(strat.partial_tp_at_percent || 0),
+    partial_tp_sell_percent: Number(strat.partial_tp_sell_percent || 0),
+  };
 
   return db.transaction(() => {
     const existing = db.prepare(`
@@ -68,7 +76,7 @@ export function createDryRunPosition(candidateId, candidate, decision, reason = 
       trailingPercent,
       decision.id || null,
       strat.id,
-      json({ candidate, decision, reason, strategy: strat.id }),
+      json({ candidate, decision, reason, strategy: strat.id, strategyConfig }),
     );
     const positionId = Number(result.lastInsertRowid);
     db.prepare(`
@@ -95,6 +103,14 @@ export function createLivePosition(candidateId, candidate, decision, swap, reaso
   const sl = Number(decision.suggested_sl_percent || strat.sl_percent || numSetting('default_sl_percent', -25));
   const trailingEnabled = (strat.trailing_enabled ?? boolSetting('default_trailing_enabled', true)) ? 1 : 0;
   const trailingPercent = strat.trailing_percent ?? numSetting('default_trailing_percent', 20);
+  const strategyConfig = {
+    id: strat.id,
+    name: strat.name,
+    max_hold_ms: Number(strat.max_hold_ms || 0),
+    partial_tp: Boolean(strat.partial_tp),
+    partial_tp_at_percent: Number(strat.partial_tp_at_percent || 0),
+    partial_tp_sell_percent: Number(strat.partial_tp_sell_percent || 0),
+  };
 
   return db.transaction(() => {
     const existing = db.prepare(`
@@ -128,7 +144,7 @@ export function createLivePosition(candidateId, candidate, decision, swap, reaso
       swap.signature,
       swap.outputAmount || null,
       strat.id,
-      json({ candidate, decision, reason, swap, strategy: strat.id }),
+      json({ candidate, decision, reason, swap, strategy: strat.id, strategyConfig }),
     );
     const positionId = Number(result.lastInsertRowid);
     db.prepare(`

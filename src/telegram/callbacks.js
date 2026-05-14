@@ -1,7 +1,7 @@
 import { bot } from './bot.js';
 import { TELEGRAM_CHAT_ID } from '../config.js';
 import { now } from '../utils.js';
-import { numSetting, boolSetting, setSetting, setActiveStrategy, activeStrategy, updateStrategyConfig } from '../db/settings.js';
+import { numSetting, boolSetting, setSetting, activeStrategy, updateStrategyConfig } from '../db/settings.js';
 import {
   menuKeyboard,
   filtersText,
@@ -54,7 +54,7 @@ export async function handleCallback(query) {
     setSetting('moonbag_llm_review_enabled', boolSetting('moonbag_llm_review_enabled', false) ? 'false' : 'true');
     return editMenuMessage(query, agentText(), agentKeyboard());
   }
-  if (data === 'toggle:trending_enabled' || data === 'toggle:trending_allow_degen') {
+  if (data === 'toggle:trending_enabled') {
     const key = data.replace('toggle:', '');
     setSetting(key, boolSetting(key, key === 'trending_enabled') ? 'false' : 'true');
     return editMenuMessage(query, filtersText(), filtersKeyboard());
@@ -77,11 +77,6 @@ export async function handleCallback(query) {
     ],
   ]));
 
-  if (data.startsWith('strategy:select:')) {
-    const strategyId = data.replace('strategy:select:', '');
-    setActiveStrategy(strategyId);
-    return editMenuMessage(query, strategyMenuText(), strategyKeyboard());
-  }
   if (data.startsWith('stratcfg:')) {
     const key = data.replace('stratcfg:', '');
     return handleStratConfig(query, chatId, key);
@@ -228,7 +223,7 @@ async function handleStratConfig(query, chatId, key) {
   }
 
   // Fallback: show current value
-  return bot.sendMessage(chatId, `Current ${key}: ${formatStratValue(key, strat[key])}\nUse /stratset ${strat.id} ${key} <value> to change.`);
+  return bot.sendMessage(chatId, `Current ${key}: ${formatStratValue(key, strat[key])}\nUse /stratset ${key} <value> to change.`);
 }
 
 async function updateSettingFromButton(query, key, value) {
@@ -243,7 +238,6 @@ async function updateSettingFromButton(query, key, value) {
     'min_saved_wallet_holders',
     'trending_enabled',
     'trending_source',
-    'trending_allow_degen',
     'trending_interval',
     'trending_limit',
     'trending_order_by',

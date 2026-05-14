@@ -1,0 +1,680 @@
+- navigation:
+  - link "Ponyin Ponyin.":
+    - /url: "#"
+    - img "Ponyin"
+    - generic: Ponyin.
+  - region "SOL price":
+    - generic: SOL
+    - generic: $90.24 ▼ 5.17%
+  - button "Switch to English":
+    - generic: ID
+    - generic: /
+    - generic: EN
+  - button "Switch to dark mode":
+    - generic: ☀️
+    - generic: /
+    - generic: 🌙
+  - link "𝕏 @elponyin":
+    - /url: https://x.com/elponyin
+  - link "⚡ Trojan":
+    - /url: https://trojan.com/@Ponyinnn
+- link "💼 Partnership & Endorsement? Hubungi kami di @ponyinnn di Telegram ✉️ →":
+  - /url: https://t.me/ponyinnn
+  - text: 💼 Partnership & Endorsement? Hubungi kami di
+  - strong: "@ponyinnn"
+  - text: di Telegram ✉️
+  - generic: →
+- generic: Trading Intel Hub
+- heading "Ilmu trading yang nyangkut di otak, bukan cuma lewat." [level=1]:
+  - text: Ilmu trading yang
+  - emphasis: nyangkut di otak,
+  - text: bukan cuma lewat.
+- paragraph:
+  - text: Kalau kamu pernah beli token dan tiba-tiba nyangkut tanpa tahu kenapa — materi ini buat kamu. Ponyin ngemas ilmu trading on-chain Solana jadi
+  - strong: sesimpel ngobrol sama teman
+  - text: ", tapi sekuat analisis yang biasanya cuma dimiliki whale."
+- link "Baca Materi ↓":
+  - /url: "#materi"
+- link "⚡ Platform Trading":
+  - /url: https://trojan.com/@Ponyinnn
+- generic: 🔥 Bundle Vol.1
+- generic: 📊 Solana OG
+- generic: ⚡ trojan.com
+- img "Ponyin"
+- generic: Ponyin
+- generic: Trader · Educator
+- generic: On-chain
+- generic: Solana
+- generic: New Pair
+- generic: Scroll
+- generic: 📚 Vol. 1 — Bundle Basics
+- heading "9 ilmu dasar yang wajib kamu kuasai dulu." [level=2]:
+  - text: 9 ilmu dasar yang wajib
+  - text: kamu kuasai dulu.
+- paragraph: Dari cara baca bundle, global fees, sampai cabal play dan market cap tiers. Pilih topik dari sidebar, atau baca berurutan pakai tombol navigasi di bawah tiap materi.
+- generic: "9"
+- generic: Basic
+- generic: "9"
+- generic: Vol. 1 Basic
+- generic: "7"
+- generic: Vol. 2 Advance
+- generic: +
+- generic: Coming soon
+- complementary:
+  - generic: Materi · Vol. 1
+  - button "1 Bundle Token Monopoli supply tersembunyi":
+    - generic: "1"
+    - generic: Bundle Token
+    - generic: Monopoli supply tersembunyi
+  - button "2 Global Fees Detektor transaksi palsu":
+    - generic: "2"
+    - generic: Global Fees
+    - generic: Detektor transaksi palsu
+  - button "3 Revoke & Minting Jebakan yang kelihatan aman":
+    - generic: "3"
+    - generic: Revoke & Minting
+    - generic: Jebakan yang kelihatan aman
+  - button "4 Meme vs Utility Pilih sesuai style kamu":
+    - generic: "4"
+    - generic: Meme vs Utility
+    - generic: Pilih sesuai style kamu
+  - button "5 Dex Paid, Ads & Boost Sinyal kepercayaan pasar":
+    - generic: "5"
+    - generic: Dex Paid, Ads & Boost
+    - generic: Sinyal kepercayaan pasar
+  - button "6 3 Konfirmasi Candle Cara nyari dip yang valid":
+    - generic: "6"
+    - generic: 3 Konfirmasi Candle
+    - generic: Cara nyari dip yang valid
+  - button "7 Cabal Play Kelompok terorganisir":
+    - generic: "7"
+    - generic: Cabal Play
+    - generic: Kelompok terorganisir
+  - button "8 Membaca Holder Siapa yang sebenarnya pegang":
+    - generic: "8"
+    - generic: Membaca Holder
+    - generic: Siapa yang sebenarnya pegang
+  - button "9 Market Cap Tier Micro → CEX, beda strategi":
+    - generic: "9"
+    - generic: Market Cap Tier
+    - generic: Micro → CEX, beda strategi
+  - button "★ Penutup Dari Ponyin":
+    - generic: ★
+    - generic: Penutup
+    - generic: Dari Ponyin
+  - generic: Vol. 2 — Advance
+  - button "A1 Cara Snipe Early Mapping + tools sniper":
+    - generic: A1
+    - generic: Cara Snipe Early
+    - generic: Mapping + tools sniper
+  - button "A2 First 1K dari $100 Dua jalur nyata":
+    - generic: A2
+    - generic: First 1K dari $100
+    - generic: Dua jalur nyata
+  - button "A3 Wallet Ping 10 mata lebih baik":
+    - generic: A3
+    - generic: Wallet Ping
+    - generic: 10 mata lebih baik
+  - button "A4 Money Management Compounding + greedy":
+    - generic: A4
+    - generic: Money Management
+    - generic: Compounding + greedy
+  - button "A5 Transaksi Murah RUST + RPC direct":
+    - generic: A5
+    - generic: Transaksi Murah
+    - generic: RUST + RPC direct
+  - button "A6 Rent Refund Tarik kembali uang sewa":
+    - generic: A6
+    - generic: Rent Refund
+    - generic: Tarik kembali uang sewa
+  - button "A7 Instant Scalping 4 step new pair":
+    - generic: A7
+    - generic: Instant Scalping
+    - generic: 4 step new pair
+  - button "✦ Day Phase Trade Short swing 3–7 hari":
+    - generic: ✦
+    - generic: Day Phase Trade
+    - generic: Short swing 3–7 hari
+  - button "A8 Multi Wallet Keajaiban trading":
+    - generic: A8
+    - generic: Multi Wallet
+    - generic: Keajaiban trading
+  - button "A9 Unwritten Rules Etika survival jangka panjang":
+    - generic: A9
+    - generic: Unwritten Rules
+    - generic: Etika survival jangka panjang
+  - button "A10 Skema Penipuan Pig butchering & drainer":
+    - generic: A10
+    - generic: Skema Penipuan
+    - generic: Pig butchering & drainer
+  - generic: Segera Hadir
+  - generic: 🔒
+  - generic: Vol. 3 — On-chain Pro
+  - generic: MEV, bundle, arbitrage
+- generic: A10
+- text: Advance — Security
+- heading "Skema Penipuan — Pig Butchering & Drainer" [level=2]:
+  - generic: Skema Penipuan —
+  - text: Pig Butchering & Drainer
+- paragraph: Di dunia kripto, uangmu bisa hilang bukan cuma karena market turun, tapi karena jebakan manipulasi psikologis dan smart contract.
+- generic: Vol. 2 Advance
+- generic: ›
+- text: Skema Penipuan
+- generic: ·
+- text: A10 dari A10
+- paragraph:
+  - strong: Ini thread tentang macam-macam scam paling umum di kripto.
+  - text: Fenomena penipuan ini sasarannya justru bukan pemula, tapi orang-orang yang sudah advance dan portofolionya sudah pada besar. Jangan sampai kamu lengah.
+- generic: 🐷
+- generic: 1. Pig Butchering (Penjagalan Babi)
+- paragraph: Bayangin kamu ini kayak babi yang dikasih makan, dibikin gendut. Pas udah banyak dagingnya... kamu langsung dipotong buat dipanen.
+- paragraph:
+  - strong: "Skemanya:"
+  - text: Si pelaku akan berusaha approach kamu secara halus. Ngeluh, cerita, curhat, sampai dia dapat atensi dari kamu. Modusnya nanti dia akan minta ajarin gimana cara nge-trade dsb. Diajak teleponan, share screen, dll. Bahkan mereka tidak takut untuk mengirim kamu uang duluan.
+- paragraph: "Nanti pas kamu lengah dan percaya, baru mereka beraksi menguras hartamu. Di luar kripto juga ada: job online dibayar ShopeePay cuma suruh like comment YouTube, nanti ujungnya kamu disuruh kirim uang untuk \"klaim\" uang. Mirip persis."
+- generic: 🪂
+- generic: 2. Airdrop Drainer
+- paragraph: Bayangin kamu lagi asik trade, tiba-tiba ada yang mengirim kamu koin dengan nama yang sama dengan koin bagus. Kamu gak pernah beli itu, pure dikirim ke wallet kamu.
+- paragraph:
+  - text: Niatnya kamu mau jual koin gratisan itu, tapi tiba-tiba habis interact dengan smart contract-nya...
+  - strong: Wallet kamu ter-drain. Isinya dikuras habis.
+- paragraph:
+  - text: Si pembuat scam menyisipkan "Backdoor" pada smart contract di koin yang dia airdrop. Pas korban interact (jual token tersebut), pelaku langsung dapat akses ke wallet korban.
+  - strong: "Cara hindarinya:"
+  - text: Jangan pernah interact sama koin yang kamu merasa tidak garap atau beli.
+- generic: 🤖
+- generic: 3. Bot VIP Drainer
+- paragraph: Banyak banget yang udah kena ini. Paling sering muncul dari iklan Telegram.
+- paragraph:
+  - text: Pelaku membuat iklan bot trading VIP palsu, saat kamu klik dan start, bot tersebut meminta akses atau mnemonic phrase-mu.
+  - strong: "Makanya gw sangat menyarankan:"
+  - text: kalau kamu punya uang, beli Telegram Premium.
+- paragraph: Gunanya apa? Untuk menghindari salah pencet / fat finger iklan Telegram yang mengarah ke bot drainer ini.
+- button "← Unwritten Rules"
+- generic: A10 / A10
+- button "Mulai dari awal ↺"
+- text: Space Recordings
+- heading "Rangkuman Twitter Space Bang Ponyin" [level=2]:
+  - text: Rangkuman
+  - emphasis: Twitter Space
+  - text: Bang Ponyin
+- paragraph: Poin-poin penting dari diskusi audio langsung. Bisa ada yang kurang akurat — dengarkan spacenya langsung untuk verifikasi.
+- generic: "11"
+- generic: Space Terekam
+- generic: "68"
+- generic: Total Insight
+- generic: 🔄
+- generic: Terus Diperbarui
+- generic: Multi-Wallet · Bundle
+- text: 10 Mei 2026
+- 'heading "Rahasia Main Dapur Developer Meme Coin: Dari Teknik Bundle Sampai Multi-Wallet" [level=3]'
+- paragraph: Kupas tuntas strategi multi-wallet buat trader, teknik bundle ala developer, perbedaan kultur CT Indo vs luar, cara lacak smart wallet, plus wanti-wanti soal "trading for living".
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1qKDzPEPLPAJV?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Strategi Multi-Wallet untuk Para Trader ▼":
+  - generic: "1"
+  - generic: Strategi Multi-Wallet untuk Para Trader
+  - generic: ▼
+- 'button "2 Bundle Koin: Teknik ''Pancing'' Volume Buat Developer ▼"':
+  - generic: "2"
+  - generic: "Bundle Koin: Teknik 'Pancing' Volume Buat Developer"
+  - generic: ▼
+- button "3 Perbedaan Cara Main Trader Indonesia vs Luar Negeri ▼":
+  - generic: "3"
+  - generic: Perbedaan Cara Main Trader Indonesia vs Luar Negeri
+  - generic: ▼
+- button "4 Tips Melacak 'Smart Wallet' yang Menguntungkan ▼":
+  - generic: "4"
+  - generic: Tips Melacak 'Smart Wallet' yang Menguntungkan
+  - generic: ▼
+- button "5 Risiko Besar 'Trading for Living' di Dunia Meme Coin ▼":
+  - generic: "5"
+  - generic: Risiko Besar 'Trading for Living' di Dunia Meme Coin
+  - generic: ▼
+- generic: Strategi · On-Chain
+- text: 23 April 2026
+- 'heading "Ponyin x Ave AI ID: Kupas Tuntas Strategi Trenching dan On-Chain" [level=3]'
+- paragraph: Bahas tuntas strategi trenching, literasi on-chain, manajemen wallet, hingga psikologi trading bareng Ave AI ID.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1MJgNgydPayGL?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Siapa sih Sosok Bro Ponyin dan Asal-usul Namanya? ▼":
+  - generic: "1"
+  - generic: Siapa sih Sosok Bro Ponyin dan Asal-usul Namanya?
+  - generic: ▼
+- button "2 Perjalanan Menjadi Edukator dan Admin Komunitas ▼":
+  - generic: "2"
+  - generic: Perjalanan Menjadi Edukator dan Admin Komunitas
+  - generic: ▼
+- button "3 Perbedaan Culture Crypto Twitter (CT) Indo vs Global ▼":
+  - generic: "3"
+  - generic: Perbedaan Culture Crypto Twitter (CT) Indo vs Global
+  - generic: ▼
+- button "4 Pentingnya Belajar Baca Blockchain (On-Chain Literacy) ▼":
+  - generic: "4"
+  - generic: Pentingnya Belajar Baca Blockchain (On-Chain Literacy)
+  - generic: ▼
+- button "5 Kenapa Solana Jadi 'Rumah' Favorit buat Trencher? ▼":
+  - generic: "5"
+  - generic: Kenapa Solana Jadi 'Rumah' Favorit buat Trencher?
+  - generic: ▼
+- button "6 Strategi Manajemen Wallet ala Ponyin ▼":
+  - generic: "6"
+  - generic: Strategi Manajemen Wallet ala Ponyin
+  - generic: ▼
+- 'button "7 Indikator Memilih Token: Green Flags vs Red Flags ▼"':
+  - generic: "7"
+  - generic: "Indikator Memilih Token: Green Flags vs Red Flags"
+  - generic: ▼
+- button "8 Apa Itu Smart Wallet yang Sesungguhnya? ▼":
+  - generic: "8"
+  - generic: Apa Itu Smart Wallet yang Sesungguhnya?
+  - generic: ▼
+- 'button "9 Ego: Pembunuh Nomor Satu di Crypto ▼"':
+  - generic: "9"
+  - generic: "Ego: Pembunuh Nomor Satu di Crypto"
+  - generic: ▼
+- generic: Keamanan · Anti-Drain
+- text: 18 April 2026
+- heading "Tips Jitu Jaga Keamanan Wallet Crypto Biar Gak Kena Drain" [level=3]
+- paragraph: Bahas tuntas dari bahaya doxxing, pentingnya VPN, backdoor dari file, scam airdrop drainer, sampai strategi multi-wallet anti bubble link.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1DxleEwlVagKL?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- 'button "1 Doxxing vs. Anonim: Plus Minus Tampil atau Sembunyi ▼"':
+  - generic: "1"
+  - generic: "Doxxing vs. Anonim: Plus Minus Tampil atau Sembunyi"
+  - generic: ▼
+- button "2 Keamanan Internet Dasar & VPN ▼":
+  - generic: "2"
+  - generic: Keamanan Internet Dasar & VPN
+  - generic: ▼
+- button "3 Bahaya Backdoor dari File Kiriman ▼":
+  - generic: "3"
+  - generic: Bahaya Backdoor dari File Kiriman
+  - generic: ▼
+- 'button "4 Scam Airdrop & Drainer: Gratisan yang Berbahaya ▼"':
+  - generic: "4"
+  - generic: "Scam Airdrop & Drainer: Gratisan yang Berbahaya"
+  - generic: ▼
+- 'button "5 Private Key vs. Seed Phrase: Bedanya Penting Banget! ▼"':
+  - generic: "5"
+  - generic: "Private Key vs. Seed Phrase: Bedanya Penting Banget!"
+  - generic: ▼
+- button "6 Hardware Wallet (Cold Wallet) untuk Aset Besar ▼":
+  - generic: "6"
+  - generic: Hardware Wallet (Cold Wallet) untuk Aset Besar
+  - generic: ▼
+- button "7 Strategi Multi-Wallet & Hindari Bubble Link ▼":
+  - generic: "7"
+  - generic: Strategi Multi-Wallet & Hindari Bubble Link
+  - generic: ▼
+- generic: Strategi · OpSec
+- text: 18 April 2026
+- heading "Tips Aman dan Cuan Trading Memecoin ala Bang Ponyin" [level=3]
+- paragraph: Strategi pemula, fleksibilitas panduan, pentingnya target PnL, keamanan OpSec multi-wallet, hingga tips Telegram dan burner wallet.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1mxPaLpMVXYKN?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Strategi Trading untuk Pemula ▼":
+  - generic: "1"
+  - generic: Strategi Trading untuk Pemula
+  - generic: ▼
+- button "2 Fleksibilitas dalam Menggunakan Panduan ▼":
+  - generic: "2"
+  - generic: Fleksibilitas dalam Menggunakan Panduan
+  - generic: ▼
+- button "3 Pentingnya Target dan Motivasi ▼":
+  - generic: "3"
+  - generic: Pentingnya Target dan Motivasi
+  - generic: ▼
+- button "4 Keamanan Operasional (OpSec) dan Multi-Wallet ▼":
+  - generic: "4"
+  - generic: Keamanan Operasional (OpSec) dan Multi-Wallet
+  - generic: ▼
+- button "5 Tips Telegram dan Burner Wallet ▼":
+  - generic: "5"
+  - generic: Tips Telegram dan Burner Wallet
+  - generic: ▼
+- generic: Strategi · Kabal
+- text: 12 April 2026
+- 'heading "Rahasia Trading Memecoin: Nge-Micin Bareng Bang Ponnyin: Strategi, Kabal, dan Cerita di Balik Layar Crypto" [level=3]'
+- paragraph: Membahas strategi dev new pair, fenomena kabal di koin micin, tips tracking wallet ROI tinggi, hingga kelucuan scam nastar dan peluang karir Web3.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1AKEmOnWLDOKL?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Strategi Token New Pair & Manipulasi Developer ▼":
+  - generic: "1"
+  - generic: Strategi Token New Pair & Manipulasi Developer
+  - generic: ▼
+- button "2 Fenomena 'Kabal' dalam Crypto Micin ▼":
+  - generic: "2"
+  - generic: Fenomena 'Kabal' dalam Crypto Micin
+  - generic: ▼
+- button "3 Tips Jitu Tracking Wallet Sukses ▼":
+  - generic: "3"
+  - generic: Tips Jitu Tracking Wallet Sukses
+  - generic: ▼
+- button "4 Cerita Kocak 'Scam Nastar' dan Flexing Influencer ▼":
+  - generic: "4"
+  - generic: Cerita Kocak 'Scam Nastar' dan Flexing Influencer
+  - generic: ▼
+- 'button "5 Peluang Karier Web3: Dari City ke Streamer ▼"':
+  - generic: "5"
+  - generic: "Peluang Karier Web3: Dari City ke Streamer"
+  - generic: ▼
+- generic: Multi-Wallet · Etika
+- text: 1 April 2026
+- 'heading "Rahasia Trading Memecoin: Strategi Multi-Wallet dan Etika di Dunia Crypto" [level=3]'
+- paragraph: Pembahasan mendalam soal tracking dev fee, strategi multi-wallet, etika calling, cara cari caller berkualitas, dan analisis token Blackout.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1nxnRYOoNVLxO?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Cara Melacak Klaim Fee Developer ▼":
+  - generic: "1"
+  - generic: Cara Melacak Klaim Fee Developer
+  - generic: ▼
+- 'button "2 Strategi Multi-Wallet: Jujur-jujuran Soal Rahasia Dapur ▼"':
+  - generic: "2"
+  - generic: "Strategi Multi-Wallet: Jujur-jujuran Soal Rahasia Dapur"
+  - generic: ▼
+- button "3 Etika 'Calling' dan Rasa Kasihan ke Trader Lokal ▼":
+  - generic: "3"
+  - generic: Etika 'Calling' dan Rasa Kasihan ke Trader Lokal
+  - generic: ▼
+- button "4 Tips Mencari 'Caller' Token yang Berkualitas ▼":
+  - generic: "4"
+  - generic: Tips Mencari 'Caller' Token yang Berkualitas
+  - generic: ▼
+- button "5 Analisis Token 'Blackout' dan Narasi Elon Musk ▼":
+  - generic: "5"
+  - generic: Analisis Token 'Blackout' dan Narasi Elon Musk
+  - generic: ▼
+- generic: Screening · Psikologi
+- text: 26 Maret 2026
+- 'heading "Rahasia Cuan Koin Micin Solana: Screening, Psikologi & Hindari Rugpull" [level=3]'
+- paragraph: Komparasi terminal Trojan vs Axiom, dilema punya banyak copy trader, cara baca Gas Fee kayak detektif, sampai lacak wallet insider.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1DxLdvEqgraxm?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- 'button "1 Trojan vs Axiom: Mana yang Lebih Cuan? ▼"':
+  - generic: "1"
+  - generic: "Trojan vs Axiom: Mana yang Lebih Cuan?"
+  - generic: ▼
+- 'button "2 Bedah Fitur Trojan: Market Order, Limit, DCA & Event ▼"':
+  - generic: "2"
+  - generic: "Bedah Fitur Trojan: Market Order, Limit, DCA & Event"
+  - generic: ▼
+- 'button "3 Dilema Besar: Jadi Idola Copy Trader Itu Melelahkan ▼"':
+  - generic: "3"
+  - generic: "Dilema Besar: Jadi Idola Copy Trader Itu Melelahkan"
+  - generic: ▼
+- 'button "4 Psikologi Trading: Main di Jalurmu Sendiri ▼"':
+  - generic: "4"
+  - generic: "Psikologi Trading: Main di Jalurmu Sendiri"
+  - generic: ▼
+- 'button "5 Strategi Utama: Jago Hindari RUG, Bukan Nebak Runner ▼"':
+  - generic: "5"
+  - generic: "Strategi Utama: Jago Hindari RUG, Bukan Nebak Runner"
+  - generic: ▼
+- button "6 Rahasia Deteksi Bot Pakai Global Gas Fee ▼":
+  - generic: "6"
+  - generic: Rahasia Deteksi Bot Pakai Global Gas Fee
+  - generic: ▼
+- 'button "7 Multi-Wallet Pro: Kuasai Supply, Turunkan Average ▼"':
+  - generic: "7"
+  - generic: "Multi-Wallet Pro: Kuasai Supply, Turunkan Average"
+  - generic: ▼
+- 'button "8 Lacak Wallet Insider: ROI Jauh Lebih Penting dari Win Rate ▼"':
+  - generic: "8"
+  - generic: "Lacak Wallet Insider: ROI Jauh Lebih Penting dari Win Rate"
+  - generic: ▼
+- 'button "9 Narasi & Timing: Dua Mata Uang Asli di Micin ▼"':
+  - generic: "9"
+  - generic: "Narasi & Timing: Dua Mata Uang Asli di Micin"
+  - generic: ▼
+- generic: Portofolio · Story
+- text: 11 Maret 2026
+- 'heading "Rahasia Trading & Kisah Hidup Ray Ponyin: Dari Warnet Jadi Pro Trader" [level=3]'
+- paragraph: Ngobrolin trik pisahin wallet, manajemen portofolio super aman ala miliarder, sampai bongkar masa lalu Bang Ray dari jaga rental PS.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1yxBeMvqddEJN?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Seni Menyiksa Diri Pakai \"Challenge Wallet\" ▼":
+  - generic: "1"
+  - generic: Seni Menyiksa Diri Pakai "Challenge Wallet"
+  - generic: ▼
+- button "2 Awas Tool Bodong di TikTok & Wallet Kena Kuras ▼":
+  - generic: "2"
+  - generic: Awas Tool Bodong di TikTok & Wallet Kena Kuras
+  - generic: ▼
+- 'button "3 Nostalgia Perjuangan: Dari Operator Warnet ke Blockchain ▼"':
+  - generic: "3"
+  - generic: "Nostalgia Perjuangan: Dari Operator Warnet ke Blockchain"
+  - generic: ▼
+- button "4 Formasi Portofolio Anti-Miskin (No Uang Panas!) ▼":
+  - generic: "4"
+  - generic: Formasi Portofolio Anti-Miskin (No Uang Panas!)
+  - generic: ▼
+- button "5 Gimana Sih Cara Jadi Developer Token yang Sukses? ▼":
+  - generic: "5"
+  - generic: Gimana Sih Cara Jadi Developer Token yang Sukses?
+  - generic: ▼
+- button "6 Berburu RUG, Bukan Terbang ke Bulan ▼":
+  - generic: "6"
+  - generic: Berburu RUG, Bukan Terbang ke Bulan
+  - generic: ▼
+- generic: Multi-Wallet · Strategi
+- text: 18 Maret 2026
+- heading "Bongkar Rahasia Multi-Wallet & Strategi Trading Memecoin" [level=3]
+- paragraph: Ngobrolin dapur strategi multi-wallet, trik milih koin micin yang bener, dan bahayanya kalau cuma ngintip wallet paus tanpa mikir.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1qGvvkmVpvpGB?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Cara Milih Koin Micin Biar Gak Kena Jebakan Developer ▼":
+  - generic: "1"
+  - generic: Cara Milih Koin Micin Biar Gak Kena Jebakan Developer
+  - generic: ▼
+- button "2 Rahasia Gelap Multi-Wallet Para Influencer ▼":
+  - generic: "2"
+  - generic: Rahasia Gelap Multi-Wallet Para Influencer
+  - generic: ▼
+- button "3 Strategi Nyicil (DCA) Jenius Pakai Banyak Wallet ▼":
+  - generic: "3"
+  - generic: Strategi Nyicil (DCA) Jenius Pakai Banyak Wallet
+  - generic: ▼
+- button "4 Awas, Jangan Asal Nge-kor Wallet Whale! ▼":
+  - generic: "4"
+  - generic: Awas, Jangan Asal Nge-kor Wallet Whale!
+  - generic: ▼
+- button "5 Cari Karakter Tradingmu Sendiri, Jangan Cuma Nunggu Suapan ▼":
+  - generic: "5"
+  - generic: Cari Karakter Tradingmu Sendiri, Jangan Cuma Nunggu Suapan
+  - generic: ▼
+- generic: Trading Style · Kabal
+- text: 18 Maret 2026
+- heading "Tips Jitu Trading Crypto & Cara Menemukan Gaya Tradingmu ala Bang Ponyin" [level=3]
+- paragraph: Dari curhat soal gaya trading, ngebahas Kabal Play, sampai pentingnya nyatet performa di Excel. Daging semua!
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1qxoNezjdmjJv?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight":
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Nyari Jati Diri (Trading Style) di Crypto ▼":
+  - generic: "1"
+  - generic: Nyari Jati Diri (Trading Style) di Crypto
+  - generic: ▼
+- button "2 Kenapa Kadang Berani Masuk Koin yang Baunya \"RUG\"? ▼":
+  - generic: "2"
+  - generic: Kenapa Kadang Berani Masuk Koin yang Baunya "RUG"?
+  - generic: ▼
+- button "3 Fokus Hindari Jebakan, Bukan Cuma Ngejar Terbang ▼":
+  - generic: "3"
+  - generic: Fokus Hindari Jebakan, Bukan Cuma Ngejar Terbang
+  - generic: ▼
+- button "4 Apa Sih \"Kabal\" Itu Sebenarnya? ▼":
+  - generic: "4"
+  - generic: Apa Sih "Kabal" Itu Sebenarnya?
+  - generic: ▼
+- button "5 Konsistensi Itu Datangnya dari Excel! ▼":
+  - generic: "5"
+  - generic: Konsistensi Itu Datangnya dari Excel!
+  - generic: ▼
+- generic: Psikologi · Analisis
+- text: 19 Maret 2026
+- 'heading "Rahasia Trading Koin Micin: Strategi, Psikologi, dan Analisis Ala Mas Ponyin" [level=3]'
+- paragraph: Bahas santai soal taktik keluar (exit) pas bawa duit banyak, tips nyicil 3-dip biar gak rungkad, sampe urusan bot vs orang beneran.
+- link "Dengarkan Space":
+  - /url: https://x.com/i/spaces/1pJkOybvgOrJj?s=20
+  - text: Dengarkan Space
+- button "Sembunyikan Insight" [active]:
+  - text: Sembunyikan Insight
+- text: Rangkuman Insight
+- generic: ⚠️ Bisa ada yang kurang tepat. Dengarkan ulang space untuk verifikasi.
+- button "1 Cara Jualan Biar Harga Gak Hancur (Size Play) ▼":
+  - generic: "1"
+  - generic: Cara Jualan Biar Harga Gak Hancur (Size Play)
+  - generic: ▼
+- button "2 Jurus 3-Dip Biar Masuk Koin Lebih Tenang ▼":
+  - generic: "2"
+  - generic: Jurus 3-Dip Biar Masuk Koin Lebih Tenang
+  - generic: ▼
+- button "3 Ngintil Smart Wallet & Orang Dalam (Insider) ▼":
+  - generic: "3"
+  - generic: Ngintil Smart Wallet & Orang Dalam (Insider)
+  - generic: ▼
+- button "4 Mending Solana Atau Base? ▼":
+  - generic: "4"
+  - generic: Mending Solana Atau Base?
+  - generic: ▼
+- button "5 Jaga Mentalku, Amankan Cuan! (Psikologi) ▼":
+  - generic: "5"
+  - generic: Jaga Mentalku, Amankan Cuan! (Psikologi)
+  - generic: ▼
+- button "6 Deteksi \"Global Fee\" & Bot Manipulasi ▼":
+  - generic: "6"
+  - generic: Deteksi "Global Fee" & Bot Manipulasi
+  - generic: ▼
+- button "7 Tahu Kapan Pake Bot, Kapan Pake Terminal ▼":
+  - generic: "7"
+  - generic: Tahu Kapan Pake Bot, Kapan Pake Terminal
+  - generic: ▼
+- generic: Jejak PnL Nyata
+- heading "Screenshot PnL perjalanan teman-teman yang berhasil praktekkan materi." [level=2]
+- paragraph: Untuk sekarang, semua bukti di sini ditampilkan sebagai screenshot PnL — hasil nyata dari yang sudah jalanin materinya.
+- img "Bukti PnL perjalanan teman-teman"
+- generic: Bukti PnL perjalanan teman-teman
+- generic: Untuk sekarang, semua screenshot di sini adalah bukti PnL nyata dari yang sudah pakai materinya.
+- generic: Nanti bisa dikembangkan jadi chart + konteks trade.
+- img "Screenshot PnL hasil practice"
+- generic: Screenshot PnL hasil practice
+- generic: Galeri ini menampilkan bukti PnL sebagai bukti eksekusi nyata.
+- generic: Hasil nyata ini mendukung bahwa materinya bukan sekadar teori.
+- img "Ditampilkan sebagai bukti PnL"
+- generic: Ditampilkan sebagai bukti PnL
+- generic: Saat ini bukti utama berbentuk screenshot PnL — nanti bisa ditambah dengan screenshot chart.
+- generic: Biar galeri tetap jujur dan grounded pada angka nyata.
+- img "Semakin banyak screenshot, semakin meyakinkan"
+- generic: Semakin banyak screenshot, semakin meyakinkan
+- generic: Galeri ini siap berkembang ketika semakin banyak cerita sukses masuk.
+- generic: Tempat bukti yang tumbuh seiring waktu.
+- generic: Daftar Scammer
+- paragraph: Akun-akun di bawah ini adalah PENIPU. Jangan percaya klaim mereka.
+- img "Scammer Face"
+- generic: SCAM
+- generic: Hopium Papa
+- generic: 𝕏
+- text: X (Twitter)
+- link "SCAM @fadeproXBT":
+  - /url: https://x.com/fadeproXBT
+  - generic: SCAM
+  - generic: "@fadeproXBT"
+- link "SCAM @Hopium_papa":
+  - /url: https://x.com/Hopium_papa
+  - generic: SCAM
+  - generic: "@Hopium_papa"
+- link "SCAM @fabolousgringo":
+  - /url: https://x.com/fabolousgringo
+  - generic: SCAM
+  - generic: "@fabolousgringo"
+- link "SCAM @zeusyxyz":
+  - /url: https://x.com/zeusyxyz
+  - generic: SCAM
+  - generic: "@zeusyxyz"
+- link "SCAM @maverickthefirst Cloning scam orang":
+  - /url: https://x.com/maverickthefirst
+  - generic: SCAM
+  - generic: "@maverickthefirst"
+  - generic: Cloning scam orang
+- text: TikTok
+- link "SCAM @hussainyn2":
+  - /url: https://www.tiktok.com/@hussainyn2
+  - generic: SCAM
+  - generic: "@hussainyn2"
+- link "SCAM @mrpepe.idn":
+  - /url: https://www.tiktok.com/@mrpepe.idn
+  - generic: SCAM
+  - generic: "@mrpepe.idn"
+- contentinfo:
+  - generic: Ponyin.
+  - generic: Materi trading on-chain yang disampaikan jujur dan simpel. Tidak ada jargon yang sengaja dibikin susah — karena ilmu yang bagus harusnya bisa dipahami semua orang.
+  - link "Partner Resmi ⚡ trojan.com/@Ponyinnn":
+    - /url: https://trojan.com/@Ponyinnn
+    - generic: Partner Resmi
+    - generic: ⚡ trojan.com/@Ponyinnn
+  - generic: Terhubung
+  - link "𝕏 Follow @elponyin di X":
+    - /url: https://x.com/elponyin
+    - generic: 𝕏
+    - text: Follow @elponyin di X
+  - link "⚡ Mulai trading di Trojan":
+    - /url: https://trojan.com/@Ponyinnn
+    - generic: ⚡
+    - text: Mulai trading di Trojan
+  - generic: © 2025 Ponyin Trading Intel Hub · Semua konten dilindungi · Dilarang menyalin tanpa izin
+- button "Toggle chatbot":
+- generic: Ponyin Bot
+- generic: Online
+- button "×"
+- generic: Halo! Saya Ponyin Bot 👋 Mau tanya soal materi trading atau bingung mau mulai dari mana? Cerita aja, saya dengerin.
+- textbox "Ketik keluh kesah / teks Anda disini..."
+- button [disabled]:

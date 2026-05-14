@@ -1,5 +1,36 @@
 import { escapeHtml, fmtPct, fmtSol, fmtUsd, short, gmgnLink, txLink, accountLink } from '../format.js';
 
+function narrativeLabel(type = '') {
+  const map = {
+    cult_culture: 'cult/culture',
+    news: 'news',
+    politics: 'politics',
+    animal: 'animal',
+    ai_tech: 'ai/tech',
+    viral_social_article: 'viral/social',
+    charity: 'charity',
+    big_figure_person: 'big figure',
+    unclear: 'unclear',
+  };
+  return map[String(type || '').toLowerCase()] || String(type || 'unclear');
+}
+
+function narrativeFromDecision(decision = null) {
+  return {
+    type: decision?.narrative_type || decision?.raw?.narrative_type || null,
+    score: decision?.narrative_score ?? decision?.raw?.narrative_score ?? null,
+    notes: decision?.narrative_notes || decision?.raw?.narrative_notes || '',
+  };
+}
+
+function quoteOnlyRisk(candidate) {
+  return candidate.twitterNarrative?.url
+    && /(?:^|\/)status\/\d+/i.test(String(candidate.twitterNarrative.url))
+    && !candidate.twitterNarrative?.text
+    && !candidate.token.website
+    && !candidate.token.telegram;
+}
+
 export function formatRecipients(shareholders) {
   if (!shareholders?.length) return '';
   return shareholders.slice(0, 5).map((holder, index) => {
@@ -21,8 +52,9 @@ export function candidateSummary(candidate, decision = null) {
   const chartWindow = candidate.chart?.windows?.find(row => row.label === 'ath_context_24h_5m' && row.available)
     || candidate.chart?.windows?.find(row => row.label === 'recent_24h_5m' && row.available);
   const route = candidate.signals?.label || signalLabel(candidate.signals);
+  const narrative = narrativeFromDecision(decision);
   const lines = [
-    `🛶 <b>Charon Candidate</b>`,
+    '🛶 <b>Charon Candidate</b>',
     '',
     `Signal: <b>${escapeHtml(route)}</b>`,
     candidate.token.name || candidate.token.symbol ? `Name: <b>${escapeHtml(candidate.token.name || candidate.token.symbol)}${candidate.token.symbol && candidate.token.name ? ` (${escapeHtml(candidate.token.symbol)})` : ''}</b>` : null,
@@ -60,7 +92,12 @@ export function candidateSummary(candidate, decision = null) {
     ].join(' · ') : null,
     candidate.feeClaim ? `Fee claim: <b>${fmtSol(candidate.feeClaim.distributedSol)} SOL</b>` : null,
     candidate.twitterNarrative?.text ? `Narrative: ${escapeHtml(candidate.twitterNarrative.text.slice(0, 220))}` : null,
-    decision ? `LLM: <b>${escapeHtml(decision.verdict)}</b> ${fmtPct(decision.confidence)} — ${escapeHtml(decision.reason || '')}` : null,
+    narrative.type || narrative.score != null
+      ? `Narrative score: <b>${narrative.score ?? 0}/20</b> · Type: <b>${escapeHtml(narrativeLabel(narrative.type))}</b>`
+      : null,
+    narrative.notes ? `Narrative notes: ${escapeHtml(narrative.notes)}` : null,
+    quoteOnlyRisk(candidate) ? 'Social red flag: <b>X quote/status link only</b> · weak proof' : null,
+    decision ? `LLM: <b>${escapeHtml(decision.verdict)}</b> ${fmtPct(decision.confidence)} - ${escapeHtml(decision.reason || '')}` : null,
     candidate.filters.passed ? null : `Filtered: ${escapeHtml(candidate.filters.failures.join('; '))}`,
   ];
   return lines.filter(Boolean).join('\n');
@@ -84,6 +121,7 @@ export function compactCandidateLine(row, index = null) {
 export function batchRevealSummary(batchId, rows, decision, triggerCandidateId = null) {
   const selected = rows.find(row => row.id === Number(decision.selected_candidate_id));
   const trigger = rows.find(row => row.id === Number(triggerCandidateId));
+  const narrative = narrativeFromDecision(decision);
   const lines = [
     '🧭 <b>Charon Screening</b>',
     '',
@@ -91,6 +129,10 @@ export function batchRevealSummary(batchId, rows, decision, triggerCandidateId =
     trigger ? `Trigger: ${compactCandidateLine(trigger)}` : null,
     selected ? `Pick: ${compactCandidateLine(selected)}` : 'Pick: <b>none</b>',
     `Decision: <b>${escapeHtml(decision.verdict || 'WATCH')}</b> ${fmtPct(decision.confidence || 0)}`,
+    narrative.type || narrative.score != null
+      ? `Narrative: <b>${escapeHtml(narrativeLabel(narrative.type))}</b> · Score: <b>${narrative.score ?? 0}/20</b>`
+      : null,
+    narrative.notes ? `Narrative notes: ${escapeHtml(String(narrative.notes).slice(0, 220))}` : null,
     decision.reason ? `Reason: ${escapeHtml(String(decision.reason).slice(0, 420))}` : null,
   ];
   return lines.filter(Boolean).join('\n');
@@ -105,7 +147,7 @@ export function formatPosition(position) {
   return [
     `📍 <b>${escapeHtml(position.symbol || short(position.mint))}</b> #${position.id}`,
     `Token: <a href="${gmgnLink(position.mint)}">${short(position.mint)}</a>`,
-    `Status: <b>${escapeHtml(position.status)}</b> · Mode: <b>${escapeHtml(position.execution_mode || 'dry_run')}</b> · Strategy: <b>${escapeHtml(position.strategy_id || 'sniper')}</b>`,
+    `Status: <b>${escapeHtml(position.status)}</b> · Mode: <b>${escapeHtml(position.execution_mode || 'dry_run')}</b> · Strategy: <b>${escapeHtml(position.strategy_id || 'ponyin_narrative')}</b>`,
     position.entry_signature ? `Entry TX: <a href="${txLink(position.entry_signature)}">${short(position.entry_signature)}</a>` : null,
     `Entry mcap: ${fmtUsd(position.entry_mcap)} · High: ${fmtUsd(position.high_water_mcap)}`,
     `Size: ${fmtSol(position.size_sol)} SOL · PnL: ${fmtPct(pnl)}`,

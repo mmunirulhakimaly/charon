@@ -1,4 +1,4 @@
-import { now, json } from '../utils.js';
+import { now, json, safeJson } from '../utils.js';
 import { numSetting, strategyById } from '../db/settings.js';
 import { db } from '../db/connection.js';
 import { firstPositiveNumber, marketCapFromGmgn, tokenPriceFromGmgn } from '../utils.js';
@@ -13,6 +13,30 @@ import { trending } from '../signals/trending.js';
 import { executeLiveSell } from './router.js';
 import { sendPositionExit } from '../telegram/send.js';
 import { reviewMoonbagPosition } from '../pipeline/positionReviewer.js';
+
+function positionStrategyConfig(position) {
+  const snapshot = safeJson(position.snapshot_json, {});
+  const stored = snapshot?.strategyConfig || null;
+  if (stored) {
+    return {
+      id: stored.id || position.strategy_id || 'legacy',
+      name: stored.name || position.strategy_id || 'Legacy Strategy',
+      max_hold_ms: Number(stored.max_hold_ms || 0),
+      partial_tp: Boolean(stored.partial_tp),
+      partial_tp_at_percent: Number(stored.partial_tp_at_percent || 0),
+      partial_tp_sell_percent: Number(stored.partial_tp_sell_percent || 0),
+    };
+  }
+  const legacy = strategyById(position.strategy_id);
+  return legacy || {
+    id: position.strategy_id || 'legacy',
+    name: position.strategy_id || 'Legacy Strategy',
+    max_hold_ms: 0,
+    partial_tp: false,
+    partial_tp_at_percent: 0,
+    partial_tp_sell_percent: 0,
+  };
+}
 
 export async function freshEntryMarket(mint, candidate) {
   const gmgn = await fetchGmgnTokenInfo(mint, false);
@@ -130,7 +154,7 @@ export async function refreshPosition(position, { autoExit = true, jupiterPnl = 
   let closed = false;
 
   // Max hold time check
-  const strat = strategyById(position.strategy_id);
+  const strat = positionStrategyConfig(position);
   if (strat?.max_hold_ms > 0 && (now() - position.opened_at_ms) >= strat.max_hold_ms) {
     exitReason = 'MAX_HOLD';
   }
