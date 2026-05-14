@@ -4,6 +4,37 @@ import { DB_PATH } from '../config.js';
 export const db = new Database(DB_PATH);
 const PRIMARY_STRATEGY_ID = 'ponyin_narrative';
 const PRIMARY_STRATEGY_NAME = 'Ponyin + Narrative';
+const PRIMARY_STRATEGY_CONFIG = {
+  entry_mode: 'immediate',
+  min_source_count: 2,
+  require_fee_claim: true,
+  token_age_max_ms: 3600000,
+  min_mcap_usd: 7000,
+  max_mcap_usd: 250000,
+  min_fee_claim_sol: 0.5,
+  min_gmgn_total_fee_sol: 10,
+  min_holders: 150,
+  max_top20_holder_percent: 65,
+  min_saved_wallet_holders: 0,
+  max_ath_distance_pct: 0,
+  min_graduated_volume_usd: 0,
+  trending_min_volume_usd: 10000,
+  trending_min_swaps: 80,
+  trending_max_rug_ratio: 0.25,
+  trending_max_bundler_rate: 0.35,
+  position_size_sol: 0.1,
+  max_open_positions: 3,
+  tp_percent: 50,
+  sl_percent: -25,
+  trailing_enabled: true,
+  trailing_percent: 20,
+  partial_tp: true,
+  partial_tp_at_percent: 100,
+  partial_tp_sell_percent: 50,
+  max_hold_ms: 0,
+  use_llm: true,
+  llm_min_confidence: 60,
+};
 
 export function initDb() {
   db.pragma('journal_mode = WAL');
@@ -260,84 +291,33 @@ export function initDb() {
   const insert = db.prepare('INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)');
   for (const [key, value] of Object.entries(defaults)) insert.run(key, value);
 
-  // Seed the single Ponyin+narrative strategy and keep legacy rows only for historical open positions.
-  const stratInsert = db.prepare('INSERT OR IGNORE INTO strategies (id, name, enabled, config_json, created_at_ms) VALUES (?, ?, ?, ?, ?)');
+  // Keep legacy rows for old open positions, but avoid unconditional writes on every boot.
   const ts = Date.now();
-
-  stratInsert.run(PRIMARY_STRATEGY_ID, PRIMARY_STRATEGY_NAME, 1, JSON.stringify({
-    entry_mode: 'immediate',
-    min_source_count: 2,
-    require_fee_claim: true,
-    token_age_max_ms: 3600000,
-    min_mcap_usd: 7000,
-    max_mcap_usd: 250000,
-    min_fee_claim_sol: 0.5,
-    min_gmgn_total_fee_sol: 10,
-    min_holders: 150,
-    max_top20_holder_percent: 65,
-    min_saved_wallet_holders: 0,
-    max_ath_distance_pct: 0,
-    min_graduated_volume_usd: 0,
-    trending_min_volume_usd: 10000,
-    trending_min_swaps: 80,
-    trending_max_rug_ratio: 0.25,
-    trending_max_bundler_rate: 0.35,
-    position_size_sol: 0.1,
-    max_open_positions: 3,
-    tp_percent: 50,
-    sl_percent: -25,
-    trailing_enabled: true,
-    trailing_percent: 20,
-    partial_tp: true,
-    partial_tp_at_percent: 100,
-    partial_tp_sell_percent: 50,
-    max_hold_ms: 0,
-    use_llm: true,
-    llm_min_confidence: 60,
-  }), ts);
-  db.prepare(`
-    UPDATE strategies
-    SET enabled = CASE WHEN id = ? THEN 1 ELSE 0 END
-  `).run(PRIMARY_STRATEGY_ID);
-  db.prepare(`
-    UPDATE strategies
-    SET name = ?, config_json = ?
-    WHERE id = ?
-  `).run(
-    PRIMARY_STRATEGY_NAME,
-    JSON.stringify({
-      entry_mode: 'immediate',
-      min_source_count: 2,
-      require_fee_claim: true,
-      token_age_max_ms: 3600000,
-      min_mcap_usd: 7000,
-      max_mcap_usd: 250000,
-      min_fee_claim_sol: 0.5,
-      min_gmgn_total_fee_sol: 10,
-      min_holders: 150,
-      max_top20_holder_percent: 65,
-      min_saved_wallet_holders: 0,
-      max_ath_distance_pct: 0,
-      min_graduated_volume_usd: 0,
-      trending_min_volume_usd: 10000,
-      trending_min_swaps: 80,
-      trending_max_rug_ratio: 0.25,
-      trending_max_bundler_rate: 0.35,
-      position_size_sol: 0.1,
-      max_open_positions: 3,
-      tp_percent: 50,
-      sl_percent: -25,
-      trailing_enabled: true,
-      trailing_percent: 20,
-      partial_tp: true,
-      partial_tp_at_percent: 100,
-      partial_tp_sell_percent: 50,
-      max_hold_ms: 0,
-      use_llm: true,
-      llm_min_confidence: 60,
-    }),
-    PRIMARY_STRATEGY_ID,
-  );
+  const desiredConfigJson = JSON.stringify(PRIMARY_STRATEGY_CONFIG);
+  const primary = db.prepare('SELECT id, name, enabled, config_json FROM strategies WHERE id = ?').get(PRIMARY_STRATEGY_ID);
+  if (!primary) {
+    db.prepare('INSERT INTO strategies (id, name, enabled, config_json, created_at_ms) VALUES (?, ?, 1, ?, ?)').run(
+      PRIMARY_STRATEGY_ID,
+      PRIMARY_STRATEGY_NAME,
+      desiredConfigJson,
+      ts,
+    );
+  } else {
+    if (primary.name !== PRIMARY_STRATEGY_NAME || primary.config_json !== desiredConfigJson) {
+      db.prepare('UPDATE strategies SET name = ?, config_json = ? WHERE id = ?').run(
+        PRIMARY_STRATEGY_NAME,
+        desiredConfigJson,
+        PRIMARY_STRATEGY_ID,
+      );
+    }
+    if (!Number(primary.enabled)) {
+      db.prepare('UPDATE strategies SET enabled = 1 WHERE id = ?').run(PRIMARY_STRATEGY_ID);
+    }
+  }
+  const otherEnabled = db.prepare('SELECT 1 FROM strategies WHERE id <> ? AND enabled = 1 LIMIT 1').get(PRIMARY_STRATEGY_ID);
+  if (otherEnabled) {
+    db.prepare('UPDATE strategies SET enabled = 0 WHERE id <> ? AND enabled = 1').run(PRIMARY_STRATEGY_ID);
+  }
 }
 
 export function ensureColumn(table, column, ddl) {
